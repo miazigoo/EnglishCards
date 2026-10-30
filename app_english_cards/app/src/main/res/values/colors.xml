@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="bg_main">#0A0A0C</color>
+    <color name="card_bg">#141418</color>
+    <color name="card_stroke">#272730</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_muted">#64748B</color>
+    <color name="accent_blue">#38BDF8</color>
+    <color name="accent_green">#22C55E</color>
+    <color name="accent_orange">#F59E0B</color>
+    <color name="badge_bg">#1E293B</color>
+    <color name="badge_text">#93C5FD</color>
+    <color name="btn_dark">#1E1E24</color>
+    <color name="btn_dark_stroke">#33333F</color>
+    <color name="progress_active">#38BDF8</color>
+    <color name="progress_track">#1E293B</color>
+</resources>

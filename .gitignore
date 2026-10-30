@@ -1,0 +1,45 @@
+# ==========================================
+# Android & Gradle
+# ==========================================
+.gradle/
+build/
+**/build/
+app/build/
+*.apk
+*.apkg
+*.aab
+local.properties
+.kotlin/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# ==========================================
+# IDE & System
+# ==========================================
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+
+# ==========================================
+# Python & Virtual Environments
+# ==========================================
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+
+# ==========================================
+# Secrets & Environment variables
+# ==========================================
+.env
+.env.*

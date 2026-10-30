@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">English Flashcards</string>
+    <string name="auto_play">Авто-показ</string>
+    <string name="repeat_count_2x">Повтор: 2x</string>
+    <string name="repeat_count_3x">Повтор: 3x</string>
+    <string name="repeat_badge_fmt">Повтор %1$d / %2$d</string>
+    <string name="category_all">Все карточки (1529)</string>
+    <string name="card_progress_fmt">%1$d / %2$d</string>
+</resources>
