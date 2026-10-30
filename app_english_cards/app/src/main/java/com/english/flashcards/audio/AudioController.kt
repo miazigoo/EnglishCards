@@ -22,7 +22,7 @@ class AudioController(
 
     fun setAutoPlay(enabled: Boolean) {
         isAutoPlayEnabled = enabled
-        onPlaybackStateChanged(isPlaying)
+        onPlaybackStateChanged(isPlaying || isAutoPlayEnabled)
     }
 
     fun isAutoPlay(): Boolean = isAutoPlayEnabled
@@ -73,7 +73,6 @@ class AudioController(
     private fun handleTrackCompletion() {
         releasePlayer()
         isPlaying = false
-        onPlaybackStateChanged(false)
 
         if (maxRepetitions > 2 && currentRepetition < maxRepetitions) {
             currentRepetition++
@@ -89,6 +88,8 @@ class AudioController(
             handler.postDelayed({
                 onCardFinished()
             }, 1000)
+        } else {
+            onPlaybackStateChanged(false)
         }
     }
 
@@ -99,7 +100,7 @@ class AudioController(
     }
 
     fun togglePlayPause() {
-        if (isPlaying) {
+        if (isPlaying || isAutoPlayEnabled) {
             pause()
         } else {
             resume()

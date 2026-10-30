@@ -3,6 +3,7 @@ package com.english.flashcards
 import android.animation.ValueAnimator
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -205,6 +206,7 @@ class MainActivity : AppCompatActivity() {
                 binding.btnPlayPause.setImageResource(
                     if (isPlaying) R.drawable.ic_pause else R.drawable.ic_play_arrow
                 )
+                updateKeepScreenOn(isPlaying && binding.layoutPlayer.visibility == View.VISIBLE)
             },
             onRepetitionUpdate = { currentRep, maxRep ->
                 binding.tvPlayerRepeatBadge.text = getString(R.string.repeat_badge_fmt, currentRep, maxRep)
@@ -365,6 +367,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun returnToMenu() {
         audioController.pause()
+        updateKeepScreenOn(false)
         binding.layoutPlayer.visibility = View.GONE
         binding.layoutMenu.visibility = View.VISIBLE
         refreshMenuStats()
@@ -460,6 +463,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showDeckCompletionDialog() {
+        updateKeepScreenOn(false)
         MaterialAlertDialogBuilder(this)
             .setTitle("🎉 Колода завершена!")
             .setMessage("Вы успешно прослушали и повторили все слова из раздела «$selectedCategory».")
@@ -489,9 +493,18 @@ class MainActivity : AppCompatActivity() {
         binding.tvPlayerDeckStats.text = "• 🟢 $learned  🟡 $hard"
     }
 
+    private fun updateKeepScreenOn(keepOn: Boolean) {
+        if (keepOn) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        } else {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
+    }
+
     override fun onPause() {
         super.onPause()
         audioController.pause()
+        updateKeepScreenOn(false)
     }
 
     override fun onDestroy() {
