@@ -1,0 +1,60 @@
+{
+  "lesson_id": "lesson_04_say_vs_tell",
+  "title_ru": "Say vs Tell в коммуникации разработчиков",
+  "topic": "vocabulary_verbs",
+  "duration_minutes": 3,
+  "rule_ru": "После глагола 'tell' ВСЕГДА следует адресат (кому говорят) БЕЗ предлога: 'Tell me the endpoint', 'He told the team'. После глагола 'say' адресат либо не указывается ('The logs say timeout'), либо используется с предлогом 'to' ('Say to them').",
+  "examples": [
+    {
+      "en": "The tech lead told the team about the upcoming release.",
+      "ru": "Техлид рассказал команде о предстоящем релизе.",
+      "highlight": "told the team"
+    },
+    {
+      "en": "The error message says that the port is already in use.",
+      "ru": "Сообщение об ошибке говорит, что порт уже занят.",
+      "highlight": "message says that"
+    }
+  ],
+  "exercises": [
+    {
+      "exercise_id": "ex_01",
+      "type": "choice",
+      "prompt": "Could you ___ me where the configuration file is located?",
+      "options": [
+        "tell",
+        "say",
+        "say to",
+        "speak"
+      ],
+      "answer": "tell",
+      "explanation": "Перед местоимением 'me' используется глагол 'tell' (tell me)."
+    },
+    {
+      "exercise_id": "ex_02",
+      "type": "choice",
+      "prompt": "The compiler output ___ that variable 'count' is unused.",
+      "options": [
+        "says",
+        "tells",
+        "tells that",
+        "talks"
+      ],
+      "answer": "says",
+      "explanation": "Когда адресат не указан (вывод сообщает, что...), используется 'says that'."
+    },
+    {
+      "exercise_id": "ex_03",
+      "type": "choice",
+      "prompt": "Did the client ___ what features they need first?",
+      "options": [
+        "say",
+        "tell",
+        "spoke",
+        "tell to"
+      ],
+      "answer": "say",
+      "explanation": "Без указания прямого адресата используется 'say'."
+    }
+  ]
+}

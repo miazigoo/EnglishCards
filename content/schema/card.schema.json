@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Card",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "card_id",
+    "legacy_ids",
+    "content_revision",
+    "display_term",
+    "meaning_ru_short",
+    "explanation_ru",
+    "examples",
+    "practice",
+    "qa"
+  ],
+  "properties": {
+    "schema_version": {"type": "integer"},
+    "card_id": {"type": "string"},
+    "legacy_ids": {"type": "array", "items": {"type": "integer"}},
+    "content_revision": {"type": "integer"},
+    "lexeme_id": {"type": ["string", "null"]},
+    "display_term": {"type": "string"},
+    "namespace": {"type": ["string", "null"]},
+    "entry_type": {"type": "string", "enum": ["api_method", "general_word", "workplace_phrase", "technical_term", "grammar_pattern"]},
+    "part_of_speech": {"type": ["string", "null"]},
+    "language_level": {"type": ["string", "null"]},
+    "technical_level": {"type": ["string", "null"]},
+    "priority": {"type": "string"},
+    "tags": {"type": "array", "items": {"type": "string"}},
+    "meaning_ru_short": {"type": "string"},
+    "explanation_ru": {"type": "string"},
+    "name_breakdown": {
+      "type": ["object", "null"],
+      "properties": {
+        "kind": {"type": "string"},
+        "parts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text_en": {"type": "string"},
+              "meaning_ru": {"type": "string"}
+            },
+            "required": ["text_en", "meaning_ru"]
+          }
+        },
+        "explanation_ru": {"type": "string"}
+      }
+    },
+    "pronunciation": {
+      "type": "object",
+      "properties": {
+        "spoken_en": {"type": "string"},
+        "ipa": {"type": ["string", "null"]},
+        "ru_hint": {"type": ["string", "null"]},
+        "verification": {"type": "string"}
+      },
+      "required": ["spoken_en"]
+    },
+    "examples": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["example_id", "en", "ru"],
+        "properties": {
+          "example_id": {"type": "string"},
+          "en": {"type": "string"},
+          "ru": {"type": "string"}
+        }
+      }
+    },
+    "practice": {
+      "type": "object",
+      "required": ["enabled_templates", "production_prompt_ru", "accepted_answers"],
+      "properties": {
+        "enabled_templates": {"type": "array", "items": {"type": "string"}},
+        "production_prompt_ru": {"type": "string"},
+        "accepted_answers": {"type": "array", "items": {"type": "string"}},
+        "cloze": {
+          "type": ["object", "null"],
+          "properties": {
+            "example_id": {"type": "string"},
+            "target": {"type": "string"}
+          }
+        }
+      }
+    },
+    "technical": {
+      "type": ["object", "null"],
+      "properties": {
+        "api": {"type": "string"},
+        "python_version": {"type": "string"},
+        "example_kind": {"type": "string"},
+        "code": {"type": "string"},
+        "expected_output": {"type": "string"},
+        "source_url": {"type": "string"}
+      }
+    },
+    "qa": {
+      "type": "object",
+      "required": ["qa_status", "review_level"],
+      "properties": {
+        "qa_status": {"type": "string", "enum": ["draft", "ready", "excluded", "split"]},
+        "review_level": {"type": "string", "enum": ["none", "automated", "model_reviewed", "human_reviewed"]},
+        "reviewed_at": {"type": ["string", "null"]},
+        "issues": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

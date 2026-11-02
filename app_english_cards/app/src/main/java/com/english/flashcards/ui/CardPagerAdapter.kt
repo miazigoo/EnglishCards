@@ -2,22 +2,32 @@ package com.english.flashcards.ui
 
 import android.graphics.Color
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.english.flashcards.R
 import com.english.flashcards.data.ProgressManager
 import com.english.flashcards.databinding.ItemFlashcardBinding
+import com.english.flashcards.fsrs.FSRSCard
+import com.english.flashcards.fsrs.FSRSScheduler
+import com.english.flashcards.fsrs.Rating
 import com.english.flashcards.model.CardStatus
 import com.english.flashcards.model.Flashcard
 
 class CardPagerAdapter(
     private var cards: List<Flashcard>,
     private val progressManager: ProgressManager,
+    private val fsrsScheduler: FSRSScheduler,
     private val onCardClick: (Flashcard) -> Unit,
     private val onExampleClick: (Flashcard) -> Unit,
-    private val onStatusChanged: (Flashcard, CardStatus) -> Unit
+    private val onPlayTerm: (Flashcard) -> Unit,
+    private val onPlayExample: (Flashcard) -> Unit,
+    private val onRatingSelected: (Flashcard, Rating) -> Unit,
+    private val getPracticeState: (cardId: String) -> FSRSCard?
 ) : RecyclerView.Adapter<CardPagerAdapter.CardViewHolder>() {
+
+    private val revealedCardIds = mutableSetOf<String>()
 
     inner class CardViewHolder(val binding: ItemFlashcardBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -33,53 +43,102 @@ class CardPagerAdapter(
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
         val card = cards[position]
+        val cardKey = card.cardId.ifEmpty { "legacy.${card.id}" }
+        val isRevealed = revealedCardIds.contains(cardKey)
+
         with(holder.binding) {
             tvWord.text = card.word
             tvIpa.text = card.ipa
-            tvRuHint.text = "Примерно: ${card.transcriptionRu}"
+            tvRuHint.text = if (card.transcriptionRu.isNotBlank()) "Примерно: ${card.transcriptionRu}" else ""
+            tvRuHint.visibility = if (card.transcriptionRu.isNotBlank()) View.VISIBLE else View.GONE
             tvTranslation.text = card.cleanTranslation
             tvCategoryBadge.text = card.category
             tvCardId.text = String.format("#%04d", card.id)
 
-            if (card.translation.isNotBlank() && card.translation != card.cleanTranslation) {
-                tvCodeHint.visibility = android.view.View.VISIBLE
-                tvCodeHint.text = card.translation
+            // Name breakdown if available (e.g. for rsplit: right + split)
+            if (!card.nameBreakdown.isNullOrBlank()) {
+                tvBreakdown.visibility = View.VISIBLE
+                tvBreakdown.text = card.nameBreakdown
             } else {
-                tvCodeHint.visibility = android.view.View.GONE
+                tvBreakdown.visibility = View.GONE
             }
 
-            // Current status
-            updateStatusBadge(this, progressManager.getStatus(card.id))
+            // Example sentences
+            if (card.example.isNotBlank()) {
+                layoutExampleBox.visibility = View.VISIBLE
+                tvExampleEn.text = card.example
+                tvExampleRu.text = card.exampleNote
+            } else {
+                layoutExampleBox.visibility = View.GONE
+            }
 
-            // Replay tap
+            // Active Recall UI State
+            if (isRevealed) {
+                btnRevealAnswer.visibility = View.GONE
+                layoutAnswerRevealed.visibility = View.VISIBLE
+                layoutRatingButtons.visibility = View.VISIBLE
+
+                // Calculate FSRS interval previews
+                val fsrsCard = getPracticeState(cardKey) ?: FSRSCard(
+                    practiceId = "$cardKey.en_to_ru",
+                    cardId = cardKey,
+                    skill = "en_to_ru"
+                )
+                val previews = fsrsScheduler.preview(fsrsCard)
+                tvIntervalAgain.text = previews[Rating.AGAIN]?.intervalText ?: "< 1м"
+                tvIntervalHard.text = previews[Rating.HARD]?.intervalText ?: "5м"
+                tvIntervalGood.text = previews[Rating.GOOD]?.intervalText ?: "10м"
+                tvIntervalEasy.text = previews[Rating.EASY]?.intervalText ?: "3д"
+            } else {
+                btnRevealAnswer.visibility = View.VISIBLE
+                layoutAnswerRevealed.visibility = View.GONE
+                layoutRatingButtons.visibility = View.GONE
+            }
+
+            // Reveal button action
+            btnRevealAnswer.setOnClickListener {
+                revealedCardIds.add(cardKey)
+                notifyItemChanged(position)
+                onPlayTerm(card)
+            }
+
+            // Card body tap -> replay sound
             cardInnerLayout.setOnClickListener {
                 onCardClick(card)
             }
 
-            // Show Code Example Modal
+            // Audio control buttons
+            btnQuickAudio.setOnClickListener {
+                onPlayTerm(card)
+            }
+            btnPlayTerm.setOnClickListener {
+                onPlayTerm(card)
+            }
+            btnPlayExample.setOnClickListener {
+                onPlayExample(card)
+            }
+
+            // Code details modal
             btnShowExample.setOnClickListener {
                 onExampleClick(card)
             }
 
-            // Mark as Learned
-            btnMarkLearned.setOnClickListener {
-                val current = progressManager.getStatus(card.id)
-                val newStatus = if (current == CardStatus.LEARNED) CardStatus.NEW else CardStatus.LEARNED
-                progressManager.setStatus(card.id, newStatus)
-                updateStatusBadge(this, newStatus)
-                animateBadge(tvStatusBadge)
-                onStatusChanged(card, newStatus)
+            // 4 FSRS Rating buttons
+            btnAgain.setOnClickListener {
+                onRatingSelected(card, Rating.AGAIN)
+            }
+            btnHard.setOnClickListener {
+                onRatingSelected(card, Rating.HARD)
+            }
+            btnGood.setOnClickListener {
+                onRatingSelected(card, Rating.GOOD)
+            }
+            btnEasy.setOnClickListener {
+                onRatingSelected(card, Rating.EASY)
             }
 
-            // Mark as Hard / Needs review
-            btnMarkHard.setOnClickListener {
-                val current = progressManager.getStatus(card.id)
-                val newStatus = if (current == CardStatus.HARD) CardStatus.NEW else CardStatus.HARD
-                progressManager.setStatus(card.id, newStatus)
-                updateStatusBadge(this, newStatus)
-                animateBadge(tvStatusBadge)
-                onStatusChanged(card, newStatus)
-            }
+            // Memory status badge
+            updateStatusBadge(this, progressManager.getStatus(card.id))
         }
     }
 
@@ -87,12 +146,12 @@ class CardPagerAdapter(
         val ctx = binding.root.context
         when (status) {
             CardStatus.LEARNED -> {
-                binding.tvStatusBadge.text = "🟢 Запомнил"
+                binding.tvStatusBadge.text = "🟢 Изучено"
                 binding.tvStatusBadge.background = ContextCompat.getDrawable(ctx, R.drawable.bg_badge_learned)
                 binding.tvStatusBadge.setTextColor(Color.parseColor("#34D399"))
             }
             CardStatus.HARD -> {
-                binding.tvStatusBadge.text = "🟡 Повторить"
+                binding.tvStatusBadge.text = "🟡 На повторении"
                 binding.tvStatusBadge.background = ContextCompat.getDrawable(ctx, R.drawable.bg_badge_hard)
                 binding.tvStatusBadge.setTextColor(Color.parseColor("#FBBF24"))
             }
@@ -104,14 +163,6 @@ class CardPagerAdapter(
         }
     }
 
-    private fun animateBadge(view: android.view.View) {
-        view.scaleX = 0.8f
-        view.scaleY = 0.8f
-        view.animate().scaleX(1.15f).scaleY(1.15f).setDuration(120).withEndAction {
-            view.animate().scaleX(1.0f).scaleY(1.0f).setDuration(100).start()
-        }.start()
-    }
-
     override fun getItemCount(): Int = cards.size
 
     fun updateCards(newCards: List<Flashcard>) {
@@ -121,5 +172,17 @@ class CardPagerAdapter(
 
     fun getCard(position: Int): Flashcard? {
         return if (position in cards.indices) cards[position] else null
+    }
+
+    fun revealAll() {
+        for (c in cards) {
+            revealedCardIds.add(c.cardId.ifEmpty { "legacy.${c.id}" })
+        }
+        notifyDataSetChanged()
+    }
+
+    fun resetRevealed() {
+        revealedCardIds.clear()
+        notifyDataSetChanged()
     }
 }

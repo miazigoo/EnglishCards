@@ -1,0 +1,60 @@
+{
+  "lesson_id": "lesson_10_question_inversion",
+  "title_ru": "Порядок слов в вопросах (Question Inversion)",
+  "topic": "grammar_questions",
+  "duration_minutes": 3,
+  "rule_ru": "В прямых вопросах вспомогательный глагол выносится перед подлежащим: 'Why did the worker crash?', 'How does this cache work?'. Однако в косвенных вопросах порядок слов становится прямым: 'Do you know why the worker crashed?' (НЕ 'why did the worker crash').",
+  "examples": [
+    {
+      "en": "When will the deployment finish?",
+      "ru": "Когда завершится развертывание?",
+      "highlight": "When will the deployment"
+    },
+    {
+      "en": "Can you explain how this algorithm works?",
+      "ru": "Ты можешь объяснить, как работает этот алгоритм? (прямой порядок в придаточном)",
+      "highlight": "how this algorithm works"
+    }
+  ],
+  "exercises": [
+    {
+      "exercise_id": "ex_01",
+      "type": "choice",
+      "prompt": "Do you know where ___ the configuration file?",
+      "options": [
+        "we can find",
+        "can we find",
+        "did we find",
+        "find we"
+      ],
+      "answer": "we can find",
+      "explanation": "В косвенном вопросе (после 'Do you know where...') сохраняется прямой порядок слов подлежащее + сказуемое."
+    },
+    {
+      "exercise_id": "ex_02",
+      "type": "choice",
+      "prompt": "Why ___ the staging pipeline fail this morning?",
+      "options": [
+        "did",
+        "was",
+        "does",
+        "had"
+      ],
+      "answer": "did",
+      "explanation": "В прямом вопросе в Past Simple требуется вспомогательный глагол 'did'."
+    },
+    {
+      "exercise_id": "ex_03",
+      "type": "choice",
+      "prompt": "Could you tell me what the current CPU load ___?",
+      "options": [
+        "is",
+        "is it",
+        "does it",
+        "be"
+      ],
+      "answer": "is",
+      "explanation": "В косвенном вопросе глагол ставится в конец: 'what the current CPU load is'."
+    }
+  ]
+}

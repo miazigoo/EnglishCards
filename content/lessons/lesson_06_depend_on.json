@@ -1,0 +1,60 @@
+{
+  "lesson_id": "lesson_06_depend_on",
+  "title_ru": "Управление глаголов: Depend on",
+  "topic": "prepositions",
+  "duration_minutes": 3,
+  "rule_ru": "Глагол 'depend' ВСЕГДА требует предлога 'on' (или 'upon'), в отличие от русского 'зависеть от' (нельзя говорить 'depend of' или 'depend from'). То же самое относится к прилагательному 'dependent on'.",
+  "examples": [
+    {
+      "en": "Our release date depends on the client's approval.",
+      "ru": "Дата нашего релиза зависит от согласования клиента.",
+      "highlight": "depends on"
+    },
+    {
+      "en": "This microservice depends on Redis for caching.",
+      "ru": "Этот микросервис зависит от Redis для кэширования.",
+      "highlight": "depends on Redis"
+    }
+  ],
+  "exercises": [
+    {
+      "exercise_id": "ex_01",
+      "type": "choice",
+      "prompt": "The query performance depends ___ the index configuration.",
+      "options": [
+        "on",
+        "from",
+        "of",
+        "with"
+      ],
+      "answer": "on",
+      "explanation": "После depend всегда используется предлог on."
+    },
+    {
+      "exercise_id": "ex_02",
+      "type": "choice",
+      "prompt": "Our payment module is heavily dependent ___ third-party webhooks.",
+      "options": [
+        "on",
+        "of",
+        "from",
+        "at"
+      ],
+      "answer": "on",
+      "explanation": "Прилагательное 'dependent' также управляется предлогом 'on'."
+    },
+    {
+      "exercise_id": "ex_03",
+      "type": "choice",
+      "prompt": "Whether we use Celery depends ___ the volume of background tasks.",
+      "options": [
+        "on",
+        "from",
+        "in",
+        "by"
+      ],
+      "answer": "on",
+      "explanation": "Зависеть от чего-то — всегда 'depend on'."
+    }
+  ]
+}

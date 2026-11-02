@@ -1,0 +1,60 @@
+{
+  "lesson_id": "lesson_09_negations_traps",
+  "title_ru": "Ловушки отрицания: Neither... Nor и двойное отрицание",
+  "topic": "grammar_negations",
+  "duration_minutes": 3,
+  "rule_ru": "В правильном английском языке не используется двойное отрицание (нельзя сказать 'I don't know nothing'). Используйте 'I don't know anything' или 'I know nothing'. Парный союз 'neither ... nor' означает 'ни ... ни': 'Neither CPU nor memory was overloaded'.",
+  "examples": [
+    {
+      "en": "The query returned no results.",
+      "ru": "Запрос не вернул результатов (одно отрицание 'no').",
+      "highlight": "returned no results"
+    },
+    {
+      "en": "Neither Redis nor PostgreSQL threw an exception.",
+      "ru": "Ни Redis, ни PostgreSQL не выбросили исключение.",
+      "highlight": "Neither Redis nor PostgreSQL"
+    }
+  ],
+  "exercises": [
+    {
+      "exercise_id": "ex_01",
+      "type": "choice",
+      "prompt": "The test didn't find ___ errors in the module.",
+      "options": [
+        "any",
+        "no",
+        "none",
+        "nothing"
+      ],
+      "answer": "any",
+      "explanation": "Поскольку уже есть 'didn't', используется 'any', а не 'no'."
+    },
+    {
+      "exercise_id": "ex_02",
+      "type": "choice",
+      "prompt": "Neither the primary database ___ the replica responded to the ping.",
+      "options": [
+        "nor",
+        "or",
+        "and",
+        "neither"
+      ],
+      "answer": "nor",
+      "explanation": "Парный союз отрицания всегда строится как 'neither ... nor'."
+    },
+    {
+      "exercise_id": "ex_03",
+      "type": "choice",
+      "prompt": "We have ___ received the confirmation email yet.",
+      "options": [
+        "not",
+        "no",
+        "never",
+        "nothing"
+      ],
+      "answer": "not",
+      "explanation": "С глаголом Present Perfect используется отрицательная частица 'not': 'have not received'."
+    }
+  ]
+}

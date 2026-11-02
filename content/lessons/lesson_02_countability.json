@@ -1,0 +1,60 @@
+{
+  "lesson_id": "lesson_02_countability",
+  "title_ru": "Исчисляемые и неисчисляемые существительные: Data, Code, Information",
+  "topic": "countability",
+  "duration_minutes": 3,
+  "rule_ru": "Слова 'information', 'code', 'data', 'hardware', 'software' в техническом английском языке являются неисчисляемыми. Они не имеют множественного числа с окончанием -s и не используются с 'a/an'. Чтобы посчитать, говорят: 'a piece of code', 'a snippet', 'an item of data'.",
+  "examples": [
+    {
+      "en": "This information is very helpful for debugging.",
+      "ru": "Эта информация очень полезна для отладки.",
+      "highlight": "This information is"
+    },
+    {
+      "en": "We reviewed multiple lines of code.",
+      "ru": "Мы просмотрели множество строк кода.",
+      "highlight": "lines of code"
+    }
+  ],
+  "exercises": [
+    {
+      "exercise_id": "ex_01",
+      "type": "choice",
+      "prompt": "Could you provide more ___ about this exception?",
+      "options": [
+        "information",
+        "informations",
+        "an information",
+        "pieces information"
+      ],
+      "answer": "information",
+      "explanation": "Слово 'information' неисчисляемое, формы 'informations' не существует."
+    },
+    {
+      "exercise_id": "ex_02",
+      "type": "choice",
+      "prompt": "We discovered several malicious ___ in the legacy repository.",
+      "options": [
+        "code snippets",
+        "codes",
+        "a code",
+        "code fragmentses"
+      ],
+      "answer": "code snippets",
+      "explanation": "Для подсчета элементов кода используется составная фраза 'code snippets' или 'lines of code'."
+    },
+    {
+      "exercise_id": "ex_03",
+      "type": "choice",
+      "prompt": "All telemetry ___ stored in ClickHouse.",
+      "options": [
+        "data is",
+        "datas are",
+        "a data is",
+        "data are not"
+      ],
+      "answer": "data is",
+      "explanation": "В стандартном техническом английском 'data' согласуется с глаголом в единственном числе: 'data is'."
+    }
+  ]
+}

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="12dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardContainer"
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/bg_card_dark"
-            android:padding="20dp">
+            android:padding="16dp">
 
             <!-- Top Header Row: Category Badge + Status Badge + Card Number -->
             <LinearLayout
@@ -37,13 +37,29 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_category_badge"
-                    android:paddingStart="12dp"
-                    android:paddingTop="5dp"
-                    android:paddingEnd="12dp"
-                    android:paddingBottom="5dp"
-                    android:text="IT и разработка"
+                    android:paddingStart="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="4dp"
+                    android:text="Python"
                     android:textColor="@color/badge_text"
-                    android:textSize="12sp"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <!-- Skill / Direction Badge -->
+                <TextView
+                    android:id="@+id/tvSkillBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_badge_new"
+                    android:paddingStart="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="3dp"
+                    android:text="EN → RU"
+                    android:textColor="#38BDF8"
+                    android:textSize="10sp"
                     android:textStyle="bold" />
 
                 <Space
@@ -51,20 +67,20 @@
                     android:layout_height="1dp"
                     android:layout_weight="1" />
 
-                <!-- Memory Status Badge (Запомнил / Повторить / Новое) -->
+                <!-- Memory Status Badge -->
                 <TextView
                     android:id="@+id/tvStatusBadge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="6dp"
                     android:background="@drawable/bg_badge_new"
-                    android:paddingStart="10dp"
-                    android:paddingTop="4dp"
-                    android:paddingEnd="10dp"
-                    android:paddingBottom="4dp"
+                    android:paddingStart="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="3dp"
                     android:text="⚪ Новое"
                     android:textColor="@color/text_secondary"
-                    android:textSize="12sp"
+                    android:textSize="11sp"
                     android:textStyle="bold" />
 
                 <!-- Card Number -->
@@ -74,114 +90,287 @@
                     android:layout_height="wrap_content"
                     android:text="#001"
                     android:textColor="@color/text_muted"
-                    android:textSize="12sp" />
+                    android:textSize="11sp" />
 
             </LinearLayout>
 
-            <!-- Center Content: Word, Transcriptions, Translation -->
-            <LinearLayout
+            <!-- Center Scrollable Content -->
+            <ScrollView
+                android:id="@+id/cardScrollView"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:gravity="center"
-                android:orientation="vertical"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:fillViewport="true"
                 app:layout_constraintBottom_toTopOf="@id/bottomActionContainer"
                 app:layout_constraintTop_toBottomOf="@id/cardHeaderRow">
 
-                <!-- English Word -->
-                <TextView
-                    android:id="@+id/tvWord"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="achieve"
-                    android:textColor="@color/text_primary"
-                    android:textSize="36sp"
-                    android:textStyle="bold" />
-
-                <!-- IPA Transcription -->
-                <TextView
-                    android:id="@+id/tvIpa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center"
-                    android:text="/ʌtʃˈiv/"
-                    android:textColor="@color/accent_blue"
-                    android:textSize="20sp" />
-
-                <!-- Russian Practical Pronunciation Hint -->
-                <TextView
-                    android:id="@+id/tvRuHint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:gravity="center"
-                    android:text="Примерно: ачив"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="15sp" />
-
-                <!-- Divider -->
-                <View
-                    android:layout_width="100dp"
-                    android:layout_height="1.5dp"
-                    android:layout_marginTop="22dp"
-                    android:layout_marginBottom="22dp"
-                    android:background="@color/card_stroke" />
-
-                <!-- Russian Translation -->
-                <TextView
-                    android:id="@+id/tvTranslation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:lineSpacingExtra="4dp"
-                    android:text="достигать"
-                    android:textColor="@color/text_primary"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-
-                <!-- Practical Framework / Code Hint -->
-                <TextView
-                    android:id="@+id/tvCodeHint"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:gravity="center"
-                    android:lineSpacingExtra="3dp"
-                    android:paddingStart="8dp"
-                    android:paddingEnd="8dp"
-                    android:text="Подсказка к методу или коду"
-                    android:textColor="#94A3B8"
-                    android:textSize="13sp"
-                    android:visibility="gone" />
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp">
 
-                <!-- Button to open Example Modal -->
-                <LinearLayout
-                    android:id="@+id/btnShowExample"
-                    android:layout_width="wrap_content"
-                    android:layout_height="38dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/bg_btn_example"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp">
-
+                    <!-- Prompt (Front side) -->
                     <TextView
+                        android:id="@+id/tvPromptLabel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="💡 Пример в коде"
-                        android:textColor="@color/accent_blue"
-                        android:textSize="13sp"
+                        android:text="Вспомните значение:"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvWord"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:gravity="center"
+                        android:text="rsplit()"
+                        android:textColor="@color/text_primary"
+                        android:textSize="32sp"
                         android:textStyle="bold" />
+
+                    <!-- Quick Audio Button for Front Side in Listening mode -->
+                    <LinearLayout
+                        android:id="@+id/btnQuickAudio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/bg_btn_circle_dark"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_volume_up"
+                            app:tint="@color/accent_blue" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:text="Слушать"
+                            android:textColor="@color/accent_blue"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!-- REVEAL BUTTON (Shown on Front) -->
+                    <Button
+                        android:id="@+id/btnRevealAnswer"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="24dp"
+                        android:background="@drawable/bg_btn_reveal"
+                        android:text="👁 Показать ответ"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@null" />
+
+                    <!-- REVEALED CONTENT CONTAINER (Initially GONE) -->
+                    <LinearLayout
+                        android:id="@+id/layoutAnswerRevealed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <!-- Transcriptions Row -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvIpa"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="/ˈɑːr splɪt/"
+                                android:textColor="@color/accent_blue"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/tvRuHint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="ар сплит"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+
+                        <!-- Divider -->
+                        <View
+                            android:layout_width="80dp"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="@color/card_stroke" />
+
+                        <!-- Russian Meaning -->
+                        <TextView
+                            android:id="@+id/tvTranslation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:lineSpacingExtra="3dp"
+                            android:text="разделить справа"
+                            android:textColor="@color/text_primary"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <!-- Pedagogical Breakdown (e.g. right + split) -->
+                        <TextView
+                            android:id="@+id/tvBreakdown"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_note_box"
+                            android:gravity="center"
+                            android:lineSpacingExtra="2dp"
+                            android:padding="8dp"
+                            android:text="Для запоминания: right split — «разделить справа»"
+                            android:textColor="#38BDF8"
+                            android:textSize="12sp"
+                            android:visibility="gone" />
+
+                        <!-- Example Sentences Box -->
+                        <LinearLayout
+                            android:id="@+id/layoutExampleBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/bg_code_box"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:id="@+id/tvExampleEn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Split the filename from the right to get the extension."
+                                android:textColor="#E2E8F0"
+                                android:textSize="13sp"
+                                android:textStyle="italic" />
+
+                            <TextView
+                                android:id="@+id/tvExampleRu"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="Раздели имя файла справа, чтобы получить расширение."
+                                android:textColor="@color/text_secondary"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                        <!-- Action Buttons Row: Audio controls + Code modal button -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <!-- Replay Word -->
+                            <LinearLayout
+                                android:id="@+id/btnPlayTerm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="36dp"
+                                android:layout_marginEnd="6dp"
+                                android:background="@drawable/bg_btn_circle_dark"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="12dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🔊 Слово"
+                                    android:textColor="@color/text_primary"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <!-- Replay Sentence -->
+                            <LinearLayout
+                                android:id="@+id/btnPlayExample"
+                                android:layout_width="wrap_content"
+                                android:layout_height="36dp"
+                                android:layout_marginStart="6dp"
+                                android:layout_marginEnd="6dp"
+                                android:background="@drawable/bg_btn_circle_dark"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="12dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🔊 Фраза"
+                                    android:textColor="@color/text_primary"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <!-- Show Code / Tech Details Modal -->
+                            <LinearLayout
+                                android:id="@+id/btnShowExample"
+                                android:layout_width="wrap_content"
+                                android:layout_height="36dp"
+                                android:layout_marginStart="6dp"
+                                android:background="@drawable/bg_btn_example"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="12dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="💡 Код"
+                                    android:textColor="@color/accent_blue"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
+            </ScrollView>
 
-            <!-- Bottom Action Area: Memory Rating Buttons + Tap Hint -->
+            <!-- Bottom Action Area: 4 FSRS Rating Buttons (Visible when revealed) -->
             <LinearLayout
                 android:id="@+id/bottomActionContainer"
                 android:layout_width="match_parent"
@@ -190,70 +379,154 @@
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent">
 
-                <!-- Rating Buttons: "⚠️ Повторить" & "✅ Запомнил" -->
+                <!-- 4 Rating Buttons in horizontal row -->
                 <LinearLayout
+                    android:id="@+id/layoutRatingButtons"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
-                    <!-- Hard / Needs Review Button -->
+                    <!-- 1. Again (Не вспомнил) -->
                     <LinearLayout
-                        android:id="@+id/btnMarkHard"
+                        android:id="@+id/btnAgain"
                         android:layout_width="0dp"
-                        android:layout_height="44dp"
-                        android:layout_marginEnd="6dp"
+                        android:layout_height="52dp"
+                        android:layout_marginEnd="4dp"
                         android:layout_weight="1"
-                        android:background="@drawable/btn_hard_bg"
+                        android:background="@drawable/bg_btn_again"
                         android:clickable="true"
                         android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
                         android:gravity="center"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvIntervalAgain"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="&lt; 1м"
+                            android:textColor="#FCA5A5"
+                            android:textSize="10sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="⚠️ Повторить"
-                            android:textColor="#FBBF24"
-                            android:textSize="13sp"
+                            android:text="Снова"
+                            android:textColor="#EF4444"
+                            android:textSize="12sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
 
-                    <!-- Learned / Mastered Button -->
+                    <!-- 2. Hard (Трудно) -->
                     <LinearLayout
-                        android:id="@+id/btnMarkLearned"
+                        android:id="@+id/btnHard"
                         android:layout_width="0dp"
-                        android:layout_height="44dp"
-                        android:layout_marginStart="6dp"
+                        android:layout_height="52dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="2dp"
                         android:layout_weight="1"
-                        android:background="@drawable/btn_learned_bg"
+                        android:background="@drawable/bg_btn_hard"
                         android:clickable="true"
                         android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
                         android:gravity="center"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvIntervalHard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5м"
+                            android:textColor="#FDE68A"
+                            android:textSize="10sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="✅ Запомнил"
-                            android:textColor="#34D399"
-                            android:textSize="13sp"
+                            android:text="Трудно"
+                            android:textColor="#F59E0B"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!-- 3. Good (Вспомнил) -->
+                    <LinearLayout
+                        android:id="@+id/btnGood"
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_btn_good"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvIntervalGood"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10м"
+                            android:textColor="#A7F3D0"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Хорошо"
+                            android:textColor="#10B981"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!-- 4. Easy (Легко) -->
+                    <LinearLayout
+                        android:id="@+id/btnEasy"
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_btn_easy"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvIntervalEasy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3д"
+                            android:textColor="#BAE6FD"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Легко"
+                            android:textColor="#38BDF8"
+                            android:textSize="12sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <!-- Tap hint -->
+                <!-- Status Text / Hint -->
                 <TextView
                     android:id="@+id/tvTapToReplay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Нажмите на карточку для повтора звука"
+                    android:layout_marginTop="8dp"
+                    android:text="Интервальное повторение FSRS"
                     android:textColor="@color/text_muted"
                     android:textSize="11sp" />
 

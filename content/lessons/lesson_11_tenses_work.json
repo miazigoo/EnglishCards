@@ -1,0 +1,60 @@
+{
+  "lesson_id": "lesson_11_tenses_work",
+  "title_ru": "Времена Past Simple vs Present Perfect в баг-репортах",
+  "topic": "tenses",
+  "duration_minutes": 3,
+  "rule_ru": "Используйте Past Simple для действий, завершенных в конкретный момент в прошлом ('We deployed v2.1 yesterday at 14:00'). Используйте Present Perfect, когда важен результат для настоящего момента без указания точного времени ('We have fixed the memory leak' = утечка исправлена и сейчас сервер работает стабильно).",
+  "examples": [
+    {
+      "en": "I merged the pull request ten minutes ago.",
+      "ru": "Я влил пул-реквест десять минут назад (точное время в прошлом — Past Simple).",
+      "highlight": "merged the pull request"
+    },
+    {
+      "en": "The team has released a hotfix for the security vulnerability.",
+      "ru": "Команда выпустила хотфикс (результат налицо — Present Perfect).",
+      "highlight": "has released a hotfix"
+    }
+  ],
+  "exercises": [
+    {
+      "exercise_id": "ex_01",
+      "type": "choice",
+      "prompt": "We ___ our database schema three days ago.",
+      "options": [
+        "migrated",
+        "have migrated",
+        "migrate",
+        "were migrated"
+      ],
+      "answer": "migrated",
+      "explanation": "Маркер 'three days ago' указывает на конкретное время в прошлом, требуется Past Simple."
+    },
+    {
+      "exercise_id": "ex_02",
+      "type": "choice",
+      "prompt": "The developers ___ already resolved the connection issue.",
+      "options": [
+        "have",
+        "did",
+        "had been",
+        "were"
+      ],
+      "answer": "have",
+      "explanation": "Маркер 'already' с причастием 'resolved' требует Present Perfect: 'have resolved'."
+    },
+    {
+      "exercise_id": "ex_03",
+      "type": "choice",
+      "prompt": "The server ___ at midnight yesterday.",
+      "options": [
+        "crashed",
+        "has crashed",
+        "is crashing",
+        "crashes"
+      ],
+      "answer": "crashed",
+      "explanation": "Указание конкретного времени 'at midnight yesterday' требует Past Simple ('crashed')."
+    }
+  ]
+}

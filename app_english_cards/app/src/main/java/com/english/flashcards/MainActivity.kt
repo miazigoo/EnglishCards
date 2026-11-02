@@ -1,6 +1,8 @@
 package com.english.flashcards
 
 import android.animation.ValueAnimator
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -9,21 +11,33 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.english.flashcards.audio.AudioController
+import com.english.flashcards.data.AppDatabase
 import com.english.flashcards.data.FlashcardRepository
+import com.english.flashcards.data.PracticeStateEntity
 import com.english.flashcards.data.ProgressManager
+import com.english.flashcards.data.ReviewEventEntity
+import com.english.flashcards.data.RoomMigrationHelper
 import com.english.flashcards.databinding.ActivityMainBinding
+import com.english.flashcards.databinding.DialogCardExampleBinding
+import com.english.flashcards.fsrs.FSRSCard
+import com.english.flashcards.fsrs.FSRSScheduler
+import com.english.flashcards.fsrs.Rating
+import com.english.flashcards.fsrs.State
+import com.english.flashcards.model.CardStatus
 import com.english.flashcards.model.Flashcard
 import com.english.flashcards.ui.CardPagerAdapter
 import com.english.flashcards.ui.CategoryItem
 import com.english.flashcards.ui.CategoryMenuAdapter
-import android.content.ClipData
-import android.content.ClipboardManager
-import com.english.flashcards.databinding.DialogCardExampleBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.util.concurrent.ConcurrentHashMap
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,6 +47,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var cardAdapter: CardPagerAdapter
     private lateinit var audioController: AudioController
     private lateinit var menuAdapter: CategoryMenuAdapter
+    private lateinit var db: AppDatabase
+
+    private val fsrsScheduler = FSRSScheduler()
+    private val practiceCache = ConcurrentHashMap<String, FSRSCard>()
 
     private var currentCards: List<Flashcard> = emptyList()
     private var selectedCategory: String = "Все карточки"
@@ -46,6 +64,7 @@ class MainActivity : AppCompatActivity() {
 
         repository = FlashcardRepository(this)
         progressManager = ProgressManager(this)
+        db = AppDatabase.getInstance(this)
 
         setupAudioController()
         setupViewPager()
@@ -62,7 +81,6 @@ class MainActivity : AppCompatActivity() {
         binding.layoutMenu.visibility = View.GONE
         binding.layoutPlayer.visibility = View.GONE
 
-        // Animated logo pulse
         binding.ivSplashLogo.scaleX = 0.85f
         binding.ivSplashLogo.scaleY = 0.85f
         binding.ivSplashLogo.animate()
@@ -82,18 +100,23 @@ class MainActivity : AppCompatActivity() {
             binding.tvSplashPercent.text = "$progress%"
 
             binding.tvSplashStatus.text = when {
-                progress < 30 -> "Инициализация аудио-ядра..."
-                progress < 70 -> "Загрузка IT словаря (1529 слов)..."
-                progress < 95 -> "Синхронизация прогресса..."
+                progress < 30 -> "Инициализация FSRS ядра и базы..."
+                progress < 70 -> "Загрузка IT словаря (1680 единиц)..."
+                progress < 95 -> "Синхронизация Room БД..."
                 else -> "Все готово!"
             }
+        }
+
+        // Room DB migration & cache load in background
+        lifecycleScope.launch(Dispatchers.IO) {
+            RoomMigrationHelper.checkAndMigrate(applicationContext, repository.getAllCards())
+            loadPracticeCache()
         }
 
         animator.doOnEnd {
             isSplashActive = false
             refreshMenuStats()
 
-            // Smooth cross-fade into Main Menu
             binding.layoutMenu.alpha = 0f
             binding.layoutMenu.visibility = View.VISIBLE
             binding.layoutMenu.animate().alpha(1f).setDuration(400).start()
@@ -110,8 +133,31 @@ class MainActivity : AppCompatActivity() {
         animator.start()
     }
 
+    private suspend fun loadPracticeCache() {
+        try {
+            val practices = db.practiceDao().getAll()
+            for (p in practices) {
+                practiceCache[p.practiceId] = FSRSCard(
+                    practiceId = p.practiceId,
+                    cardId = p.cardId,
+                    skill = p.skill,
+                    due = p.due,
+                    stability = p.stability,
+                    difficulty = p.difficulty,
+                    elapsedDays = p.elapsedDays,
+                    scheduledDays = p.scheduledDays,
+                    reps = p.reps,
+                    lapses = p.lapses,
+                    state = State.fromInt(p.state),
+                    lastReview = p.lastReview
+                )
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
     private fun setupMenu() {
-        // Featured All Cards
         val allCatName = repository.getCategories().firstOrNull() ?: "Все карточки"
         binding.btnFeaturedAll.setOnClickListener {
             openPlayerWithCategory(allCatName)
@@ -120,21 +166,18 @@ class MainActivity : AppCompatActivity() {
             openPlayerWithCategory(allCatName)
         }
 
-        // Featured Hard / Needs Review Card
         val onHardClick = View.OnClickListener {
             openPlayerWithHardCards()
         }
         binding.btnFeaturedHard.setOnClickListener(onHardClick)
         binding.btnStartHard.setOnClickListener(onHardClick)
 
-        // Menu repeat toggle
         binding.btnMenuRepeatCount.text = "${repeatCount}x (повтор)"
         binding.btnMenuRepeatCount.setOnClickListener {
             toggleRepeatCount()
             binding.btnMenuRepeatCount.text = "${repeatCount}x (повтор)"
         }
 
-        // Build category items
         val categoryItems = buildCategoryItems()
         menuAdapter = CategoryMenuAdapter(categoryItems) { item ->
             openPlayerWithCategory(item.name)
@@ -186,15 +229,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun getEmojiForCategory(cat: String): String {
         return when {
-            cat.contains("IT") -> "💻"
-            cat.contains("MES") -> "🏭"
-            cat.contains("PLC") -> "⚙️"
-            cat.contains("Быт") -> "✈️"
-            cat.contains("Общение") -> "💬"
-            cat.contains("глаголы") && !cat.contains("Фразовые") -> "🏃"
-            cat.contains("Прилагательные") -> "✨"
-            cat.contains("Работа") -> "💼"
-            cat.contains("Фразовые") -> "🔄"
+            cat.contains("Python", ignoreCase = true) -> "🐍"
+            cat.contains("Django", ignoreCase = true) -> "🎸"
+            cat.contains("FastAPI", ignoreCase = true) -> "⚡"
+            cat.contains("SQL", ignoreCase = true) || cat.contains("баз", ignoreCase = true) -> "🗄️"
+            cat.contains("Git", ignoreCase = true) || cat.contains("Docker", ignoreCase = true) -> "🐳"
+            cat.contains("Celery", ignoreCase = true) || cat.contains("асинхрон", ignoreCase = true) -> "⏱️"
+            cat.contains("Тестир", ignoreCase = true) -> "🧪"
+            cat.contains("Workplace", ignoreCase = true) || cat.contains("Работа", ignoreCase = true) -> "💼"
+            cat.contains("General", ignoreCase = true) || cat.contains("Общ", ignoreCase = true) -> "🌐"
             else -> "📖"
         }
     }
@@ -227,15 +270,24 @@ class MainActivity : AppCompatActivity() {
         cardAdapter = CardPagerAdapter(
             cards = currentCards,
             progressManager = progressManager,
+            fsrsScheduler = fsrsScheduler,
             onCardClick = { card ->
                 audioController.playCard(card, restartRepetitions = true)
             },
             onExampleClick = { card ->
                 showExampleBottomSheet(card)
             },
-            onStatusChanged = { _, _ ->
-                updateDeckStats()
-                refreshMenuStats()
+            onPlayTerm = { card ->
+                audioController.playTerm(card)
+            },
+            onPlayExample = { card ->
+                audioController.playExample(card)
+            },
+            onRatingSelected = { card, rating ->
+                handleRatingSelected(card, rating)
+            },
+            getPracticeState = { cardId ->
+                practiceCache["$cardId.en_to_ru"]
             }
         )
 
@@ -250,6 +302,73 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    private fun handleRatingSelected(card: Flashcard, rating: Rating) {
+        val cardKey = card.cardId.ifEmpty { "legacy.${card.id}" }
+        val practiceId = "$cardKey.en_to_ru"
+        val now = System.currentTimeMillis()
+
+        val currentFsrsCard = practiceCache[practiceId] ?: FSRSCard(
+            practiceId = practiceId,
+            cardId = cardKey,
+            skill = "en_to_ru",
+            due = now
+        )
+
+        val updatedCard = fsrsScheduler.review(currentFsrsCard, rating, now)
+        practiceCache[practiceId] = updatedCard
+
+        // Save to Room DB in background
+        lifecycleScope.launch(Dispatchers.IO) {
+            val entity = PracticeStateEntity(
+                practiceId = updatedCard.practiceId,
+                cardId = updatedCard.cardId,
+                skill = updatedCard.skill,
+                state = updatedCard.state.value,
+                stability = updatedCard.stability,
+                difficulty = updatedCard.difficulty,
+                elapsedDays = updatedCard.elapsedDays,
+                scheduledDays = updatedCard.scheduledDays,
+                reps = updatedCard.reps,
+                lapses = updatedCard.lapses,
+                due = updatedCard.due,
+                lastReview = updatedCard.lastReview
+            )
+            db.practiceDao().upsert(entity)
+
+            val event = ReviewEventEntity(
+                practiceId = practiceId,
+                cardId = cardKey,
+                skill = "en_to_ru",
+                rating = rating.value,
+                reviewTime = now,
+                durationMs = 2000L,
+                stateBefore = currentFsrsCard.state.value,
+                stateAfter = updatedCard.state.value,
+                stabilityAfter = updatedCard.stability,
+                difficultyAfter = updatedCard.difficulty,
+                scheduledDaysAfter = updatedCard.scheduledDays
+            )
+            db.reviewEventDao().insert(event)
+        }
+
+        // Update legacy status for backward compatibility
+        val newStatus = when (rating) {
+            Rating.AGAIN, Rating.HARD -> CardStatus.HARD
+            Rating.GOOD, Rating.EASY -> CardStatus.LEARNED
+        }
+        progressManager.setStatus(card.id, newStatus)
+        updateDeckStats()
+        refreshMenuStats()
+
+        // Advance to next card
+        val currentPos = binding.vpCards.currentItem
+        if (currentPos < currentCards.size - 1) {
+            binding.vpCards.setCurrentItem(currentPos + 1, true)
+        } else {
+            showDeckCompletionDialog()
+        }
     }
 
     private fun setupPlayerControls() {
@@ -320,11 +439,9 @@ class MainActivity : AppCompatActivity() {
         updateProgress(0)
         updateDeckStats()
 
-        // Switch visible view
         binding.layoutMenu.visibility = View.GONE
         binding.layoutPlayer.visibility = View.VISIBLE
 
-        // Start playback
         if (currentCards.isNotEmpty()) {
             audioController.setAutoPlay(true)
             binding.vpCards.post {
@@ -352,11 +469,9 @@ class MainActivity : AppCompatActivity() {
         updateProgress(0)
         updateDeckStats()
 
-        // Switch visible view
         binding.layoutMenu.visibility = View.GONE
         binding.layoutPlayer.visibility = View.VISIBLE
 
-        // Start playback
         if (currentCards.isNotEmpty()) {
             audioController.setAutoPlay(true)
             binding.vpCards.post {
@@ -430,17 +545,17 @@ class MainActivity : AppCompatActivity() {
         dialogBinding.tvExampleTranslation.text = card.cleanTranslation
         dialogBinding.tvExampleCategory.text = card.category
 
-        val codeSnippet = if (card.example.isNotBlank()) {
-            card.example
-        } else {
-            "# Пример использования для ${card.word}\n# ${card.cleanTranslation}"
+        val codeSnippet = when {
+            !card.technicalCode.isNullOrBlank() -> card.technicalCode
+            card.example.isNotBlank() -> card.example
+            else -> "# Использование ${card.word}:\n# ${card.cleanTranslation}"
         }
         dialogBinding.tvExampleCode.text = codeSnippet
 
-        val noteText = if (card.exampleNote.isNotBlank()) {
-            card.exampleNote
-        } else {
-            card.translation
+        val noteText = when {
+            !card.nameBreakdown.isNullOrBlank() -> "${card.nameBreakdown}\n\n${card.exampleNote}"
+            card.exampleNote.isNotBlank() -> card.exampleNote
+            else -> card.translation
         }
         dialogBinding.tvExampleNote.text = noteText
 
@@ -466,7 +581,7 @@ class MainActivity : AppCompatActivity() {
         updateKeepScreenOn(false)
         MaterialAlertDialogBuilder(this)
             .setTitle("🎉 Колода завершена!")
-            .setMessage("Вы успешно прослушали и повторили все слова из раздела «$selectedCategory».")
+            .setMessage("Вы успешно повторили слова из раздела «$selectedCategory».")
             .setPositiveButton("Повторить сначала") { _, _ ->
                 binding.vpCards.setCurrentItem(0, true)
                 if (currentCards.isNotEmpty()) {

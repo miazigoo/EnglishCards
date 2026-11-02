@@ -1,0 +1,171 @@
+{
+  "total_manifest_entries": 1632,
+  "valid_files": 1632,
+  "missing_files": 0,
+  "hash_mismatches": 0,
+  "corrupt_files": 0,
+  "benchmark_coverage": {
+    "python.str.rsplit.directional": [
+      {
+        "role": "term_en",
+        "duration_ms": 1872,
+        "peak_dbfs": -1.37
+      },
+      {
+        "role": "meaning_ru",
+        "duration_ms": 4632,
+        "peak_dbfs": -1.68
+      },
+      {
+        "role": "example_en",
+        "duration_ms": 2904,
+        "peak_dbfs": -1.48
+      },
+      {
+        "role": "example_ru",
+        "duration_ms": 4416,
+        "peak_dbfs": -1.48
+      },
+      {
+        "role": "combined_legacy",
+        "duration_ms": 9748,
+        "peak_dbfs": -5.04
+      }
+    ],
+    "python.builtins.zip": [
+      {
+        "role": "term_en",
+        "duration_ms": 792,
+        "peak_dbfs": -1.47
+      },
+      {
+        "role": "meaning_ru",
+        "duration_ms": 4608,
+        "peak_dbfs": -1.39
+      },
+      {
+        "role": "example_en",
+        "duration_ms": 2304,
+        "peak_dbfs": -1.54
+      },
+      {
+        "role": "example_ru",
+        "duration_ms": 3960,
+        "peak_dbfs": -1.18
+      },
+      {
+        "role": "combined_legacy",
+        "duration_ms": 7348,
+        "peak_dbfs": -6.32
+      }
+    ],
+    "python.builtins.issubclass": [
+      {
+        "role": "term_en",
+        "duration_ms": 1872,
+        "peak_dbfs": -1.43
+      },
+      {
+        "role": "meaning_ru",
+        "duration_ms": 3888,
+        "peak_dbfs": -1.54
+      },
+      {
+        "role": "example_en",
+        "duration_ms": 2712,
+        "peak_dbfs": -1.51
+      },
+      {
+        "role": "example_ru",
+        "duration_ms": 3480,
+        "peak_dbfs": -1.47
+      },
+      {
+        "role": "combined_legacy",
+        "duration_ms": 9364,
+        "peak_dbfs": -4.08
+      }
+    ],
+    "python.builtins.getattr": [
+      {
+        "role": "term_en",
+        "duration_ms": 1872,
+        "peak_dbfs": -1.67
+      },
+      {
+        "role": "meaning_ru",
+        "duration_ms": 4992,
+        "peak_dbfs": -1.5
+      },
+      {
+        "role": "example_en",
+        "duration_ms": 2184,
+        "peak_dbfs": -1.44
+      },
+      {
+        "role": "example_ru",
+        "duration_ms": 2280,
+        "peak_dbfs": -1.49
+      },
+      {
+        "role": "combined_legacy",
+        "duration_ms": 10516,
+        "peak_dbfs": -5.48
+      }
+    ],
+    "python.builtins.filter": [
+      {
+        "role": "term_en",
+        "duration_ms": 1872,
+        "peak_dbfs": -1.55
+      },
+      {
+        "role": "meaning_ru",
+        "duration_ms": 5424,
+        "peak_dbfs": -1.2
+      },
+      {
+        "role": "example_en",
+        "duration_ms": 2568,
+        "peak_dbfs": -1.49
+      },
+      {
+        "role": "example_ru",
+        "duration_ms": 4848,
+        "peak_dbfs": -1.43
+      },
+      {
+        "role": "combined_legacy",
+        "duration_ms": 7300,
+        "peak_dbfs": -4.46
+      }
+    ],
+    "django.queryset.filter": [
+      {
+        "role": "term_en",
+        "duration_ms": 1872,
+        "peak_dbfs": -1.57
+      },
+      {
+        "role": "meaning_ru",
+        "duration_ms": 4536,
+        "peak_dbfs": -1.49
+      },
+      {
+        "role": "example_en",
+        "duration_ms": 2688,
+        "peak_dbfs": -1.49
+      },
+      {
+        "role": "example_ru",
+        "duration_ms": 4656,
+        "peak_dbfs": -1.54
+      },
+      {
+        "role": "combined_legacy",
+        "duration_ms": 7300,
+        "peak_dbfs": -4.46
+      }
+    ]
+  }
+}

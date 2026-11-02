@@ -10,8 +10,17 @@ data class Flashcard(
     val category: String,
     val audio: String,
     val example: String = "",
-    val exampleNote: String = ""
+    val exampleNote: String = "",
+    val cardId: String = "",
+    val nameBreakdown: String? = null,
+    val technicalCode: String? = null,
+    val expectedOutput: String? = null,
+    val secondaryExampleEn: String? = null,
+    val secondaryExampleRu: String? = null,
+    val tags: List<String> = emptyList()
 )
+
+typealias Card = Flashcard
 
 enum class CardStatus {
     NEW,

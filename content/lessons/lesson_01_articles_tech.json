@@ -1,0 +1,65 @@
+{
+  "lesson_id": "lesson_01_articles_tech",
+  "title_ru": "Артикли в техническом контексте (a / an vs the)",
+  "topic": "articles",
+  "duration_minutes": 3,
+  "rule_ru": "Используйте 'a/an' при первом упоминании любого представителя класса (например, 'a server' = какой-то сервер, один из серверов). Используйте 'the', когда речь идет о конкретном объекте, известном собеседникам ('the database' = наша рабочая БД проекта). С неисчисляемыми ('code', 'data') артикль 'a' не используется.",
+  "examples": [
+    {
+      "en": "We deployed a new server yesterday.",
+      "ru": "Вчера мы развернули новый сервер (один из).",
+      "highlight": "a new server"
+    },
+    {
+      "en": "The server stopped responding to requests.",
+      "ru": "Сервер перестал отвечать на запросы (тот самый конкретный).",
+      "highlight": "The server"
+    },
+    {
+      "en": "We wrote clean code without any errors.",
+      "ru": "Мы написали чистый код без ошибок (code неисчисляемое, без 'a').",
+      "highlight": "clean code"
+    }
+  ],
+  "exercises": [
+    {
+      "exercise_id": "ex_01",
+      "type": "choice",
+      "prompt": "I noticed ___ memory leak in the worker service.",
+      "options": [
+        "a",
+        "the",
+        "an",
+        "— (no article)"
+      ],
+      "answer": "a",
+      "explanation": "'memory leak' — исчисляемое существительное, упоминается впервые, начинается с согласного звука 'm'."
+    },
+    {
+      "exercise_id": "ex_02",
+      "type": "choice",
+      "prompt": "Please verify ___ production database connection string.",
+      "options": [
+        "the",
+        "a",
+        "an",
+        "— (no article)"
+      ],
+      "answer": "the",
+      "explanation": "Речь идет о конкретной базе данных проекта (production database), поэтому нужен определенный артикль 'the'."
+    },
+    {
+      "exercise_id": "ex_03",
+      "type": "choice",
+      "prompt": "We need to parse all incoming ___ from the sensor.",
+      "options": [
+        "data",
+        "a data",
+        "the datas",
+        "an data"
+      ],
+      "answer": "data",
+      "explanation": "'Data' в английском неисчисляемое существительное и не употребляется с артиклем 'a'."
+    }
+  ]
+}
