@@ -336,11 +336,11 @@ class MainActivity : AppCompatActivity() {
             progressManager = progressManager,
             fsrsScheduler = fsrsScheduler,
             onCardClick = { card ->
-                // Prompt stimulus only when not in listening mode (NO spoilers before reveal)
-                if (currentMode == StudyMode.LISTENING) {
-                    audioController.playListening(card, restartRepetitions = true)
-                } else {
+                // Prompt stimulus only in Today (Active Recall) mode
+                if (currentMode == StudyMode.TODAY) {
                     audioController.playPrompt(card, isEnToRu = true)
+                } else {
+                    audioController.playListening(card, restartRepetitions = true)
                 }
             },
             onExampleClick = { card ->
@@ -369,11 +369,12 @@ class MainActivity : AppCompatActivity() {
 
                 val card = cardAdapter.getCard(position)
                 if (card != null && audioController.isAutoPlay()) {
-                    if (currentMode == StudyMode.LISTENING) {
-                        audioController.playListening(card, restartRepetitions = true)
-                    } else {
+                    if (currentMode == StudyMode.TODAY) {
                         // In Active Recall, play ONLY prompt (NO spoilers!)
                         audioController.playPrompt(card, isEnToRu = true)
+                    } else {
+                        // In Player / Categories / Listening: play full audio and advance
+                        audioController.playListening(card, restartRepetitions = true)
                     }
                 }
             }
@@ -559,7 +560,7 @@ class MainActivity : AppCompatActivity() {
                 binding.btnPlayerRepeatCount.text = "${repeatCount}x"
                 binding.btnUndoReview.visibility = View.GONE
 
-                cardAdapter.resetRevealed()
+                cardAdapter.setDefaultRevealed(false)
                 cardAdapter.updateCards(currentCards)
                 binding.vpCards.setCurrentItem(0, false)
                 updateProgress(0)
@@ -587,7 +588,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnPlayerRepeatCount.text = "${repeatCount}x"
         binding.btnUndoReview.visibility = View.GONE
 
-        cardAdapter.resetRevealed()
+        cardAdapter.setDefaultRevealed(true)
         cardAdapter.updateCards(currentCards)
         binding.vpCards.setCurrentItem(0, false)
         updateProgress(0)
@@ -600,7 +601,7 @@ class MainActivity : AppCompatActivity() {
             cardStartTimeMonotonic = SystemClock.elapsedRealtime()
             audioController.setAutoPlay(true)
             binding.vpCards.post {
-                audioController.playPrompt(currentCards[0], isEnToRu = true)
+                audioController.playListening(currentCards[0], restartRepetitions = true)
             }
         }
     }
@@ -622,7 +623,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnPlayerRepeatCount.text = "${repeatCount}x"
         binding.btnUndoReview.visibility = View.GONE
 
-        cardAdapter.resetRevealed()
+        cardAdapter.setDefaultRevealed(true)
         cardAdapter.updateCards(currentCards)
         binding.vpCards.setCurrentItem(0, false)
         updateProgress(0)
@@ -635,7 +636,7 @@ class MainActivity : AppCompatActivity() {
             cardStartTimeMonotonic = SystemClock.elapsedRealtime()
             audioController.setAutoPlay(true)
             binding.vpCards.post {
-                audioController.playPrompt(currentCards[0], isEnToRu = true)
+                audioController.playListening(currentCards[0], restartRepetitions = true)
             }
         }
     }
@@ -650,7 +651,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnPlayerRepeatCount.text = "${repeatCount}x"
         binding.btnUndoReview.visibility = View.GONE
 
-        cardAdapter.revealAll()
+        cardAdapter.setDefaultRevealed(true)
         cardAdapter.updateCards(currentCards)
         binding.vpCards.setCurrentItem(0, false)
         updateProgress(0)
@@ -773,10 +774,10 @@ class MainActivity : AppCompatActivity() {
             .setPositiveButton("Повторить сначала") { _, _ ->
                 binding.vpCards.setCurrentItem(0, true)
                 if (currentCards.isNotEmpty()) {
-                    if (currentMode == StudyMode.LISTENING) {
-                        audioController.playListening(currentCards[0], restartRepetitions = true)
-                    } else {
+                    if (currentMode == StudyMode.TODAY) {
                         audioController.playPrompt(currentCards[0], isEnToRu = true)
+                    } else {
+                        audioController.playListening(currentCards[0], restartRepetitions = true)
                     }
                 }
             }

@@ -79,7 +79,8 @@ class AudioController(
         if (path != null) {
             playSingleFile(path)
         } else {
-            Log.d(TAG, "Single segment for prompt role '$role' not found for card ${card.cardId}")
+            Log.d(TAG, "Single segment for prompt role '$role' not found for card ${card.cardId}, trying legacy fallback")
+            playLegacyFallback(card)
         }
     }
 
@@ -241,6 +242,13 @@ class AudioController(
                     if (sessionToken == currentToken) {
                         this@AudioController.isPlaying = false
                         onPlaybackStateChanged(isAutoPlayEnabled)
+                        if (isAutoPlayEnabled) {
+                            handler.postDelayed({
+                                if (sessionToken == currentToken) {
+                                    onCardFinished()
+                                }
+                            }, 1500)
+                        }
                     }
                     true
                 }
@@ -253,6 +261,13 @@ class AudioController(
             if (sessionToken == currentToken) {
                 isPlaying = false
                 onPlaybackStateChanged(isAutoPlayEnabled)
+                if (isAutoPlayEnabled) {
+                    handler.postDelayed({
+                        if (sessionToken == currentToken) {
+                            onCardFinished()
+                        }
+                    }, 1500)
+                }
             }
         }
     }

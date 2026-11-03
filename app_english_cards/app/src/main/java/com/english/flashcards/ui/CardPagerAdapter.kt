@@ -28,6 +28,7 @@ class CardPagerAdapter(
 ) : RecyclerView.Adapter<CardPagerAdapter.CardViewHolder>() {
 
     private val revealedCardIds = mutableSetOf<String>()
+    private var defaultRevealed: Boolean = false
 
     inner class CardViewHolder(val binding: ItemFlashcardBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -44,19 +45,26 @@ class CardPagerAdapter(
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
         val card = cards[position]
         val cardKey = card.cardId.ifEmpty { "legacy.${card.id}" }
-        val isRevealed = revealedCardIds.contains(cardKey)
+        val isRevealed = defaultRevealed || revealedCardIds.contains(cardKey)
 
         with(holder.binding) {
             tvWord.text = card.word
-            tvIpa.text = card.ipa
-            tvRuHint.text = if (card.transcriptionRu.isNotBlank()) "Примерно: ${card.transcriptionRu}" else ""
-            tvRuHint.visibility = if (card.transcriptionRu.isNotBlank()) View.VISIBLE else View.GONE
+
+            val cleanIpa = card.ipa.trim().takeIf { it.isNotEmpty() && !it.equals("null", ignoreCase = true) } ?: ""
+            val cleanRuHint = card.transcriptionRu.trim().takeIf { it.isNotEmpty() && !it.equals("null", ignoreCase = true) } ?: ""
+
+            tvIpa.text = cleanIpa
+            tvIpa.visibility = if (cleanIpa.isNotEmpty()) View.VISIBLE else View.GONE
+
+            tvRuHint.text = if (cleanRuHint.isNotEmpty()) "Примерно: $cleanRuHint" else ""
+            tvRuHint.visibility = if (cleanRuHint.isNotEmpty()) View.VISIBLE else View.GONE
+
             tvTranslation.text = card.cleanTranslation
             tvCategoryBadge.text = card.category
             tvCardId.text = String.format("#%04d", card.id)
 
             // Name breakdown if available (e.g. for rsplit: right + split)
-            if (!card.nameBreakdown.isNullOrBlank()) {
+            if (!card.nameBreakdown.isNullOrBlank() && !card.nameBreakdown.equals("null", ignoreCase = true)) {
                 tvBreakdown.visibility = View.VISIBLE
                 tvBreakdown.text = card.nameBreakdown
             } else {
@@ -64,10 +72,14 @@ class CardPagerAdapter(
             }
 
             // Example sentences
-            if (card.example.isNotBlank()) {
+            if (card.example.isNotBlank() && !card.example.equals("null", ignoreCase = true)) {
                 layoutExampleBox.visibility = View.VISIBLE
                 tvExampleEn.text = card.example
-                tvExampleRu.text = card.primaryExampleRu.ifEmpty { card.exampleNote }
+                val exRu = (card.primaryExampleRu.takeIf { it.isNotBlank() && !it.equals("null", ignoreCase = true) }
+                    ?: card.exampleNote.takeIf { it.isNotBlank() && !it.equals("null", ignoreCase = true) }
+                    ?: "").trim()
+                tvExampleRu.text = exRu
+                tvExampleRu.visibility = if (exRu.isNotEmpty()) View.VISIBLE else View.GONE
             } else {
                 layoutExampleBox.visibility = View.GONE
             }
@@ -172,6 +184,15 @@ class CardPagerAdapter(
 
     fun getCard(position: Int): Flashcard? {
         return if (position in cards.indices) cards[position] else null
+    }
+
+    fun setDefaultRevealed(revealed: Boolean) {
+        defaultRevealed = revealed
+        if (revealed) {
+            revealAll()
+        } else {
+            resetRevealed()
+        }
     }
 
     fun revealAll() {

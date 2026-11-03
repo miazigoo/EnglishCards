@@ -3,8 +3,15 @@ package com.english.flashcards.data
 import android.content.Context
 import com.english.flashcards.model.Flashcard
 import org.json.JSONArray
+import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
+
+private fun JSONObject.optCleanString(name: String, fallback: String = ""): String {
+    if (!has(name) || isNull(name)) return fallback
+    val v = optString(name, fallback).trim()
+    return if (v.equals("null", ignoreCase = true)) fallback else v
+}
 
 class FlashcardRepository(private val context: Context) {
 
@@ -40,18 +47,18 @@ class FlashcardRepository(private val context: Context) {
                     val numericId = if (legacyIds != null && legacyIds.length() > 0) legacyIds.getInt(0) else (i + 1)
                     val term = obj.getString("display_term")
                     val meaningShort = obj.getString("meaning_ru_short")
-                    val explanation = obj.optString("explanation_ru", "")
+                    val explanation = obj.optCleanString("explanation_ru", "")
 
                     val pron = obj.optJSONObject("pronunciation")
-                    val ipaStr = pron?.optString("ipa", "") ?: ""
-                    val ruHint = pron?.optString("ru_hint", "") ?: ""
+                    val ipaStr = pron?.optCleanString("ipa", "") ?: ""
+                    val ruHint = pron?.optCleanString("ru_hint", "") ?: ""
 
                     val examplesArr = obj.optJSONArray("examples")
                     val primaryEn = if (examplesArr != null && examplesArr.length() > 0) {
-                        examplesArr.getJSONObject(0).optString("en", "")
+                        examplesArr.getJSONObject(0).optCleanString("en", "")
                     } else ""
                     val primaryRu = if (examplesArr != null && examplesArr.length() > 0) {
-                        examplesArr.getJSONObject(0).optString("ru", "")
+                        examplesArr.getJSONObject(0).optCleanString("ru", "")
                     } else ""
 
                     val secEn = if (examplesArr != null && examplesArr.length() > 1) {
@@ -115,13 +122,13 @@ class FlashcardRepository(private val context: Context) {
                     val id = obj.getInt("id")
                     val word = obj.getString("word")
                     val translation = obj.getString("translation")
-                    val cleanTr = obj.optString("clean_translation", translation)
-                    val ipa = obj.optString("ipa", obj.optString("transcription_en", ""))
-                    val transRu = obj.optString("transcription_ru", "")
+                    val cleanTr = obj.optCleanString("clean_translation", translation)
+                    val ipa = obj.optCleanString("ipa", obj.optCleanString("transcription_en", ""))
+                    val transRu = obj.optCleanString("transcription_ru", "")
                     val cat = obj.getString("category")
-                    val audio = obj.optString("audio", "word_${String.format("%04d", id)}.mp3")
-                    val ex = obj.optString("example", "")
-                    val note = obj.optString("example_note", "")
+                    val audio = obj.optCleanString("audio", "word_${String.format("%04d", id)}.mp3")
+                    val ex = obj.optCleanString("example", "")
+                    val note = obj.optCleanString("example_note", "")
 
                     val card = Flashcard(
                         id = id,
