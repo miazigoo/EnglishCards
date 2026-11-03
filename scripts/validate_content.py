@@ -2,10 +2,12 @@
 """
 scripts/validate_content.py
 
-Rigorous validation test suite for content/cards.json and content/lessons/.
-Verifies all 36 acceptance criteria for content quality (A01-A08, B01-B10).
+Rigorous validation test suite for content/cards.json, content/lessons/, and app assets.
+Verifies all acceptance criteria for content quality (A01-A08, V4-C01, V4-C03, V4-C04).
+Exits with code 1 if ANY validation fails.
 """
 
+import sys
 import ast
 import json
 import re
@@ -18,16 +20,22 @@ SCHEMA_JSON = BASE_DIR / "content/schema/card.schema.json"
 LESSONS_DIR = BASE_DIR / "content/lessons"
 LEGACY_ID_MAP = BASE_DIR / "content/legacy_id_map.json"
 
+ASSETS_DIR = BASE_DIR / "app_english_cards/app/src/main/assets"
+ASSETS_CARDS_V3 = ASSETS_DIR / "cards_v3.json"
+ASSETS_LESSONS_DIR = ASSETS_DIR / "lessons"
+ASSETS_LEGACY_ID_MAP = ASSETS_DIR / "legacy_id_map.json"
+
 FORBIDDEN_PHRASES = [
     "ключевую сущность или архитектурный паттерн",
     "class RsplitService",
     "class IssubclassService",
     "class ZipService",
     "class GetattrService",
-    "class FilterService"
+    "class FilterService",
+    "является важным элементом системной архитектуры и бизнес-логики"
 ]
 
-def check_python_code_validity(code: str) -> tuple[bool, str]:
+def check_python_code_validity(code: str, example_kind: str) -> tuple[bool, str]:
     if not code or not code.strip():
         return True, "empty"
     
@@ -59,14 +67,18 @@ def check_python_code_validity(code: str) -> tuple[bool, str]:
     if "getattr(" in py_code and "default=" in py_code:
         return False, "getattr() uses illegal keyword argument 'default='"
 
+    # Strict compile check (catches 'await' outside function etc.)
     try:
-        ast.parse(py_code)
+        if example_kind == "standalone":
+            compile(py_code, "<string>", "exec")
+        else:
+            ast.parse(py_code)
         return True, "valid_syntax"
     except SyntaxError as e:
         return False, f"SyntaxError: {e.msg} at line {e.lineno}"
 
 def validate():
-    print("=== STARTING COMPREHENSIVE CONTENT VALIDATION ===")
+    print("=== STARTING COMPREHENSIVE CONTENT VALIDATION V4 ===")
     assert CARDS_JSON.exists(), f"{CARDS_JSON} does not exist"
     assert SCHEMA_JSON.exists(), f"{SCHEMA_JSON} does not exist"
     assert LESSONS_DIR.exists(), f"{LESSONS_DIR} does not exist"
@@ -134,52 +146,81 @@ def validate():
     assert "objects.filter" in filter_django["technical"]["code"]
     print("   ✓ filter() separation (builtin vs Django) fully verified")
 
-    # 3. Boilerplate & Quality Checks across all cards
+    # 3. Boilerplate, Template & Quality Checks across all cards
     print("3. Checking for boilerplate, invalid syntax, and mixed scripts...")
     boilerplate_count = 0
+    generic_template_count = 0
+    prompt_leak_count = 0
     mixed_trans_count = 0
     bogus_ipa_count = 0
     syntax_error_count = 0
+    cards_with_secondary = 0
 
     latin_pattern = re.compile(r'[a-zA-Z]')
 
     for c in cards:
+        cid = c["card_id"]
+        word = c.get("display_term", "")
+        clean_w = word.replace("()", "").strip()
+
         # Check forbidden phrases
         full_text = json.dumps(c, ensure_ascii=False)
         for phrase in FORBIDDEN_PHRASES:
             if phrase in full_text:
                 boilerplate_count += 1
-                print(f"   [ERROR] Boilerplate '{phrase}' found in {c['card_id']}")
+                print(f"   [ERROR] Boilerplate '{phrase}' found in {cid}")
+
+        # Check generic "We use ... in ... module."
+        for ex in c.get("examples", []):
+            en_text = ex.get("en", "")
+            if "We use " in en_text and "in the " in en_text and "module." in en_text:
+                generic_template_count += 1
+                print(f"   [ERROR] Generic sentence in {cid}: {en_text}")
+
+        # Check prompt leaks: (word) or (clean_w) in parentheses
+        prompt = c.get("practice", {}).get("production_prompt_ru", "")
+        if f"({word})" in prompt or (clean_w and f"({clean_w})" in prompt):
+            prompt_leak_count += 1
+            print(f"   [ERROR] Prompt leak in {cid}: {prompt}")
 
         # Check pronunciation hint
         ru_hint = c["pronunciation"].get("ru_hint")
         if ru_hint and latin_pattern.search(ru_hint):
             mixed_trans_count += 1
-            print(f"   [ERROR] Mixed Latin in ru_hint '{ru_hint}' in {c['card_id']}")
+            print(f"   [ERROR] Mixed Latin in ru_hint '{ru_hint}' in {cid}")
 
         # Check bogus literal IPA
         ipa = c["pronunciation"].get("ipa")
-        term = c["display_term"].replace("()", "").strip().lower()
+        term = clean_w.lower()
         if ipa and ipa.strip("/").lower() == term and len(term) > 3:
             bogus_ipa_count += 1
-            print(f"   [ERROR] Bogus literal IPA '{ipa}' in {c['card_id']}")
+            print(f"   [ERROR] Bogus literal IPA '{ipa}' in {cid}")
 
         # Check Python code syntax
         if c.get("technical") and c["technical"].get("code"):
             code = c["technical"]["code"]
-            is_valid, msg = check_python_code_validity(code)
+            kind = c["technical"].get("example_kind", "illustrative_fragment")
+            is_valid, msg = check_python_code_validity(code, kind)
             if not is_valid:
                 syntax_error_count += 1
-                print(f"   [ERROR] Code issue in {c['card_id']}: {msg}")
+                print(f"   [ERROR] Code issue in {cid}: {msg}")
+
+        # Secondary examples count
+        if len(c.get("examples", [])) > 1:
+            cards_with_secondary += 1
 
     assert boilerplate_count == 0, f"Found {boilerplate_count} boilerplate cards!"
+    assert generic_template_count == 0, f"Found {generic_template_count} generic template cards!"
+    assert prompt_leak_count == 0, f"Found {prompt_leak_count} prompt leak cards!"
     assert mixed_trans_count == 0, f"Found {mixed_trans_count} mixed script hints!"
     assert bogus_ipa_count == 0, f"Found {bogus_ipa_count} bogus literal IPAs!"
     assert syntax_error_count == 0, f"Found {syntax_error_count} code syntax errors!"
-    print("   ✓ 0 boilerplate cards, 0 mixed-script hints, 0 bogus IPAs, 0 code syntax errors!")
+    assert cards_with_secondary >= 50, f"Expected >= 50 cards with secondary examples, got {cards_with_secondary}"
+
+    print(f"   ✓ 0 boilerplate cards, 0 generic sentences, 0 prompt leaks, 0 syntax errors, {cards_with_secondary} cards with secondary examples!")
 
     # 4. Check micro-lessons
-    print("4. Checking micro-lessons in content/lessons/...")
+    print("4. Checking micro-lessons...")
     lessons = list(LESSONS_DIR.glob("lesson_*.json"))
     assert len(lessons) == 12, f"Expected 12 micro-lessons, found {len(lessons)}"
     for l_path in lessons:
@@ -191,7 +232,21 @@ def validate():
             assert "exercises" in data and len(data["exercises"]) >= 3
     print("   ✓ All 12 micro-lessons present, well-formed, with exercises")
 
+    # 5. Check assets packaging
+    print("5. Checking Android assets packaging...")
+    assert ASSETS_CARDS_V3.exists(), f"Assets {ASSETS_CARDS_V3} missing"
+    assert ASSETS_LEGACY_ID_MAP.exists(), f"Assets {ASSETS_LEGACY_ID_MAP} missing"
+    assert ASSETS_LESSONS_DIR.exists(), f"Assets lessons directory {ASSETS_LESSONS_DIR} missing"
+    assets_lessons = list(ASSETS_LESSONS_DIR.glob("lesson_*.json"))
+    assert len(assets_lessons) == 12, f"Expected 12 lessons packaged in assets, found {len(assets_lessons)}"
+    print(f"   ✓ Assets properly packaged: cards_v3.json, legacy_id_map.json, 12 micro-lessons in assets/lessons")
+
     print("\n=== ALL CONTENT VALIDATION TESTS PASSED PERFECTLY! ===")
 
 if __name__ == "__main__":
-    validate()
+    try:
+        validate()
+        sys.exit(0)
+    except AssertionError as e:
+        print(f"\n[VALIDATION FAILED] {e}", file=sys.stderr)
+        sys.exit(1)

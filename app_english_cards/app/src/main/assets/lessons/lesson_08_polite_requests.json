@@ -1,0 +1,60 @@
+{
+  "lesson_id": "lesson_08_polite_requests",
+  "title_ru": "Вежливые просьбы в деловой переписке (Could you...)",
+  "topic": "communication",
+  "duration_minutes": 3,
+  "rule_ru": "Вместо резкого повелительного наклонения ('Fix this bug!') в англоязычных командах принято использовать вежливые обороты: 'Could you please check this endpoint?' или 'Would you mind reviewing my pull request?'. Обратите внимание: после 'Would you mind' используется глагол с окончанием -ing ('reviewing').",
+  "examples": [
+    {
+      "en": "Could you please clarify the acceptance criteria?",
+      "ru": "Не могли бы вы уточнить критерии приемки?",
+      "highlight": "Could you please clarify"
+    },
+    {
+      "en": "Would you mind testing this on staging?",
+      "ru": "Не будете ли вы против протестировать это на стейджинге?",
+      "highlight": "Would you mind testing"
+    }
+  ],
+  "exercises": [
+    {
+      "exercise_id": "ex_01",
+      "type": "choice",
+      "prompt": "Would you mind ___ the server logs for yesterday?",
+      "options": [
+        "checking",
+        "check",
+        "to check",
+        "checked"
+      ],
+      "answer": "checking",
+      "explanation": "После конструкции 'Would you mind' глагол всегда идет в герундии с -ing."
+    },
+    {
+      "exercise_id": "ex_02",
+      "type": "choice",
+      "prompt": "Could you please ___ me permissions to the production cluster?",
+      "options": [
+        "grant",
+        "granting",
+        "to grant",
+        "granted"
+      ],
+      "answer": "grant",
+      "explanation": "После модального глагола 'Could you please' используется инфинитив без частицы to ('grant')."
+    },
+    {
+      "exercise_id": "ex_03",
+      "type": "choice",
+      "prompt": "Would you mind ___ this migration during the maintenance window?",
+      "options": [
+        "running",
+        "run",
+        "to run",
+        "ran"
+      ],
+      "answer": "running",
+      "explanation": "После 'Would you mind' требуется герундий (-ing)."
+    }
+  ]
+}

@@ -1,6 +1,10 @@
-# Итоговый отчет о приёмке (Acceptance Report) — EnglishCards v3.0
+# Итоговый отчет о приёмке (Acceptance Report) — EnglishCards v3.0 (ИСТОРИЧЕСКИЙ АРХИВ / BASELINE)
 
-Данный отчет фиксирует полное выполнение всех 27 разделов и 36 сценариев приёмки (A01–A08, B01–B10, C01–C10, D01–D08) Технического задания `GEMINI_TECH_SPEC_ENGLISH_V3.md`.
+> [!WARNING]
+> **Исторический артефакт первой итерации.** Выводы данного отчёта опровергнуты аудитом в [`ENGLISH_V3_AUDIT.md`](../ENGLISH_V3_AUDIT.md) и [`ENGLISH_V3_AUDIT_EVIDENCE.json`](../ENGLISH_V3_AUDIT_EVIDENCE.json). 
+> Актуальный протокол выполнения и валидации по спецификации V4 ведётся в [`reports/acceptance_v4.md`](acceptance_v4.md) и [`reports/acceptance_v4.json`](acceptance_v4.json).
+
+Данный отчет фиксирует исходное состояние первой итерации выполнения Технического задания `GEMINI_TECH_SPEC_ENGLISH_V3.md`.
 
 ---
 

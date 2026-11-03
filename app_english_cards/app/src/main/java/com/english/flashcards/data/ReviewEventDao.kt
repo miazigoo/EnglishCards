@@ -2,32 +2,33 @@ package com.english.flashcards.data
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
 interface ReviewEventDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insert(event: ReviewEventEntity): Long
 
-    @Query("SELECT * FROM review_events WHERE reviewTime >= :since ORDER BY reviewTime DESC")
-    suspend fun getEventsSince(since: Long): List<ReviewEventEntity>
+    @Query("SELECT * FROM review_events WHERE attemptId = :attemptId LIMIT 1")
+    suspend fun getByAttemptId(attemptId: String): ReviewEventEntity?
 
-    @Query("SELECT COUNT(*) FROM review_events WHERE reviewTime >= :startOfDay")
-    suspend fun countTodayReviews(startOfDay: Long): Int
+    @Query("UPDATE review_events SET isUndone = 1 WHERE attemptId = :attemptId")
+    suspend fun markUndone(attemptId: String)
 
-    @Query("SELECT COUNT(*) FROM review_events WHERE reviewTime >= :startOfDay AND rating >= 3")
-    suspend fun countTodaySuccesses(startOfDay: Long): Int
+    @Query("SELECT * FROM review_events WHERE isUndone = 0 ORDER BY reviewTime DESC LIMIT 1")
+    suspend fun getLastReviewEvent(): ReviewEventEntity?
 
-    @Query("SELECT SUM(durationMs) FROM review_events WHERE reviewTime >= :startOfDay")
-    suspend fun sumTodayDurationMs(startOfDay: Long): Long?
+    @Query("SELECT * FROM review_events WHERE practiceId = :practiceId ORDER BY reviewTime ASC")
+    suspend fun getEventsForPractice(practiceId: String): List<ReviewEventEntity>
 
-    @Query("SELECT COUNT(*) FROM review_events")
+    @Query("SELECT COUNT(*) FROM review_events WHERE isUndone = 0")
     suspend fun countTotalReviews(): Int
 
-    @Query("SELECT * FROM review_events ORDER BY reviewTime DESC LIMIT :limit")
-    suspend fun getRecentEvents(limit: Int): List<ReviewEventEntity>
+    @Query("SELECT COUNT(*) FROM review_events WHERE isUndone = 0 AND rating >= 3")
+    suspend fun countSuccessfulReviews(): Int
 
-    @Query("SELECT * FROM review_events")
-    suspend fun getAll(): List<ReviewEventEntity>
+    @Query("SELECT * FROM review_events WHERE isUndone = 0 ORDER BY reviewTime DESC LIMIT :limit")
+    suspend fun getRecentEvents(limit: Int): List<ReviewEventEntity>
 }

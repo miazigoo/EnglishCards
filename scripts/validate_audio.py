@@ -147,7 +147,14 @@ def validate():
             f.write("\n")
 
     print(f"Audio validation report saved to {REPORT_JSON} and {REPORT_MD}")
-    print(f"Summary: {valid_count} valid, {missing_count} missing, {corrupt_count} corrupt")
+    print(f"Summary: {valid_count} valid, {missing_count} missing, {corrupt_count} corrupt, {hash_mismatch_count} mismatches")
+
+    if missing_count > 0 or corrupt_count > 0 or hash_mismatch_count > 0:
+        print(f"\n[AUDIO VALIDATION FAILED] Errors detected: missing={missing_count}, corrupt={corrupt_count}, mismatches={hash_mismatch_count}", file=sys.stderr)
+        sys.exit(1)
+
+    print("=== AUDIO VALIDATION PASSED PERFECTLY ===")
 
 if __name__ == "__main__":
+    import sys
     validate()

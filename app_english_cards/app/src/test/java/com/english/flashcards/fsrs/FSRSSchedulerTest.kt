@@ -120,4 +120,40 @@ class FSRSSchedulerTest {
         assertEquals("10м", previews[Rating.GOOD]?.intervalText)
         assertTrue(previews[Rating.EASY]?.intervalText?.endsWith("д") == true)
     }
+
+    @Test
+    fun testHardRatingRetentionResponsivenessAndMaxInterval() {
+        val now = 1700000000000L
+        val card = FSRSCard(
+            practiceId = "test.review.hard",
+            cardId = "test.review",
+            skill = "en_to_ru",
+            due = now,
+            state = State.REVIEW,
+            scheduledDays = 10,
+            stability = 15.0,
+            difficulty = 5.0,
+            reps = 3,
+            lastReview = now - TimeUnit.DAYS.toMillis(10)
+        )
+
+        // 1. With retention 0.80: interval is large (~67 days)
+        val scheduler80 = FSRSScheduler(FSRSParameters(requestRetention = 0.80))
+        val hard80 = scheduler80.review(card, Rating.HARD, now)
+        assertEquals(State.REVIEW, hard80.state)
+        assertTrue("Hard at 0.80 retention should have larger interval than 10, got ${hard80.scheduledDays}", hard80.scheduledDays > 25)
+
+        // 2. With retention 0.97: interval is small (~7 days)
+        val scheduler97 = FSRSScheduler(FSRSParameters(requestRetention = 0.97))
+        val hard97 = scheduler97.review(card, Rating.HARD, now)
+        assertEquals(State.REVIEW, hard97.state)
+        assertTrue("Hard at 0.97 retention should be shorter (~7d), got ${hard97.scheduledDays}", hard97.scheduledDays in 6..9)
+
+        // 3. With maximumInterval = 10: MUST NEVER exceed 10 days!
+        val schedulerMax10 = FSRSScheduler(FSRSParameters(requestRetention = 0.80, maximumInterval = 10))
+        val hardMax10 = schedulerMax10.review(card, Rating.HARD, now)
+        assertEquals(State.REVIEW, hardMax10.state)
+        assertEquals("Hard must strictly observe maximumInterval=10", 10L, hardMax10.scheduledDays)
+        assertEquals(now + TimeUnit.DAYS.toMillis(10), hardMax10.due)
+    }
 }

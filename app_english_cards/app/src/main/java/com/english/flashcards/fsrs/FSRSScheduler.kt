@@ -10,7 +10,7 @@ import kotlin.math.roundToInt
 import kotlin.math.roundToLong
 
 class FSRSScheduler(
-    private val params: FSRSParameters = FSRSParameters()
+    val params: FSRSParameters = FSRSParameters()
 ) {
     private val decay: Double = -0.5
     private val factor: Double = (19.0 / 81.0)
@@ -76,8 +76,8 @@ class FSRSScheduler(
                 lastReview = now
             )
             Rating.EASY -> {
-                val intervalDays = nextInterval(s)
-                val days = max(2L, intervalDays.toLong())
+                val intervalDays = nextInterval(s).roundToLong()
+                val days = clamp(max(2L, intervalDays), 1L, params.maximumInterval.toLong())
                 card.copy(
                     due = now + TimeUnit.DAYS.toMillis(days),
                     stability = s,
@@ -108,7 +108,7 @@ class FSRSScheduler(
                 lastReview = now
             )
             Rating.GOOD -> {
-                val intervalDays = max(1L, nextInterval(card.stability).toLong())
+                val intervalDays = clamp(max(1L, nextInterval(card.stability).roundToLong()), 1L, params.maximumInterval.toLong())
                 card.copy(
                     due = now + TimeUnit.DAYS.toMillis(intervalDays),
                     scheduledDays = intervalDays,
@@ -118,7 +118,7 @@ class FSRSScheduler(
                 )
             }
             Rating.EASY -> {
-                val intervalDays = max(2L, (nextInterval(card.stability) * 1.3).roundToLong())
+                val intervalDays = clamp(max(2L, (nextInterval(card.stability) * 1.3).roundToLong()), 1L, params.maximumInterval.toLong())
                 card.copy(
                     due = now + TimeUnit.DAYS.toMillis(intervalDays),
                     scheduledDays = intervalDays,
@@ -152,8 +152,8 @@ class FSRSScheduler(
             }
             Rating.HARD -> {
                 val s = nextRecallStability(card.difficulty, card.stability, r, rating)
-                val rawDays = nextInterval(s)
-                val days = max(card.scheduledDays + 1, max(1L, (card.scheduledDays * 1.2).roundToLong()))
+                val rawDays = nextInterval(s).roundToLong()
+                val days = clamp(rawDays, 1L, params.maximumInterval.toLong())
                 card.copy(
                     due = now + TimeUnit.DAYS.toMillis(days),
                     stability = s,
@@ -167,8 +167,8 @@ class FSRSScheduler(
             }
             Rating.GOOD -> {
                 val s = nextRecallStability(card.difficulty, card.stability, r, rating)
-                val rawDays = nextInterval(s).toLong()
-                val days = max(card.scheduledDays + 1, max(1L, rawDays))
+                val rawDays = nextInterval(s).roundToLong()
+                val days = clamp(max(card.scheduledDays + 1, rawDays), 1L, params.maximumInterval.toLong())
                 card.copy(
                     due = now + TimeUnit.DAYS.toMillis(days),
                     stability = s,
@@ -183,7 +183,7 @@ class FSRSScheduler(
             Rating.EASY -> {
                 val s = nextRecallStability(card.difficulty, card.stability, r, rating)
                 val rawDays = (nextInterval(s) * 1.3).roundToLong()
-                val days = max(card.scheduledDays + 2, max(2L, rawDays))
+                val days = clamp(max(card.scheduledDays + 2, rawDays), 1L, params.maximumInterval.toLong())
                 card.copy(
                     due = now + TimeUnit.DAYS.toMillis(days),
                     stability = s,
@@ -212,12 +212,12 @@ class FSRSScheduler(
         return clamp(nextD, 1.0, 10.0)
     }
 
-    private fun retrievability(elapsedDays: Long, stability: Double): Double {
+    fun retrievability(elapsedDays: Long, stability: Double): Double {
         if (stability <= 0.0) return 0.0
         return (1.0 + factor * (elapsedDays.toDouble() / stability)).pow(decay)
     }
 
-    private fun nextRecallStability(d: Double, s: Double, r: Double, rating: Rating): Double {
+    fun nextRecallStability(d: Double, s: Double, r: Double, rating: Rating): Double {
         val hardPenalty = if (rating == Rating.HARD) params.w[15] else 1.0
         val easyBonus = if (rating == Rating.EASY) params.w[16] else 1.0
         val nextS = s * (1.0 + exp(params.w[8]) *
@@ -229,7 +229,7 @@ class FSRSScheduler(
         return max(0.1, nextS)
     }
 
-    private fun nextForgetStability(d: Double, s: Double, r: Double): Double {
+    fun nextForgetStability(d: Double, s: Double, r: Double): Double {
         val nextS = params.w[11] *
                 d.pow(-params.w[12]) *
                 ((s + 1.0).pow(params.w[13]) - 1.0) *
@@ -243,6 +243,10 @@ class FSRSScheduler(
     }
 
     private fun clamp(v: Double, minVal: Double, maxVal: Double): Double {
+        return min(maxVal, max(minVal, v))
+    }
+
+    private fun clamp(v: Long, minVal: Long, maxVal: Long): Long {
         return min(maxVal, max(minVal, v))
     }
 

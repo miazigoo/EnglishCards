@@ -1,0 +1,65 @@
+{
+  "lesson_id": "lesson_05_look_at_vs_look_for",
+  "title_ru": "Фразовые глаголы с Look: Look at, Look for, Look into",
+  "topic": "phrasal_verbs",
+  "duration_minutes": 3,
+  "rule_ru": "'Look at' = посмотреть/взглянуть на что-то видимое (код, экран, график). 'Look for' = искать что-то отсутствующее (баг, решение, документацию). 'Look into' = исследовать, детально расследовать проблему (инцидент, ошибку).",
+  "examples": [
+    {
+      "en": "Look at the CPU utilization chart on Grafana.",
+      "ru": "Взгляни на график загрузки процессора в Grafana.",
+      "highlight": "Look at the CPU"
+    },
+    {
+      "en": "I am looking for the API key in the .env file.",
+      "ru": "Я ищу ключ API в файле .env.",
+      "highlight": "looking for the API key"
+    },
+    {
+      "en": "Our DevOps engineer is looking into the connection drop.",
+      "ru": "Наш DevOps расследует сброс соединения.",
+      "highlight": "looking into the connection"
+    }
+  ],
+  "exercises": [
+    {
+      "exercise_id": "ex_01",
+      "type": "choice",
+      "prompt": "Please ___ this traceback on the terminal.",
+      "options": [
+        "look at",
+        "look for",
+        "look into to",
+        "look after"
+      ],
+      "answer": "look at",
+      "explanation": "Взглянуть на видимый трейсбек на экране — 'look at'."
+    },
+    {
+      "exercise_id": "ex_02",
+      "type": "choice",
+      "prompt": "The developers are ___ the root cause of the outage.",
+      "options": [
+        "looking into",
+        "looking at for",
+        "looking up to",
+        "looking on"
+      ],
+      "answer": "looking into",
+      "explanation": "Расследовать первопричину инцидента — 'look into'."
+    },
+    {
+      "exercise_id": "ex_03",
+      "type": "choice",
+      "prompt": "I spent two hours ___ a working example in the documentation.",
+      "options": [
+        "looking for",
+        "looking at",
+        "looking after",
+        "looking on"
+      ],
+      "answer": "looking for",
+      "explanation": "Искать отсутствующий пример — 'look for'."
+    }
+  ]
+}

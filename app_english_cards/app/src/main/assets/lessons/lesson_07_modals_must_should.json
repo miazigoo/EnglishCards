@@ -1,0 +1,60 @@
+{
+  "lesson_id": "lesson_07_modals_must_should",
+  "title_ru": "Модальные глаголы: Must, Have to, Should",
+  "topic": "modal_verbs",
+  "duration_minutes": 3,
+  "rule_ru": "'Must' выражает строгое требование или внутреннюю уверенность: 'Passwords must contain at least 8 characters'. 'Have to' выражает внешнюю необходимость: 'I have to fix this bug before 5 PM'. 'Should' выражает рекомендацию: 'You should optimize this query' (Вам следует оптимизировать этот запрос).",
+  "examples": [
+    {
+      "en": "All API endpoints must be covered with tests.",
+      "ru": "Все эндпоинты API обязаны быть покрыты тестами.",
+      "highlight": "must be covered"
+    },
+    {
+      "en": "You should use select_related to avoid N+1 queries.",
+      "ru": "Вам следует использовать select_related, чтобы избежать N+1 запросов.",
+      "highlight": "You should use"
+    }
+  ],
+  "exercises": [
+    {
+      "exercise_id": "ex_01",
+      "type": "choice",
+      "prompt": "It's just a best practice recommendation: you ___ add type hints.",
+      "options": [
+        "should",
+        "must",
+        "have to",
+        "are forced to"
+      ],
+      "answer": "should",
+      "explanation": "Для мягкой рекомендации лучшей практики используется 'should'."
+    },
+    {
+      "exercise_id": "ex_02",
+      "type": "choice",
+      "prompt": "According to GDPR regulations, we ___ encrypt all user passwords.",
+      "options": [
+        "must",
+        "should",
+        "might",
+        "could"
+      ],
+      "answer": "must",
+      "explanation": "Для строгих юридических и архитектурных требований используется 'must'."
+    },
+    {
+      "exercise_id": "ex_03",
+      "type": "choice",
+      "prompt": "The server room is locked, so I ___ ask the sysadmin for access.",
+      "options": [
+        "have to",
+        "should",
+        "ought",
+        "might"
+      ],
+      "answer": "have to",
+      "explanation": "Вынужденная внешняя необходимость описывается модальной конструкцией 'have to'."
+    }
+  ]
+}

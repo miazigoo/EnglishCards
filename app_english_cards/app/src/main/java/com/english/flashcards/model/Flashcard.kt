@@ -10,6 +10,7 @@ data class Flashcard(
     val category: String,
     val audio: String,
     val example: String = "",
+    val primaryExampleRu: String = "",
     val exampleNote: String = "",
     val cardId: String = "",
     val nameBreakdown: String? = null,

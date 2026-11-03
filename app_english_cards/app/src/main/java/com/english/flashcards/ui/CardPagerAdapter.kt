@@ -67,7 +67,7 @@ class CardPagerAdapter(
             if (card.example.isNotBlank()) {
                 layoutExampleBox.visibility = View.VISIBLE
                 tvExampleEn.text = card.example
-                tvExampleRu.text = card.exampleNote
+                tvExampleRu.text = card.primaryExampleRu.ifEmpty { card.exampleNote }
             } else {
                 layoutExampleBox.visibility = View.GONE
             }

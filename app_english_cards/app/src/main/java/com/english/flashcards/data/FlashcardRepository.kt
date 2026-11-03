@@ -98,6 +98,7 @@ class FlashcardRepository(private val context: Context) {
                         category = cat,
                         audio = "word_${String.format("%04d", numericId)}.mp3",
                         example = primaryEn,
+                        primaryExampleRu = primaryRu,
                         exampleNote = explanation,
                         cardId = cid,
                         nameBreakdown = breakdownStr,

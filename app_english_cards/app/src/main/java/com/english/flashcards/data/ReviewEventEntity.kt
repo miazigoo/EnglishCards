@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "review_events",
     indices = [
+        Index(value = ["attemptId"], unique = true),
         Index(value = ["practiceId"]),
         Index(value = ["reviewTime"])
     ]
@@ -14,6 +15,7 @@ import androidx.room.PrimaryKey
 data class ReviewEventEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
+    val attemptId: String, // Unique UUID per review attempt
     val practiceId: String,
     val cardId: String,
     val skill: String,
@@ -24,5 +26,11 @@ data class ReviewEventEntity(
     val stateAfter: Int,
     val stabilityAfter: Double,
     val difficultyAfter: Double,
-    val scheduledDaysAfter: Long
+    val scheduledDaysAfter: Long,
+    val isAssisted: Boolean = false,
+    val hintsUsed: Int = 0,
+    val listensCount: Int = 0,
+    val isUndone: Boolean = false,
+    val contentRevision: Int = 1,
+    val schedulerVersion: String = "FSRS-4.5"
 )

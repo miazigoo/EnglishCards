@@ -1,0 +1,60 @@
+{
+  "lesson_id": "lesson_03_do_vs_make",
+  "title_ru": "Глаголы Do vs Make в разработке ПО",
+  "topic": "vocabulary_verbs",
+  "duration_minutes": 3,
+  "rule_ru": "'Do' используется для действий, процессов и рутинной работы: 'do research', 'do testing', 'do refactoring', 'do a task'. 'Make' используется, когда что-то создается или меняется: 'make a commit', 'make changes', 'make a decision', 'make an API call'.",
+  "examples": [
+    {
+      "en": "We need to make changes to the authentication flow.",
+      "ru": "Нам нужно внести изменения в поток аутентификации.",
+      "highlight": "make changes"
+    },
+    {
+      "en": "I will do the code review after the standup.",
+      "ru": "Я проведу код-ревью после стендапа.",
+      "highlight": "do the code review"
+    }
+  ],
+  "exercises": [
+    {
+      "exercise_id": "ex_01",
+      "type": "choice",
+      "prompt": "Please ___ a new branch before modifying the migrations.",
+      "options": [
+        "make",
+        "do",
+        "execute to",
+        "perform for"
+      ],
+      "answer": "make",
+      "explanation": "Создание чего-то нового (коммита, ветки, изменений) сочетается с глаголом 'make'."
+    },
+    {
+      "exercise_id": "ex_02",
+      "type": "choice",
+      "prompt": "Our QA team will ___ performance testing tomorrow.",
+      "options": [
+        "do",
+        "make",
+        "create of",
+        "build for"
+      ],
+      "answer": "do",
+      "explanation": "Проведение тестирования или анализа — это процесс/действие, поэтому используется 'do testing'."
+    },
+    {
+      "exercise_id": "ex_03",
+      "type": "choice",
+      "prompt": "We need to ___ a quick decision on the database schema.",
+      "options": [
+        "make",
+        "do",
+        "take over",
+        "put"
+      ],
+      "answer": "make",
+      "explanation": "Устойчивое выражение: 'make a decision' (принять решение)."
+    }
+  ]
+}

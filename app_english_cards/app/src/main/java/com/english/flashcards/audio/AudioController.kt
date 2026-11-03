@@ -21,9 +21,10 @@ class AudioController(
     private val handler = Handler(Looper.getMainLooper())
     private var currentCard: Flashcard? = null
     private var isAutoPlayEnabled = false
-    private var maxRepetitions = 2
+    private var maxRepetitions = 1
     private var currentRepetition = 0
     private var isPlaying = false
+    private var sessionToken = 0L
 
     // Manifest: cardId -> (role -> relativeAssetPath)
     private val manifestMap = HashMap<String, MutableMap<String, String>>()
@@ -61,10 +62,26 @@ class AudioController(
     fun isAutoPlay(): Boolean = isAutoPlayEnabled
 
     fun setMaxRepetitions(count: Int) {
-        maxRepetitions = count
+        maxRepetitions = maxOf(1, count)
     }
 
     fun getMaxRepetitions(): Int = maxRepetitions
+
+    /**
+     * Plays ONLY the prompt audio for Active Recall (NO SPOILERS).
+     * In EN -> RU mode, plays only term_en. Never plays translation before reveal.
+     */
+    fun playPrompt(card: Flashcard, isEnToRu: Boolean = true) {
+        stop()
+        currentCard = card
+        val role = if (isEnToRu) "term_en" else "meaning_ru"
+        val path = getSegmentPath(card, role)
+        if (path != null) {
+            playSingleFile(path)
+        } else {
+            Log.d(TAG, "Single segment for prompt role '$role' not found for card ${card.cardId}")
+        }
+    }
 
     /**
      * Plays only the English term (single segment).
@@ -75,7 +92,7 @@ class AudioController(
         if (path != null) {
             playSingleFile(path)
         } else {
-            playAudioFile(card.audio)
+            Log.d(TAG, "term_en not found in manifest for ${card.cardId}")
         }
     }
 
@@ -88,14 +105,37 @@ class AudioController(
         if (path != null) {
             playSingleFile(path)
         } else {
-            playAudioFile(card.audio)
+            Log.d(TAG, "example_en not found in manifest for ${card.cardId}")
         }
     }
 
     /**
-     * Plays the full pedagogical sequence for the card with repetitions.
+     * Introduction mode: plays full sequence once:
+     * term_en -> meaning_ru -> example_en -> example_ru
      */
-    fun playCard(card: Flashcard, restartRepetitions: Boolean = true) {
+    fun playIntroduction(card: Flashcard) {
+        stop()
+        currentCard = card
+        currentRepetition = 1
+        onRepetitionUpdate(1, 1)
+
+        val paths = mutableListOf<String>()
+        getSegmentPath(card, "term_en")?.let { paths.add(it) }
+        getSegmentPath(card, "meaning_ru")?.let { paths.add(it) }
+        getSegmentPath(card, "example_en")?.let { paths.add(it) }
+        getSegmentPath(card, "example_ru")?.let { paths.add(it) }
+
+        if (paths.isNotEmpty()) {
+            playSequence(paths)
+        } else {
+            playLegacyFallback(card)
+        }
+    }
+
+    /**
+     * Listening mode with configured repetitions (1x, 2x, 3x).
+     */
+    fun playListening(card: Flashcard, restartRepetitions: Boolean = true) {
         stop()
         currentCard = card
         if (restartRepetitions) {
@@ -103,14 +143,22 @@ class AudioController(
         }
         onRepetitionUpdate(currentRepetition, maxRepetitions)
 
-        val termPath = getSegmentPath(card, "term_en")
-        val meaningPath = getSegmentPath(card, "meaning_ru")
+        val paths = mutableListOf<String>()
+        getSegmentPath(card, "term_en")?.let { paths.add(it) }
+        getSegmentPath(card, "meaning_ru")?.let { paths.add(it) }
+        getSegmentPath(card, "example_en")?.let { paths.add(it) }
+        getSegmentPath(card, "example_ru")?.let { paths.add(it) }
 
-        if (termPath != null && meaningPath != null) {
-            playSequence(listOf(termPath, meaningPath))
+        if (paths.isNotEmpty()) {
+            playSequence(paths)
         } else {
-            playAudioFile(card.audio)
+            playLegacyFallback(card)
         }
+    }
+
+    // Kept for backward compatibility
+    fun playCard(card: Flashcard, restartRepetitions: Boolean = true) {
+        playListening(card, restartRepetitions)
     }
 
     private fun getSegmentPath(card: Flashcard, role: String): String? {
@@ -120,6 +168,7 @@ class AudioController(
     }
 
     private fun playSequence(paths: List<String>, index: Int = 0) {
+        val currentToken = sessionToken
         if (index >= paths.size) {
             handleSequenceFinished()
             return
@@ -127,60 +176,72 @@ class AudioController(
 
         val path = paths[index]
         playFile(path) {
+            if (sessionToken != currentToken) return@playFile
             handler.postDelayed({
-                playSequence(paths, index + 1)
-            }, 500)
+                if (sessionToken == currentToken) {
+                    playSequence(paths, index + 1)
+                }
+            }, 400)
         }
     }
 
     private fun handleSequenceFinished() {
+        val currentToken = sessionToken
         if (currentRepetition < maxRepetitions) {
             currentRepetition++
             onRepetitionUpdate(currentRepetition, maxRepetitions)
             handler.postDelayed({
-                currentCard?.let { playCard(it, restartRepetitions = false) }
+                if (sessionToken == currentToken && currentCard != null) {
+                    playListening(currentCard!!, restartRepetitions = false)
+                }
             }, 800)
-            return
-        }
-
-        onRepetitionUpdate(maxRepetitions, maxRepetitions)
-        isPlaying = false
-        if (isAutoPlayEnabled) {
-            handler.postDelayed({
-                onCardFinished()
-            }, 1200)
         } else {
-            onPlaybackStateChanged(false)
+            currentRepetition = 0
+            isPlaying = false
+            onPlaybackStateChanged(isAutoPlayEnabled)
+            if (isAutoPlayEnabled) {
+                handler.postDelayed({
+                    if (sessionToken == currentToken) {
+                        onCardFinished()
+                    }
+                }, 1000)
+            }
         }
     }
 
     private fun playSingleFile(assetPath: String) {
         playFile(assetPath) {
             isPlaying = false
-            onPlaybackStateChanged(false)
+            onPlaybackStateChanged(isAutoPlayEnabled)
         }
     }
 
-    private fun playAudioFile(audioFileName: String) {
-        val path = if (audioFileName.startsWith("audio/")) audioFileName else "audio/$audioFileName"
-        playFile(path) {
+    private fun playLegacyFallback(card: Flashcard) {
+        playFile("audio/word_${String.format("%04d", card.id)}.mp3") {
             handleSequenceFinished()
         }
     }
 
-    private fun playFile(assetPath: String, onCompletion: () -> Unit) {
+    private fun playFile(assetPath: String, onComplete: () -> Unit) {
+        val currentToken = sessionToken
         try {
-            val afd = context.assets.openFd(assetPath)
-            releasePlayer()
+            val afd: AssetFileDescriptor = context.assets.openFd(assetPath)
+            mediaPlayer?.release()
             mediaPlayer = MediaPlayer().apply {
                 setDataSource(afd.fileDescriptor, afd.startOffset, afd.length)
                 afd.close()
                 prepare()
                 setOnCompletionListener {
-                    onCompletion()
+                    if (sessionToken == currentToken) {
+                        onComplete()
+                    }
                 }
-                setOnErrorListener { _, _, _ ->
-                    stop()
+                setOnErrorListener { _, what, extra ->
+                    Log.w(TAG, "MediaPlayer error: what=$what, extra=$extra for $assetPath")
+                    if (sessionToken == currentToken) {
+                        this@AudioController.isPlaying = false
+                        onPlaybackStateChanged(isAutoPlayEnabled)
+                    }
                     true
                 }
                 start()
@@ -188,64 +249,67 @@ class AudioController(
             isPlaying = true
             onPlaybackStateChanged(true)
         } catch (e: Exception) {
-            Log.w(TAG, "Failed to play asset $assetPath: ${e.message}")
-            onCompletion()
-        }
-    }
-
-    fun replayCurrent() {
-        currentCard?.let { playCard(it, restartRepetitions = true) }
-    }
-
-    fun togglePlayPause() {
-        if (isPlaying || isAutoPlayEnabled) {
-            pause()
-        } else {
-            resume()
+            Log.w(TAG, "Failed to play asset '$assetPath': ${e.message}")
+            if (sessionToken == currentToken) {
+                isPlaying = false
+                onPlaybackStateChanged(isAutoPlayEnabled)
+            }
         }
     }
 
     fun pause() {
-        handler.removeCallbacksAndMessages(null)
         mediaPlayer?.let {
             if (it.isPlaying) {
                 it.pause()
             }
         }
         isPlaying = false
-        isAutoPlayEnabled = false
         onPlaybackStateChanged(false)
     }
 
     fun resume() {
-        isAutoPlayEnabled = true
         mediaPlayer?.let {
             it.start()
             isPlaying = true
             onPlaybackStateChanged(true)
-            return
+        } ?: run {
+            currentCard?.let { playListening(it, restartRepetitions = false) }
         }
-        currentCard?.let { playCard(it, restartRepetitions = false) }
     }
 
     fun stop() {
+        sessionToken++
         handler.removeCallbacksAndMessages(null)
-        releasePlayer()
-        isPlaying = false
-        onPlaybackStateChanged(false)
-    }
-
-    private fun releasePlayer() {
-        mediaPlayer?.let {
-            try {
-                if (it.isPlaying) it.stop()
-                it.release()
-            } catch (ignored: Exception) {}
+        try {
+            mediaPlayer?.stop()
+            mediaPlayer?.release()
+        } catch (e: Exception) {
+            // Ignore
         }
         mediaPlayer = null
+        isPlaying = false
+        onPlaybackStateChanged(isAutoPlayEnabled)
+    }
+
+    fun togglePlayPause() {
+        if (isPlaying) {
+            pause()
+        } else {
+            resume()
+        }
+    }
+
+    fun replayCurrent() {
+        currentCard?.let {
+            playListening(it, restartRepetitions = true)
+        }
     }
 
     fun destroy() {
+        release()
+    }
+
+    fun release() {
         stop()
     }
 }

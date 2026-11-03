@@ -1,18 +1,23 @@
 package com.english.flashcards
 
-import android.animation.ValueAnimator
 import android.content.ClipData
 import android.content.ClipboardManager
+import android.graphics.Color
 import android.os.Bundle
+import android.os.SystemClock
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.WindowManager
-import android.view.animation.AccelerateDecelerateInterpolator
+import android.widget.RadioButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.animation.doOnEnd
+import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.english.flashcards.audio.AudioController
 import com.english.flashcards.data.AppDatabase
@@ -22,7 +27,14 @@ import com.english.flashcards.data.ProgressManager
 import com.english.flashcards.data.ReviewEventEntity
 import com.english.flashcards.data.RoomMigrationHelper
 import com.english.flashcards.databinding.ActivityMainBinding
+import com.english.flashcards.databinding.DialogBackupBinding
 import com.english.flashcards.databinding.DialogCardExampleBinding
+import com.english.flashcards.databinding.DialogLessonDetailBinding
+import com.english.flashcards.databinding.DialogLessonsBinding
+import com.english.flashcards.databinding.DialogSearchBinding
+import com.english.flashcards.databinding.DialogStatsBinding
+import com.english.flashcards.databinding.ItemLessonBinding
+import com.english.flashcards.databinding.ItemSearchResultBinding
 import com.english.flashcards.fsrs.FSRSCard
 import com.english.flashcards.fsrs.FSRSScheduler
 import com.english.flashcards.fsrs.Rating
@@ -37,9 +49,20 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.json.JSONArray
+import org.json.JSONObject
+import java.io.InputStreamReader
+import java.util.UUID
 import java.util.concurrent.ConcurrentHashMap
 
 class MainActivity : AppCompatActivity() {
+
+    enum class StudyMode {
+        TODAY,
+        HARD,
+        CATEGORY,
+        LISTENING
+    }
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var repository: FlashcardRepository
@@ -56,6 +79,14 @@ class MainActivity : AppCompatActivity() {
     private var selectedCategory: String = "Все карточки"
     private var repeatCount: Int = 2
     private var isSplashActive: Boolean = true
+    private var currentMode: StudyMode = StudyMode.TODAY
+
+    // Monotonic timer for measuring real active recall duration
+    private var cardStartTimeMonotonic: Long = 0L
+
+    // For Undo
+    private var lastReviewAttemptId: String? = null
+    private var lastReviewPosition: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,66 +102,51 @@ class MainActivity : AppCompatActivity() {
         setupMenu()
         setupPlayerControls()
         setupBackNavigation()
-        startSplashAnimation()
+        startRealInitialization()
     }
 
-    private fun startSplashAnimation() {
+    private fun startRealInitialization() {
         isSplashActive = true
         binding.layoutSplash.visibility = View.VISIBLE
         binding.layoutSplash.alpha = 1f
         binding.layoutMenu.visibility = View.GONE
         binding.layoutPlayer.visibility = View.GONE
 
-        binding.ivSplashLogo.scaleX = 0.85f
-        binding.ivSplashLogo.scaleY = 0.85f
-        binding.ivSplashLogo.animate()
-            .scaleX(1.05f)
-            .scaleY(1.05f)
-            .setDuration(1200)
-            .setInterpolator(AccelerateDecelerateInterpolator())
-            .start()
+        binding.pbSplashLoading.progress = 20
+        binding.tvSplashPercent.text = "20%"
+        binding.tvSplashStatus.text = "Миграция и проверка Room БД..."
 
-        val animator = ValueAnimator.ofInt(0, 100)
-        animator.duration = 1500
-        animator.interpolator = AccelerateDecelerateInterpolator()
+        lifecycleScope.launch(Dispatchers.IO) {
+            val allCards = repository.getAllCards()
+            RoomMigrationHelper.checkAndMigrate(applicationContext, allCards)
 
-        animator.addUpdateListener { anim ->
-            val progress = anim.animatedValue as Int
-            binding.pbSplashLoading.progress = progress
-            binding.tvSplashPercent.text = "$progress%"
+            withContext(Dispatchers.Main) {
+                binding.pbSplashLoading.progress = 60
+                binding.tvSplashPercent.text = "60%"
+                binding.tvSplashStatus.text = "Загрузка FSRS расписания..."
+            }
 
-            binding.tvSplashStatus.text = when {
-                progress < 30 -> "Инициализация FSRS ядра и базы..."
-                progress < 70 -> "Загрузка IT словаря (1680 единиц)..."
-                progress < 95 -> "Синхронизация Room БД..."
-                else -> "Все готово!"
+            loadPracticeCache()
+
+            withContext(Dispatchers.Main) {
+                binding.pbSplashLoading.progress = 100
+                binding.tvSplashPercent.text = "100%"
+                binding.tvSplashStatus.text = "Все готово!"
+
+                binding.layoutSplash.animate()
+                    .alpha(0f)
+                    .setDuration(300)
+                    .withEndAction {
+                        binding.layoutSplash.visibility = View.GONE
+                        isSplashActive = false
+                        refreshMenuStats()
+                        binding.layoutMenu.alpha = 0f
+                        binding.layoutMenu.visibility = View.VISIBLE
+                        binding.layoutMenu.animate().alpha(1f).setDuration(300).start()
+                    }
+                    .start()
             }
         }
-
-        // Room DB migration & cache load in background
-        lifecycleScope.launch(Dispatchers.IO) {
-            RoomMigrationHelper.checkAndMigrate(applicationContext, repository.getAllCards())
-            loadPracticeCache()
-        }
-
-        animator.doOnEnd {
-            isSplashActive = false
-            refreshMenuStats()
-
-            binding.layoutMenu.alpha = 0f
-            binding.layoutMenu.visibility = View.VISIBLE
-            binding.layoutMenu.animate().alpha(1f).setDuration(400).start()
-
-            binding.layoutSplash.animate()
-                .alpha(0f)
-                .setDuration(400)
-                .withEndAction {
-                    binding.layoutSplash.visibility = View.GONE
-                }
-                .start()
-        }
-
-        animator.start()
     }
 
     private suspend fun loadPracticeCache() {
@@ -158,31 +174,62 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupMenu() {
-        val allCatName = repository.getCategories().firstOrNull() ?: "Все карточки"
-        binding.btnFeaturedAll.setOnClickListener {
-            openPlayerWithCategory(allCatName)
+        // Top Tools Row
+        binding.btnMenuLessons.setOnClickListener {
+            showLessonsDialog()
         }
-        binding.btnStartAll.setOnClickListener {
-            openPlayerWithCategory(allCatName)
+        binding.btnMenuSearch.setOnClickListener {
+            showSearchDialog()
+        }
+        binding.btnMenuStats.setOnClickListener {
+            showStatsDialog()
+        }
+        binding.btnMenuBackup.setOnClickListener {
+            showBackupDialog()
         }
 
+        // 1. Featured TODAY (FSRS Due Queue)
+        val onTodayClick = View.OnClickListener {
+            openPlayerWithToday()
+        }
+        binding.btnFeaturedToday.setOnClickListener(onTodayClick)
+        binding.btnStartToday.setOnClickListener(onTodayClick)
+
+        // 2. Featured HARD
         val onHardClick = View.OnClickListener {
             openPlayerWithHardCards()
         }
         binding.btnFeaturedHard.setOnClickListener(onHardClick)
         binding.btnStartHard.setOnClickListener(onHardClick)
 
+        // 3. Featured LISTENING
+        val onListeningClick = View.OnClickListener {
+            val allCatName = repository.getCategories().firstOrNull() ?: "Все карточки"
+            openPlayerWithListening(allCatName)
+        }
+        binding.btnFeaturedListening.setOnClickListener(onListeningClick)
+        binding.btnStartListening.setOnClickListener(onListeningClick)
+
+        // 4. Featured ALL
+        val allCatName = repository.getCategories().firstOrNull() ?: "Все карточки"
+        val onAllClick = View.OnClickListener {
+            openPlayerWithCategory(allCatName)
+        }
+        binding.btnFeaturedAll.setOnClickListener(onAllClick)
+        binding.btnStartAll.setOnClickListener(onAllClick)
+
+        // Repeat Switcher in Menu
         binding.btnMenuRepeatCount.text = "${repeatCount}x (повтор)"
         binding.btnMenuRepeatCount.setOnClickListener {
             toggleRepeatCount()
             binding.btnMenuRepeatCount.text = "${repeatCount}x (повтор)"
         }
 
+        // Category Menu Adapter
         val categoryItems = buildCategoryItems()
         menuAdapter = CategoryMenuAdapter(categoryItems) { item ->
             openPlayerWithCategory(item.name)
         }
-
         binding.rvMenuCategories.layoutManager = LinearLayoutManager(this)
         binding.rvMenuCategories.adapter = menuAdapter
 
@@ -222,8 +269,25 @@ class MainActivity : AppCompatActivity() {
             "Нет карточек на повторение"
         }
 
+        binding.tvAppSubtitle.text = "IT, Backend & Python • $totalCount карточек"
+        binding.tvAllSubtitle.text = "Полная колода из $totalCount слов"
+
         if (::menuAdapter.isInitialized) {
             menuAdapter.updateItems(buildCategoryItems())
+        }
+
+        // Refresh Today queue stats from Room DB
+        lifecycleScope.launch(Dispatchers.IO) {
+            val now = System.currentTimeMillis()
+            val dueCount = db.practiceDao().countDuePractices(now)
+            val newCount = db.practiceDao().countNewPractices()
+            withContext(Dispatchers.Main) {
+                binding.tvTodaySubtitle.text = if (dueCount > 0 || newCount > 0) {
+                    "$dueCount к повторению • ${minOf(10, newCount)} новых"
+                } else {
+                    "Все повторения на сегодня выполнены!"
+                }
+            }
         }
     }
 
@@ -272,7 +336,12 @@ class MainActivity : AppCompatActivity() {
             progressManager = progressManager,
             fsrsScheduler = fsrsScheduler,
             onCardClick = { card ->
-                audioController.playCard(card, restartRepetitions = true)
+                // Prompt stimulus only when not in listening mode (NO spoilers before reveal)
+                if (currentMode == StudyMode.LISTENING) {
+                    audioController.playListening(card, restartRepetitions = true)
+                } else {
+                    audioController.playPrompt(card, isEnToRu = true)
+                }
             },
             onExampleClick = { card ->
                 showExampleBottomSheet(card)
@@ -296,9 +365,16 @@ class MainActivity : AppCompatActivity() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 updateProgress(position)
+                cardStartTimeMonotonic = SystemClock.elapsedRealtime()
+
                 val card = cardAdapter.getCard(position)
                 if (card != null && audioController.isAutoPlay()) {
-                    audioController.playCard(card, restartRepetitions = true)
+                    if (currentMode == StudyMode.LISTENING) {
+                        audioController.playListening(card, restartRepetitions = true)
+                    } else {
+                        // In Active Recall, play ONLY prompt (NO spoilers!)
+                        audioController.playPrompt(card, isEnToRu = true)
+                    }
                 }
             }
         })
@@ -308,6 +384,8 @@ class MainActivity : AppCompatActivity() {
         val cardKey = card.cardId.ifEmpty { "legacy.${card.id}" }
         val practiceId = "$cardKey.en_to_ru"
         val now = System.currentTimeMillis()
+        val duration = maxOf(200L, SystemClock.elapsedRealtime() - cardStartTimeMonotonic)
+        val attemptId = UUID.randomUUID().toString()
 
         val currentFsrsCard = practiceCache[practiceId] ?: FSRSCard(
             practiceId = practiceId,
@@ -319,7 +397,11 @@ class MainActivity : AppCompatActivity() {
         val updatedCard = fsrsScheduler.review(currentFsrsCard, rating, now)
         practiceCache[practiceId] = updatedCard
 
-        // Save to Room DB in background
+        lastReviewAttemptId = attemptId
+        lastReviewPosition = binding.vpCards.currentItem
+        binding.btnUndoReview.visibility = View.VISIBLE
+
+        // Atomic transaction to Room DB
         lifecycleScope.launch(Dispatchers.IO) {
             val entity = PracticeStateEntity(
                 practiceId = updatedCard.practiceId,
@@ -335,22 +417,22 @@ class MainActivity : AppCompatActivity() {
                 due = updatedCard.due,
                 lastReview = updatedCard.lastReview
             )
-            db.practiceDao().upsert(entity)
 
             val event = ReviewEventEntity(
+                attemptId = attemptId,
                 practiceId = practiceId,
                 cardId = cardKey,
                 skill = "en_to_ru",
                 rating = rating.value,
                 reviewTime = now,
-                durationMs = 2000L,
+                durationMs = duration,
                 stateBefore = currentFsrsCard.state.value,
                 stateAfter = updatedCard.state.value,
                 stabilityAfter = updatedCard.stability,
                 difficultyAfter = updatedCard.difficulty,
                 scheduledDaysAfter = updatedCard.scheduledDays
             )
-            db.reviewEventDao().insert(event)
+            db.recordReviewTransaction(entity, event)
         }
 
         // Update legacy status for backward compatibility
@@ -371,9 +453,35 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun handleUndoLastReview() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            val success = db.undoLastReviewTransaction()
+            loadPracticeCache()
+            withContext(Dispatchers.Main) {
+                if (success) {
+                    Toast.makeText(this@MainActivity, "Оценка отменена ↩", Toast.LENGTH_SHORT).show()
+                    binding.btnUndoReview.visibility = View.GONE
+                    lastReviewPosition?.let { pos ->
+                        if (pos in currentCards.indices) {
+                            binding.vpCards.setCurrentItem(pos, true)
+                        }
+                    }
+                    updateDeckStats()
+                    refreshMenuStats()
+                } else {
+                    Toast.makeText(this@MainActivity, "Нечего отменять", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
     private fun setupPlayerControls() {
         binding.btnBackToMenu.setOnClickListener {
             returnToMenu()
+        }
+
+        binding.btnUndoReview.setOnClickListener {
+            handleUndoLastReview()
         }
 
         binding.btnPlayPause.setOnClickListener {
@@ -427,13 +535,59 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    private fun openPlayerWithToday() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            val now = System.currentTimeMillis()
+            val duePractices = db.practiceDao().getDuePractices(now)
+            val newPractices = db.practiceDao().getNewPractices(10)
+            val sessionPractices = (duePractices + newPractices).distinctBy { it.cardId }
+            val cards = sessionPractices.mapNotNull { p ->
+                repository.getCardById(p.cardId)
+            }
+
+            withContext(Dispatchers.Main) {
+                if (cards.isEmpty()) {
+                    Toast.makeText(this@MainActivity, "Все повторения на сегодня выполнены! 🎉", Toast.LENGTH_LONG).show()
+                    return@withContext
+                }
+                currentMode = StudyMode.TODAY
+                selectedCategory = "🎯 Сегодня"
+                currentCards = cards
+
+                binding.tvPlayerModeBadge.text = "🎯 Сегодня"
+                binding.btnPlayerCategory.text = "Сегодня ▾"
+                binding.btnPlayerRepeatCount.text = "${repeatCount}x"
+                binding.btnUndoReview.visibility = View.GONE
+
+                cardAdapter.resetRevealed()
+                cardAdapter.updateCards(currentCards)
+                binding.vpCards.setCurrentItem(0, false)
+                updateProgress(0)
+                updateDeckStats()
+
+                binding.layoutMenu.visibility = View.GONE
+                binding.layoutPlayer.visibility = View.VISIBLE
+
+                cardStartTimeMonotonic = SystemClock.elapsedRealtime()
+                audioController.setAutoPlay(true)
+                binding.vpCards.post {
+                    audioController.playPrompt(currentCards[0], isEnToRu = true)
+                }
+            }
+        }
+    }
+
     private fun openPlayerWithCategory(categoryName: String) {
+        currentMode = StudyMode.CATEGORY
         selectedCategory = categoryName
         currentCards = repository.getCardsByCategory(selectedCategory)
 
+        binding.tvPlayerModeBadge.text = "🌟 Карточки"
         binding.btnPlayerCategory.text = if (selectedCategory.startsWith("Все")) "Все ▾" else "$selectedCategory ▾"
         binding.btnPlayerRepeatCount.text = "${repeatCount}x"
+        binding.btnUndoReview.visibility = View.GONE
 
+        cardAdapter.resetRevealed()
         cardAdapter.updateCards(currentCards)
         binding.vpCards.setCurrentItem(0, false)
         updateProgress(0)
@@ -443,9 +597,10 @@ class MainActivity : AppCompatActivity() {
         binding.layoutPlayer.visibility = View.VISIBLE
 
         if (currentCards.isNotEmpty()) {
+            cardStartTimeMonotonic = SystemClock.elapsedRealtime()
             audioController.setAutoPlay(true)
             binding.vpCards.post {
-                audioController.playCard(currentCards[0], restartRepetitions = true)
+                audioController.playPrompt(currentCards[0], isEnToRu = true)
             }
         }
     }
@@ -458,12 +613,44 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
+        currentMode = StudyMode.HARD
         selectedCategory = "🔥 На повторение"
         currentCards = hardCards
 
+        binding.tvPlayerModeBadge.text = "🔥 Повтор"
         binding.btnPlayerCategory.text = "Повтор ▾"
         binding.btnPlayerRepeatCount.text = "${repeatCount}x"
+        binding.btnUndoReview.visibility = View.GONE
 
+        cardAdapter.resetRevealed()
+        cardAdapter.updateCards(currentCards)
+        binding.vpCards.setCurrentItem(0, false)
+        updateProgress(0)
+        updateDeckStats()
+
+        binding.layoutMenu.visibility = View.GONE
+        binding.layoutPlayer.visibility = View.VISIBLE
+
+        if (currentCards.isNotEmpty()) {
+            cardStartTimeMonotonic = SystemClock.elapsedRealtime()
+            audioController.setAutoPlay(true)
+            binding.vpCards.post {
+                audioController.playPrompt(currentCards[0], isEnToRu = true)
+            }
+        }
+    }
+
+    private fun openPlayerWithListening(categoryName: String) {
+        currentMode = StudyMode.LISTENING
+        selectedCategory = categoryName
+        currentCards = repository.getCardsByCategory(selectedCategory)
+
+        binding.tvPlayerModeBadge.text = "🎧 Слушание"
+        binding.btnPlayerCategory.text = if (selectedCategory.startsWith("Все")) "Все ▾" else "$selectedCategory ▾"
+        binding.btnPlayerRepeatCount.text = "${repeatCount}x"
+        binding.btnUndoReview.visibility = View.GONE
+
+        cardAdapter.revealAll()
         cardAdapter.updateCards(currentCards)
         binding.vpCards.setCurrentItem(0, false)
         updateProgress(0)
@@ -475,7 +662,7 @@ class MainActivity : AppCompatActivity() {
         if (currentCards.isNotEmpty()) {
             audioController.setAutoPlay(true)
             binding.vpCards.post {
-                audioController.playCard(currentCards[0], restartRepetitions = true)
+                audioController.playListening(currentCards[0], restartRepetitions = true)
             }
         }
     }
@@ -502,6 +689,7 @@ class MainActivity : AppCompatActivity() {
         val hardCount = progressManager.getHardCards(allCards).size
 
         val categoryOptions = mutableListOf<Pair<String, String>>()
+        categoryOptions.add("🎯 Сегодня" to "🎯 Сегодня (FSRS очередь)")
         val allCatOption = repository.getCategories().firstOrNull() ?: "Все карточки"
         categoryOptions.add(allCatOption to "🌟 $allCatOption")
         if (hardCount > 0) {
@@ -522,13 +710,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         MaterialAlertDialogBuilder(this)
-            .setTitle("Выберите тему карточек")
+            .setTitle("Выберите режим или тему")
             .setSingleChoiceItems(displayItems, selectedIndex) { dialog, which ->
                 val chosenCategory = categoryOptions[which].first
-                if (chosenCategory == "🔥 На повторение") {
-                    openPlayerWithHardCards()
-                } else {
-                    openPlayerWithCategory(chosenCategory)
+                when (chosenCategory) {
+                    "🎯 Сегодня" -> openPlayerWithToday()
+                    "🔥 На повторение" -> openPlayerWithHardCards()
+                    else -> openPlayerWithCategory(chosenCategory)
                 }
                 dialog.dismiss()
             }
@@ -580,19 +768,386 @@ class MainActivity : AppCompatActivity() {
     private fun showDeckCompletionDialog() {
         updateKeepScreenOn(false)
         MaterialAlertDialogBuilder(this)
-            .setTitle("🎉 Колода завершена!")
-            .setMessage("Вы успешно повторили слова из раздела «$selectedCategory».")
+            .setTitle("🎉 Сессия завершена!")
+            .setMessage("Вы успешно прошли карточки раздела «$selectedCategory».")
             .setPositiveButton("Повторить сначала") { _, _ ->
                 binding.vpCards.setCurrentItem(0, true)
                 if (currentCards.isNotEmpty()) {
-                    audioController.playCard(currentCards[0], restartRepetitions = true)
+                    if (currentMode == StudyMode.LISTENING) {
+                        audioController.playListening(currentCards[0], restartRepetitions = true)
+                    } else {
+                        audioController.playPrompt(currentCards[0], isEnToRu = true)
+                    }
                 }
             }
-            .setNeutralButton("В меню тем") { _, _ ->
+            .setNeutralButton("В меню") { _, _ ->
                 returnToMenu()
             }
             .setCancelable(false)
             .show()
+    }
+
+    // =========================================================================
+    // FEATURE 1: SEARCH & DICTIONARY
+    // =========================================================================
+    private fun showSearchDialog() {
+        val dialog = BottomSheetDialog(this)
+        val dialogBinding = DialogSearchBinding.inflate(layoutInflater)
+        dialog.setContentView(dialogBinding.root)
+
+        val allCards = repository.getAllCards()
+        val resultsList = mutableListOf<Flashcard>()
+
+        class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
+            inner class ViewHolder(val b: ItemSearchResultBinding) : RecyclerView.ViewHolder(b.root)
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+                val b = ItemSearchResultBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                return ViewHolder(b)
+            }
+            override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+                val card = resultsList[position]
+                holder.b.tvSearchWord.text = card.word
+                holder.b.tvSearchTranslation.text = card.cleanTranslation
+                holder.b.tvSearchCategory.text = card.category
+                holder.itemView.setOnClickListener {
+                    dialog.dismiss()
+                    showExampleBottomSheet(card)
+                }
+            }
+            override fun getItemCount() = resultsList.size
+        }
+
+        val adapter = SearchAdapter()
+        dialogBinding.rvSearchResults.layoutManager = LinearLayoutManager(this)
+        dialogBinding.rvSearchResults.adapter = adapter
+
+        dialogBinding.etSearchQuery.doAfterTextChanged { text ->
+            val q = text?.toString()?.trim() ?: ""
+            resultsList.clear()
+            if (q.isNotEmpty()) {
+                val matched = allCards.filter {
+                    it.word.contains(q, ignoreCase = true) ||
+                    it.cleanTranslation.contains(q, ignoreCase = true) ||
+                    it.category.contains(q, ignoreCase = true) ||
+                    (!it.technicalCode.isNullOrEmpty() && it.technicalCode.contains(q, ignoreCase = true)) ||
+                    it.tags.any { tag -> tag.contains(q, ignoreCase = true) }
+                }.take(100)
+                resultsList.addAll(matched)
+            }
+            dialogBinding.tvSearchResultsCount.text = "Найдено карточек: ${resultsList.size}"
+            adapter.notifyDataSetChanged()
+        }
+
+        dialogBinding.btnCloseSearch.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    // =========================================================================
+    // FEATURE 2: 12 MICRO-LESSONS
+    // =========================================================================
+    private fun showLessonsDialog() {
+        val dialog = BottomSheetDialog(this)
+        val dialogBinding = DialogLessonsBinding.inflate(layoutInflater)
+        dialog.setContentView(dialogBinding.root)
+
+        val lessons = loadLessonsFromAssets()
+
+        class LessonsAdapter : RecyclerView.Adapter<LessonsAdapter.ViewHolder>() {
+            inner class ViewHolder(val b: ItemLessonBinding) : RecyclerView.ViewHolder(b.root)
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+                val b = ItemLessonBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                return ViewHolder(b)
+            }
+            override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+                val item = lessons[position]
+                holder.b.tvLessonNumber.text = String.format("%02d", position + 1)
+                holder.b.tvLessonTitle.text = item.optString("title_ru", "Урок")
+                val dur = item.optInt("duration_minutes", 3)
+                val exCount = item.optJSONArray("exercises")?.length() ?: 3
+                holder.b.tvLessonDuration.text = "⏱ $dur мин • $exCount упражнения"
+
+                holder.itemView.setOnClickListener {
+                    dialog.dismiss()
+                    showLessonDetailDialog(item)
+                }
+            }
+            override fun getItemCount() = lessons.size
+        }
+
+        dialogBinding.rvLessonsList.layoutManager = LinearLayoutManager(this)
+        dialogBinding.rvLessonsList.adapter = LessonsAdapter()
+
+        dialogBinding.btnCloseLessons.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    private fun loadLessonsFromAssets(): List<JSONObject> {
+        val result = mutableListOf<JSONObject>()
+        try {
+            val list = assets.list("lessons") ?: emptyArray()
+            val sortedFiles = list.filter { it.endsWith(".json") }.sorted()
+            for (filename in sortedFiles) {
+                val stream = assets.open("lessons/$filename")
+                val content = InputStreamReader(stream).readText()
+                result.add(JSONObject(content))
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return result
+    }
+
+    private fun showLessonDetailDialog(lessonObj: JSONObject) {
+        val dialog = BottomSheetDialog(this)
+        val dialogBinding = DialogLessonDetailBinding.inflate(layoutInflater)
+        dialog.setContentView(dialogBinding.root)
+
+        dialogBinding.tvLessonDetailTitle.text = lessonObj.optString("title_ru", "Микроурок")
+        dialogBinding.tvLessonDetailTopic.text = "Тема: " + lessonObj.optString("topic", "IT English")
+        dialogBinding.tvLessonDetailRule.text = lessonObj.optString("rule_ru", "")
+
+        // Render examples
+        val examplesArr = lessonObj.optJSONArray("examples")
+        dialogBinding.layoutLessonExamples.removeAllViews()
+        if (examplesArr != null) {
+            for (i in 0 until examplesArr.length()) {
+                val exObj = examplesArr.getJSONObject(i)
+                val en = exObj.optString("en", "")
+                val ru = exObj.optString("ru", "")
+                val tv = TextView(this).apply {
+                    text = "• $en\n  $ru"
+                    setTextColor(Color.parseColor("#E2E8F0"))
+                    textSize = 13f
+                    setPadding(8, 6, 8, 6)
+                }
+                dialogBinding.layoutLessonExamples.addView(tv)
+            }
+        }
+
+        // Exercises flow
+        val exercisesArr = lessonObj.optJSONArray("exercises") ?: JSONArray()
+        var currentExIndex = 0
+
+        fun bindExercise(index: Int) {
+            if (index >= exercisesArr.length()) {
+                dialogBinding.tvExerciseHeader.text = "🎉 Урок завершен!"
+                dialogBinding.tvExercisePrompt.text = "Вы успешно выполнили все упражнения этого урока."
+                dialogBinding.rgExerciseOptions.removeAllViews()
+                dialogBinding.tvExerciseFeedback.visibility = View.GONE
+                dialogBinding.btnSubmitExercise.text = "Вернуться к списку уроков"
+                dialogBinding.btnSubmitExercise.setOnClickListener {
+                    dialog.dismiss()
+                    showLessonsDialog()
+                }
+                return
+            }
+
+            val ex = exercisesArr.getJSONObject(index)
+            dialogBinding.tvExerciseHeader.text = "УПРАЖНЕНИЕ ${index + 1} ИЗ ${exercisesArr.length()}"
+            dialogBinding.tvExercisePrompt.text = ex.optString("prompt", "")
+            dialogBinding.tvExerciseFeedback.visibility = View.GONE
+            dialogBinding.btnSubmitExercise.text = "Проверить ответ"
+
+            dialogBinding.rgExerciseOptions.removeAllViews()
+            val optionsArr = ex.optJSONArray("options")
+            if (optionsArr != null) {
+                for (optIdx in 0 until optionsArr.length()) {
+                    val optText = optionsArr.getString(optIdx)
+                    val rb = RadioButton(this).apply {
+                        text = optText
+                        setTextColor(Color.WHITE)
+                        textSize = 14f
+                        id = View.generateViewId()
+                    }
+                    dialogBinding.rgExerciseOptions.addView(rb)
+                }
+            }
+
+            dialogBinding.btnSubmitExercise.setOnClickListener {
+                val selectedId = dialogBinding.rgExerciseOptions.checkedRadioButtonId
+                if (selectedId == -1) {
+                    Toast.makeText(this@MainActivity, "Выберите вариант ответа", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
+                val selectedRb = dialogBinding.rgExerciseOptions.findViewById<RadioButton>(selectedId)
+                val chosenAnswer = selectedRb?.text?.toString() ?: ""
+                val correctAnswer = ex.optString("answer", "")
+                val explanation = ex.optString("explanation", "")
+
+                dialogBinding.tvExerciseFeedback.visibility = View.VISIBLE
+                if (chosenAnswer.trim() == correctAnswer.trim()) {
+                    dialogBinding.tvExerciseFeedback.text = "✅ Верно!\n$explanation"
+                    dialogBinding.tvExerciseFeedback.setTextColor(Color.parseColor("#34D399"))
+                } else {
+                    dialogBinding.tvExerciseFeedback.text = "❌ Неверно. Правильный ответ: '$correctAnswer'\n$explanation"
+                    dialogBinding.tvExerciseFeedback.setTextColor(Color.parseColor("#F87171"))
+                }
+
+                dialogBinding.btnSubmitExercise.text = if (index + 1 < exercisesArr.length()) "Следующее упражнение" else "Завершить урок"
+                dialogBinding.btnSubmitExercise.setOnClickListener {
+                    currentExIndex++
+                    bindExercise(currentExIndex)
+                }
+            }
+        }
+
+        bindExercise(0)
+
+        dialogBinding.btnBackFromLesson.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    // =========================================================================
+    // FEATURE 3: STATISTICS DIALOG
+    // =========================================================================
+    private fun showStatsDialog() {
+        val dialog = BottomSheetDialog(this)
+        val dialogBinding = DialogStatsBinding.inflate(layoutInflater)
+        dialog.setContentView(dialogBinding.root)
+
+        val allCards = repository.getAllCards()
+        val (learned, hard, _) = progressManager.getCounts(allCards)
+
+        dialogBinding.tvStatsTotalCards.text = "Всего карточек в базе: ${allCards.size}"
+        dialogBinding.tvStatsLearned.text = "🟢 Изучено: $learned"
+        dialogBinding.tvStatsHard.text = "🟡 На повторении: $hard"
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            val now = System.currentTimeMillis()
+            val due = db.practiceDao().countDuePractices(now)
+            val totalReviews = db.reviewEventDao().countTotalReviews()
+            val successfulReviews = db.reviewEventDao().countSuccessfulReviews()
+            val rate = if (totalReviews > 0) ((successfulReviews * 100f) / totalReviews).toInt() else 0
+
+            withContext(Dispatchers.Main) {
+                dialogBinding.tvStatsDueToday.text = "🎯 К повторению сегодня: $due"
+                dialogBinding.tvStatsTotalReviews.text = "Всего ответов зафиксировано: $totalReviews"
+                dialogBinding.tvStatsSuccessRate.text = "Успешных ответов (Good/Easy): $rate%"
+            }
+        }
+
+        dialogBinding.btnCloseStats.setOnClickListener { dialog.dismiss() }
+        dialogBinding.btnDismissStats.setOnClickListener { dialog.dismiss() }
+        dialog.show()
+    }
+
+    // =========================================================================
+    // FEATURE 4: BACKUP & RESTORE
+    // =========================================================================
+    private fun showBackupDialog() {
+        val dialog = BottomSheetDialog(this)
+        val dialogBinding = DialogBackupBinding.inflate(layoutInflater)
+        dialog.setContentView(dialogBinding.root)
+
+        dialogBinding.btnExportData.setOnClickListener {
+            lifecycleScope.launch(Dispatchers.IO) {
+                val practices = db.practiceDao().getAll()
+                val events = db.reviewEventDao().getRecentEvents(1000)
+
+                val root = JSONObject().apply {
+                    put("version", 2)
+                    put("timestamp", System.currentTimeMillis())
+                    val pArr = JSONArray()
+                    for (p in practices) {
+                        pArr.put(JSONObject().apply {
+                            put("practiceId", p.practiceId)
+                            put("cardId", p.cardId)
+                            put("skill", p.skill)
+                            put("state", p.state)
+                            put("stability", p.stability)
+                            put("difficulty", p.difficulty)
+                            put("elapsedDays", p.elapsedDays)
+                            put("scheduledDays", p.scheduledDays)
+                            put("reps", p.reps)
+                            put("lapses", p.lapses)
+                            put("due", p.due)
+                            put("lastReview", p.lastReview)
+                        })
+                    }
+                    put("practices", pArr)
+
+                    val eArr = JSONArray()
+                    for (e in events) {
+                        eArr.put(JSONObject().apply {
+                            put("attemptId", e.attemptId)
+                            put("practiceId", e.practiceId)
+                            put("cardId", e.cardId)
+                            put("skill", e.skill)
+                            put("rating", e.rating)
+                            put("reviewTime", e.reviewTime)
+                            put("durationMs", e.durationMs)
+                        })
+                    }
+                    put("events", eArr)
+                }
+
+                val jsonStr = root.toString()
+                withContext(Dispatchers.Main) {
+                    val clipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+                    clipboard.setPrimaryClip(ClipData.newPlainText("EnglishCardsBackup", jsonStr))
+                    dialogBinding.tvExportStatus.visibility = View.VISIBLE
+                    dialogBinding.tvExportStatus.text = "✅ Скопировано в буфер обмена! (${practices.size} карточек, ${events.size} ответов)"
+                    Toast.makeText(this@MainActivity, "Бэкап скопирован в буфер", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+        dialogBinding.btnImportData.setOnClickListener {
+            val input = dialogBinding.etImportJson.text?.toString()?.trim() ?: ""
+            if (input.isEmpty()) {
+                Toast.makeText(this, "Вставьте JSON для восстановления", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            try {
+                val root = JSONObject(input)
+                val pArr = root.optJSONArray("practices") ?: JSONArray()
+                lifecycleScope.launch(Dispatchers.IO) {
+                    val pList = mutableListOf<PracticeStateEntity>()
+                    for (i in 0 until pArr.length()) {
+                        val obj = pArr.getJSONObject(i)
+                        pList.add(
+                            PracticeStateEntity(
+                                practiceId = obj.getString("practiceId"),
+                                cardId = obj.getString("cardId"),
+                                skill = obj.optString("skill", "en_to_ru"),
+                                state = obj.optInt("state", 0),
+                                stability = obj.optDouble("stability", 0.0),
+                                difficulty = obj.optDouble("difficulty", 0.0),
+                                elapsedDays = obj.optLong("elapsedDays", 0),
+                                scheduledDays = obj.optLong("scheduledDays", 0),
+                                reps = obj.optInt("reps", 0),
+                                lapses = obj.optInt("lapses", 0),
+                                due = obj.optLong("due", System.currentTimeMillis()),
+                                lastReview = obj.optLong("lastReview", 0)
+                            )
+                        )
+                    }
+                    db.practiceDao().upsertAll(pList)
+                    loadPracticeCache()
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(this@MainActivity, "Успешно восстановлено ${pList.size} карточек!", Toast.LENGTH_LONG).show()
+                        dialog.dismiss()
+                        refreshMenuStats()
+                    }
+                }
+            } catch (e: Exception) {
+                Toast.makeText(this, "Ошибка разбора JSON: ${e.message}", Toast.LENGTH_LONG).show()
+            }
+        }
+
+        dialogBinding.btnCloseBackup.setOnClickListener { dialog.dismiss() }
+        dialog.show()
     }
 
     private fun updateProgress(position: Int) {

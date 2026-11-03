@@ -14,6 +14,9 @@ interface UserEntryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(entry: UserEntryStateEntity)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertAll(entries: List<UserEntryStateEntity>)
+
     @Query("SELECT * FROM user_entry_states WHERE isPinned = 1")
     suspend fun getPinnedCards(): List<UserEntryStateEntity>
 

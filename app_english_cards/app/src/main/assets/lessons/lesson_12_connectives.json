@@ -1,0 +1,60 @@
+{
+  "lesson_id": "lesson_12_connectives",
+  "title_ru": "Логические связки в технической документации (However, Therefore)",
+  "topic": "connectives",
+  "duration_minutes": 3,
+  "rule_ru": "'However' (однако, тем не менее) выделяется запятыми и вводит противопоставление: 'The test passed; however, latency increased'. 'Therefore' (следовательно, поэтому) выражает логический вывод: 'Traffic doubled, therefore we scaled the cluster'. 'Although' (хотя) соединяет зависимое предложение без точки с запятой.",
+  "examples": [
+    {
+      "en": "The query is fast; however, it consumes too much RAM.",
+      "ru": "Запрос быстрый, однако он потребляет слишком много оперативной памяти.",
+      "highlight": "however, it consumes"
+    },
+    {
+      "en": "The node failed health checks, therefore traffic was rerouted.",
+      "ru": "Узел не прошел проверку здоровья, поэтому трафик был перенаправлен.",
+      "highlight": "therefore traffic was rerouted"
+    }
+  ],
+  "exercises": [
+    {
+      "exercise_id": "ex_01",
+      "type": "choice",
+      "prompt": "The build succeeded; ___, we cannot deploy without QA approval.",
+      "options": [
+        "however",
+        "because",
+        "although",
+        "so that"
+      ],
+      "answer": "however",
+      "explanation": "'However' используется для контраста между независимыми предложениями и выделяется запятой."
+    },
+    {
+      "exercise_id": "ex_02",
+      "type": "choice",
+      "prompt": "Disk usage reached 95%, ___ the monitoring service triggered a critical alert.",
+      "options": [
+        "therefore",
+        "despite",
+        "although",
+        "whereas"
+      ],
+      "answer": "therefore",
+      "explanation": "'Therefore' выражает прямое логическое следствие из предыдущего факта."
+    },
+    {
+      "exercise_id": "ex_03",
+      "type": "choice",
+      "prompt": "___ the database was under high load, latency remained acceptable.",
+      "options": [
+        "Although",
+        "However",
+        "Therefore",
+        "In order to"
+      ],
+      "answer": "Although",
+      "explanation": "'Although' присоединяет придаточное уступки: 'Хотя база данных была под высокой нагрузкой...'."
+    }
+  ]
+}
