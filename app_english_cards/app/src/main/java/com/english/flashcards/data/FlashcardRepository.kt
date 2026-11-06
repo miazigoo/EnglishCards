@@ -85,6 +85,14 @@ class FlashcardRepository(private val context: Context) {
                         techObj.getString("expected_output")
                     } else null
 
+                    val practiceObj = obj.optJSONObject("practice")
+                    val acceptedArray = practiceObj?.optJSONArray("accepted_answers")
+                    val acceptedList = mutableListOf<String>()
+                    if (acceptedArray != null) {
+                        for (j in 0 until acceptedArray.length()) acceptedList.add(acceptedArray.getString(j))
+                    }
+                    val clozeTarget = practiceObj?.optJSONObject("cloze")?.optCleanString("target")
+
                     val tagsArr = obj.optJSONArray("tags")
                     val tagList = mutableListOf<String>()
                     if (tagsArr != null) {
@@ -93,7 +101,21 @@ class FlashcardRepository(private val context: Context) {
                         }
                     }
 
-                    val cat = if (tagList.isNotEmpty()) tagList[0].replaceFirstChar { it.uppercase() } else "Общее"
+                    val collectionsArr = obj.optJSONArray("study_collections")
+                    val collectionList = mutableListOf<String>()
+                    if (collectionsArr != null) {
+                        for (j in 0 until collectionsArr.length()) {
+                            collectionList.add(collectionsArr.getString(j))
+                        }
+                    }
+
+                    val cat = if ("Anki: 480 слов" in collectionList) {
+                        "Anki: 480 слов"
+                    } else if (tagList.isNotEmpty()) {
+                        tagList[0].replaceFirstChar { it.uppercase() }
+                    } else {
+                        "Общее"
+                    }
 
                     val card = Flashcard(
                         id = numericId,
@@ -113,10 +135,14 @@ class FlashcardRepository(private val context: Context) {
                         expectedOutput = techOut,
                         secondaryExampleEn = secEn,
                         secondaryExampleRu = secRu,
-                        tags = tagList
+                        tags = tagList,
+                        studyCollections = collectionList,
+                        acceptedAnswers = acceptedList,
+                        clozeTarget = clozeTarget
                     )
                     allCards.add(card)
                     categorySet.add(cat)
+                    categorySet.addAll(collectionList)
                 } else {
                     // Legacy structure
                     val id = obj.getInt("id")
@@ -149,6 +175,9 @@ class FlashcardRepository(private val context: Context) {
             }
 
             categories.add("Все карточки (${allCards.size})")
+            listOf("Anki: 480 слов", "Чтение документации: 500 слов").forEach {
+                if (categorySet.remove(it)) categories.add(it)
+            }
             categories.addAll(categorySet.sorted())
         } catch (e: Exception) {
             e.printStackTrace()
@@ -172,7 +201,7 @@ class FlashcardRepository(private val context: Context) {
         return if (category.startsWith("Все")) {
             allCards
         } else {
-            allCards.filter { it.category == category }
+            allCards.filter { it.category == category || category in it.studyCollections }
         }
     }
 

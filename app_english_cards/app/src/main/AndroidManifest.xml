@@ -8,6 +8,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.EnglishFlashcards">
+        <activity android:name=".PracticeActivity" android:exported="false" android:screenOrientation="portrait" />
+        <activity android:name=".ReadingActivity" android:exported="false" android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

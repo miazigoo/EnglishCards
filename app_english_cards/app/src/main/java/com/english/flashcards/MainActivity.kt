@@ -1,6 +1,7 @@
 package com.english.flashcards
 
 import android.content.ClipData
+import android.content.Intent
 import android.content.ClipboardManager
 import android.graphics.Color
 import android.os.Bundle
@@ -105,6 +106,16 @@ class MainActivity : AppCompatActivity() {
         startRealInitialization()
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (::db.isInitialized && !isSplashActive) {
+            lifecycleScope.launch(Dispatchers.IO) {
+                loadPracticeCache()
+                withContext(Dispatchers.Main) { refreshMenuStats() }
+            }
+        }
+    }
+
     private fun startRealInitialization() {
         isSplashActive = true
         binding.layoutSplash.visibility = View.VISIBLE
@@ -187,6 +198,15 @@ class MainActivity : AppCompatActivity() {
         binding.btnMenuBackup.setOnClickListener {
             showBackupDialog()
         }
+        binding.btnMenuDictation.setOnClickListener {
+            startActivity(Intent(this, PracticeActivity::class.java).putExtra("mode", "listening"))
+        }
+        binding.btnMenuCloze.setOnClickListener {
+            startActivity(Intent(this, PracticeActivity::class.java).putExtra("mode", "cloze"))
+        }
+        binding.btnMenuReading.setOnClickListener {
+            startActivity(Intent(this, ReadingActivity::class.java))
+        }
 
         // 1. Featured TODAY (FSRS Due Queue)
         val onTodayClick = View.OnClickListener {
@@ -204,8 +224,7 @@ class MainActivity : AppCompatActivity() {
 
         // 3. Featured LISTENING
         val onListeningClick = View.OnClickListener {
-            val allCatName = repository.getCategories().firstOrNull() ?: "Все карточки"
-            openPlayerWithListening(allCatName)
+            openPlayerWithListening("Anki: 480 слов")
         }
         binding.btnFeaturedListening.setOnClickListener(onListeningClick)
         binding.btnStartListening.setOnClickListener(onListeningClick)
@@ -269,8 +288,8 @@ class MainActivity : AppCompatActivity() {
             "Нет карточек на повторение"
         }
 
-        binding.tvAppSubtitle.text = "IT, Backend & Python • $totalCount карточек"
-        binding.tvAllSubtitle.text = "Полная колода из $totalCount слов"
+        binding.tvAppSubtitle.text = "Учим английские слова • Anki 480 • документация 500"
+        binding.tvAllSubtitle.text = "Все материалы: $totalCount карточек"
 
         if (::menuAdapter.isInitialized) {
             menuAdapter.updateItems(buildCategoryItems())
@@ -279,8 +298,8 @@ class MainActivity : AppCompatActivity() {
         // Refresh Today queue stats from Room DB
         lifecycleScope.launch(Dispatchers.IO) {
             val now = System.currentTimeMillis()
-            val dueCount = db.practiceDao().countDuePractices(now)
-            val newCount = db.practiceDao().countNewPractices()
+            val dueCount = db.practiceDao().countDueTranslationPractices(now)
+            val newCount = db.practiceDao().getNewPractices(10000).map { it.cardId }.distinct().size
             withContext(Dispatchers.Main) {
                 binding.tvTodaySubtitle.text = if (dueCount > 0 || newCount > 0) {
                     "$dueCount к повторению • ${minOf(10, newCount)} новых"
@@ -293,6 +312,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun getEmojiForCategory(cat: String): String {
         return when {
+            cat.startsWith("Anki:") -> "📚"
+            cat.startsWith("Чтение документации:") -> "📘"
             cat.contains("Python", ignoreCase = true) -> "🐍"
             cat.contains("Django", ignoreCase = true) -> "🎸"
             cat.contains("FastAPI", ignoreCase = true) -> "⚡"
@@ -537,45 +558,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openPlayerWithToday() {
-        lifecycleScope.launch(Dispatchers.IO) {
-            val now = System.currentTimeMillis()
-            val duePractices = db.practiceDao().getDuePractices(now)
-            val newPractices = db.practiceDao().getNewPractices(10)
-            val sessionPractices = (duePractices + newPractices).distinctBy { it.cardId }
-            val cards = sessionPractices.mapNotNull { p ->
-                repository.getCardById(p.cardId)
-            }
-
-            withContext(Dispatchers.Main) {
-                if (cards.isEmpty()) {
-                    Toast.makeText(this@MainActivity, "Все повторения на сегодня выполнены! 🎉", Toast.LENGTH_LONG).show()
-                    return@withContext
-                }
-                currentMode = StudyMode.TODAY
-                selectedCategory = "🎯 Сегодня"
-                currentCards = cards
-
-                binding.tvPlayerModeBadge.text = "🎯 Сегодня"
-                binding.btnPlayerCategory.text = "Сегодня ▾"
-                binding.btnPlayerRepeatCount.text = "${repeatCount}x"
-                binding.btnUndoReview.visibility = View.GONE
-
-                cardAdapter.setDefaultRevealed(false)
-                cardAdapter.updateCards(currentCards)
-                binding.vpCards.setCurrentItem(0, false)
-                updateProgress(0)
-                updateDeckStats()
-
-                binding.layoutMenu.visibility = View.GONE
-                binding.layoutPlayer.visibility = View.VISIBLE
-
-                cardStartTimeMonotonic = SystemClock.elapsedRealtime()
-                audioController.setAutoPlay(true)
-                binding.vpCards.post {
-                    audioController.playPrompt(currentCards[0], isEnToRu = true)
-                }
-            }
-        }
+        startActivity(Intent(this, PracticeActivity::class.java).putExtra("mode", "today"))
     }
 
     private fun openPlayerWithCategory(categoryName: String) {
@@ -607,38 +590,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openPlayerWithHardCards() {
-        val allCards = repository.getAllCards()
-        val hardCards = progressManager.getHardCards(allCards)
-        if (hardCards.isEmpty()) {
+        if (progressManager.getHardCards(repository.getAllCards()).isEmpty()) {
             Toast.makeText(this, "Пока нет карточек со статусом «Повторить» (🟡)", Toast.LENGTH_SHORT).show()
             return
         }
-
-        currentMode = StudyMode.HARD
-        selectedCategory = "🔥 На повторение"
-        currentCards = hardCards
-
-        binding.tvPlayerModeBadge.text = "🔥 Повтор"
-        binding.btnPlayerCategory.text = "Повтор ▾"
-        binding.btnPlayerRepeatCount.text = "${repeatCount}x"
-        binding.btnUndoReview.visibility = View.GONE
-
-        cardAdapter.setDefaultRevealed(true)
-        cardAdapter.updateCards(currentCards)
-        binding.vpCards.setCurrentItem(0, false)
-        updateProgress(0)
-        updateDeckStats()
-
-        binding.layoutMenu.visibility = View.GONE
-        binding.layoutPlayer.visibility = View.VISIBLE
-
-        if (currentCards.isNotEmpty()) {
-            cardStartTimeMonotonic = SystemClock.elapsedRealtime()
-            audioController.setAutoPlay(true)
-            binding.vpCards.post {
-                audioController.playListening(currentCards[0], restartRepetitions = true)
-            }
-        }
+        startActivity(Intent(this, PracticeActivity::class.java).putExtra("mode", "hard"))
     }
 
     private fun openPlayerWithListening(categoryName: String) {

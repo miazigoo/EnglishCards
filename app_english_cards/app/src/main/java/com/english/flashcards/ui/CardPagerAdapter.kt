@@ -71,8 +71,13 @@ class CardPagerAdapter(
                 tvBreakdown.visibility = View.GONE
             }
 
-            // Example sentences
-            if (card.example.isNotBlank() && !card.example.equals("null", ignoreCase = true)) {
+            // The restored Anki TSV contains word/translation pairs, not examples.
+            val hasRealExample = card.example.isNotBlank() &&
+                !card.example.equals("null", ignoreCase = true) &&
+                !(card.example == card.word && card.primaryExampleRu == card.cleanTranslation)
+            btnPlayExample.visibility = if (hasRealExample) View.VISIBLE else View.GONE
+            btnShowExample.visibility = if (hasRealExample || !card.technicalCode.isNullOrBlank()) View.VISIBLE else View.GONE
+            if (hasRealExample) {
                 layoutExampleBox.visibility = View.VISIBLE
                 tvExampleEn.text = card.example
                 val exRu = (card.primaryExampleRu.takeIf { it.isNotBlank() && !it.equals("null", ignoreCase = true) }
@@ -88,7 +93,7 @@ class CardPagerAdapter(
             if (isRevealed) {
                 btnRevealAnswer.visibility = View.GONE
                 layoutAnswerRevealed.visibility = View.VISIBLE
-                layoutRatingButtons.visibility = View.VISIBLE
+                layoutRatingButtons.visibility = View.GONE // Browsing never changes spaced-repetition progress.
 
                 // Calculate FSRS interval previews
                 val fsrsCard = getPracticeState(cardKey) ?: FSRSCard(

@@ -18,7 +18,10 @@ data class Flashcard(
     val expectedOutput: String? = null,
     val secondaryExampleEn: String? = null,
     val secondaryExampleRu: String? = null,
-    val tags: List<String> = emptyList()
+    val tags: List<String> = emptyList(),
+    val studyCollections: List<String> = emptyList(),
+    val acceptedAnswers: List<String> = emptyList(),
+    val clozeTarget: String? = null
 )
 
 typealias Card = Flashcard

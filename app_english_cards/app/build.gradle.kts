@@ -12,8 +12,8 @@ android {
         applicationId = "com.english.flashcards"
         minSdk = 24
         targetSdk = 35
-        versionCode = 4
-        versionName = "2.1.1"
+        versionCode = 6
+        versionName = "2.3.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -9,7 +9,7 @@ import androidx.room.Update
 @Dao
 interface PracticeDao {
 
-    @Query("SELECT * FROM practice_states WHERE due <= :dueBefore ORDER BY due ASC")
+    @Query("SELECT * FROM practice_states WHERE due <= :dueBefore AND state != 0 ORDER BY due ASC")
     suspend fun getDuePractices(dueBefore: Long): List<PracticeStateEntity>
 
     @Query("SELECT * FROM practice_states WHERE state = 0 ORDER BY practiceId ASC LIMIT :limit")
@@ -18,11 +18,17 @@ interface PracticeDao {
     @Query("SELECT * FROM practice_states WHERE practiceId = :practiceId LIMIT 1")
     suspend fun getByPracticeId(practiceId: String): PracticeStateEntity?
 
+    @Query("DELETE FROM practice_states WHERE practiceId = :practiceId")
+    suspend fun deleteByPracticeId(practiceId: String)
+
     @Query("SELECT * FROM practice_states WHERE cardId = :cardId")
     suspend fun getByCardId(cardId: String): List<PracticeStateEntity>
 
     @Query("SELECT COUNT(*) FROM practice_states WHERE due <= :dueBefore AND state != 0")
     suspend fun countDuePractices(dueBefore: Long): Int
+
+    @Query("SELECT COUNT(*) FROM practice_states WHERE due <= :dueBefore AND state != 0 AND skill IN ('en_to_ru', 'ru_to_en')")
+    suspend fun countDueTranslationPractices(dueBefore: Long): Int
 
     @Query("SELECT COUNT(*) FROM practice_states WHERE state = 0")
     suspend fun countNewPractices(): Int

@@ -27,6 +27,8 @@ ASSETS_CARDS_LEGACY_JSON = ASSETS_DIR / "cards.json"
 ASSETS_LEGACY_ID_MAP_JSON = ASSETS_DIR / "legacy_id_map.json"
 ASSETS_LESSONS_DIR = ASSETS_DIR / "lessons"
 CONTENT_LESSONS_DIR = BASE_DIR / "content/lessons"
+CONTENT_READINGS_JSON = BASE_DIR / "content/readings.json"
+ASSETS_READINGS_JSON = ASSETS_DIR / "readings.json"
 
 def validate_cards_data(cards: List[Dict[str, Any]], schema: Dict[str, Any]) -> List[str]:
     """Strictly validates all cards for schema adherence, lack of templates, and integrity."""
@@ -155,6 +157,10 @@ def publish_content(dry_run: bool = False):
             dest = ASSETS_LESSONS_DIR / l_file.name
             dest.write_text(l_file.read_text(encoding="utf-8"), encoding="utf-8")
         print(f"Synchronized micro-lessons to {ASSETS_LESSONS_DIR}")
+
+    if CONTENT_READINGS_JSON.exists():
+        ASSETS_READINGS_JSON.write_text(CONTENT_READINGS_JSON.read_text(encoding="utf-8"), encoding="utf-8")
+        print(f"Published guided readings to {ASSETS_READINGS_JSON}")
 
     print("=== CONTENT PUBLICATION COMPLETED SUCCESSFULLY ===")
 

@@ -1,0 +1,4287 @@
+{
+  "anki.vocab.001": {
+    "en": "Tom worked hard to achieve his goals.",
+    "ru": "Том много работал, чтобы достичь своих целей.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9640668",
+    "source_id": 9640668,
+    "translation_id": 11767407,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.002": {
+    "en": "I try to avoid him.",
+    "ru": "Я стараюсь избегать встречи с ним.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13449001",
+    "source_id": 13449001,
+    "translation_id": 13449079,
+    "license": "CC BY 2.0 FR",
+    "author": "rul"
+  },
+  "anki.vocab.003": {
+    "en": "Allow me to accompany you.",
+    "ru": "Разрешите Вас проводить.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/7589511",
+    "source_id": 7589511,
+    "translation_id": 3247691,
+    "license": "CC BY 2.0 FR",
+    "author": "AlanF_US"
+  },
+  "anki.vocab.004": {
+    "en": "We cannot afford it.",
+    "ru": "Мы не можем себе этого позволить.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/1063979",
+    "source_id": 1063979,
+    "translation_id": 2999205,
+    "license": "CC BY 2.0 FR",
+    "author": "CC"
+  },
+  "anki.vocab.005": {
+    "en": "I hope they agree.",
+    "ru": "Надеюсь, они согласятся.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9044366",
+    "source_id": 9044366,
+    "translation_id": 9037110,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.006": {
+    "en": "Did they argue with you?",
+    "ru": "Они с тобой спорили?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12090617",
+    "source_id": 12090617,
+    "translation_id": 12091032,
+    "license": "CC BY 2.0 FR",
+    "author": "LdjuherTaqvaylit"
+  },
+  "anki.vocab.007": {
+    "en": "I assume something good happened.",
+    "ru": "Предполагаю, случилось что-то хорошее.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3024361",
+    "source_id": 3024361,
+    "translation_id": 3616206,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.008": {
+    "en": "We will attempt the task again.",
+    "ru": "Мы снова попробуем выполнить задачу.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.009": {
+    "en": "You'll behave, I hope.",
+    "ru": "Надеюсь, ты будешь вести себя прилично.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/11965756",
+    "source_id": 11965756,
+    "translation_id": 13862453,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.010": {
+    "en": "These glasses belong to Tom.",
+    "ru": "Эти очки принадлежат Тому.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/11741904",
+    "source_id": 11741904,
+    "translation_id": 13695400,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.011": {
+    "en": "Can I borrow your pencils?",
+    "ru": "Можно одолжить у тебя карандаши?",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/14017050",
+    "source_id": 14017050,
+    "translation_id": 14017056,
+    "license": "CC BY 2.0 FR",
+    "author": "Ioan_Cristian"
+  },
+  "anki.vocab.012": {
+    "en": "Did you bring champagne?",
+    "ru": "Вы принесли шампанское?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12205344",
+    "source_id": 12205344,
+    "translation_id": 12205347,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.013": {
+    "en": "He had to cancel his trip.",
+    "ru": "Ему пришлось отменить поездку.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/7385138",
+    "source_id": 7385138,
+    "translation_id": 7950562,
+    "license": "CC BY 2.0 FR",
+    "author": "CH"
+  },
+  "anki.vocab.014": {
+    "en": "Let Tom carry it.",
+    "ru": "Позволь Тому это отнести.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/2262223",
+    "source_id": 2262223,
+    "translation_id": 3055851,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.015": {
+    "en": "A small error can cause a failure.",
+    "ru": "Небольшая ошибка может вызвать сбой.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.016": {
+    "en": "Choose whatever you want!",
+    "ru": "Выбирайте что хотите!",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13894260",
+    "source_id": 13894260,
+    "translation_id": 13894265,
+    "license": "CC BY 2.0 FR",
+    "author": "li0n_grAbbd_ankle"
+  },
+  "anki.vocab.017": {
+    "en": "They claim the service is secure.",
+    "ru": "Они утверждают, что сервис безопасен.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.018": {
+    "en": "Compare your translation with his.",
+    "ru": "Сравните свой перевод с его переводом.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/70351",
+    "source_id": 70351,
+    "translation_id": 6759994,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.019": {
+    "en": "They complain, complain, complain.",
+    "ru": "Они не перестают жаловаться.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12373172",
+    "source_id": 12373172,
+    "translation_id": 12372617,
+    "license": "CC BY 2.0 FR",
+    "author": "Miktsoanit"
+  },
+  "anki.vocab.020": {
+    "en": "We can consider that.",
+    "ru": "Мы можем принять это к рассмотрению.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5752318",
+    "source_id": 5752318,
+    "translation_id": 12304885,
+    "license": "CC BY 2.0 FR",
+    "author": "CM"
+  },
+  "anki.vocab.021": {
+    "en": "Most toothpastes contain fluoride.",
+    "ru": "В большинстве зубных паст содержится фтор.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/4456300",
+    "source_id": 4456300,
+    "translation_id": 4474280,
+    "license": "CC BY 2.0 FR",
+    "author": "mervert1"
+  },
+  "anki.vocab.022": {
+    "en": "Convince Tom to help you.",
+    "ru": "Убеди Тома помочь тебе.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12989410",
+    "source_id": 12989410,
+    "translation_id": 13015034,
+    "license": "CC BY 2.0 FR",
+    "author": "AlanF_US"
+  },
+  "anki.vocab.023": {
+    "en": "Deal with it yourself.",
+    "ru": "Сам с ним разбирайся.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10726144",
+    "source_id": 10726144,
+    "translation_id": 8547191,
+    "license": "CC BY 2.0 FR",
+    "author": "ddnktr"
+  },
+  "anki.vocab.024": {
+    "en": "We let fate decide.",
+    "ru": "Мы оставили решать судьбе.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/2817936",
+    "source_id": 2817936,
+    "translation_id": 7993014,
+    "license": "CC BY 2.0 FR",
+    "author": "etala"
+  },
+  "anki.vocab.025": {
+    "en": "Do you deliver on Sundays?",
+    "ru": "Вы осуществляете доставку по воскресеньям?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/281817",
+    "source_id": 281817,
+    "translation_id": 932677,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.026": {
+    "en": "Children depend on their parents.",
+    "ru": "Дети зависят от своих родителей.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/11250995",
+    "source_id": 11250995,
+    "translation_id": 11251045,
+    "license": "CC BY 2.0 FR",
+    "author": "carlosalberto"
+  },
+  "anki.vocab.027": {
+    "en": "Try to describe him.",
+    "ru": "Попробуйте его описать.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10169544",
+    "source_id": 10169544,
+    "translation_id": 8151244,
+    "license": "CC BY 2.0 FR",
+    "author": "ddnktr"
+  },
+  "anki.vocab.028": {
+    "en": "You really deserve it.",
+    "ru": "Ты действительно этого заслуживаешь.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/6038066",
+    "source_id": 6038066,
+    "translation_id": 8217800,
+    "license": "CC BY 2.0 FR",
+    "author": "mailohilohi"
+  },
+  "anki.vocab.029": {
+    "en": "Education aims to develop potential abilities.",
+    "ru": "Образование стремится развить потенциальные способности.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/19115",
+    "source_id": 19115,
+    "translation_id": 2655874,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.030": {
+    "en": "We discovered an error in the configuration.",
+    "ru": "Мы обнаружили ошибку в настройке.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.031": {
+    "en": "I doubt this result is correct.",
+    "ru": "Я сомневаюсь, что этот результат верен.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.032": {
+    "en": "Algeria's laws don't encourage foreign investment.",
+    "ru": "Алжирские законы не поощряют иностранных инвесторов.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10132124",
+    "source_id": 10132124,
+    "translation_id": 11949547,
+    "license": "CC BY 2.0 FR",
+    "author": "Amastan"
+  },
+  "anki.vocab.033": {
+    "en": "We expect heavy resistance.",
+    "ru": "Мы ожидаем ожесточенное сопротивление.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3470453",
+    "source_id": 3470453,
+    "translation_id": 3470478,
+    "license": "CC BY 2.0 FR",
+    "author": "CM"
+  },
+  "anki.vocab.034": {
+    "en": "Please, let me explain!",
+    "ru": "Пожалуйста, дайте мне объяснить!",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/11694879",
+    "source_id": 11694879,
+    "translation_id": 11694925,
+    "license": "CC BY 2.0 FR",
+    "author": "tieguy"
+  },
+  "anki.vocab.035": {
+    "en": "Why did we fail?",
+    "ru": "Почему мы потерпели неудачу?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3824788",
+    "source_id": 3824788,
+    "translation_id": 4253823,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.036": {
+    "en": "Figure out what needs to be done.",
+    "ru": "Сообразите, что нужно сделать.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9525240",
+    "source_id": 9525240,
+    "translation_id": 12502313,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.037": {
+    "en": "Fill in this form, please.",
+    "ru": "Заполните, пожалуйста, этот бланк.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/11935737",
+    "source_id": 11935737,
+    "translation_id": 792581,
+    "license": "CC BY 2.0 FR",
+    "author": "sundown"
+  },
+  "anki.vocab.038": {
+    "en": "Find out what happened.",
+    "ru": "Выясните, что произошло.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3133062",
+    "source_id": 3133062,
+    "translation_id": 6597557,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.039": {
+    "en": "I need you to focus.",
+    "ru": "Мне нужно, чтобы вы сосредоточились.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12078075",
+    "source_id": 12078075,
+    "translation_id": 12078079,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.040": {
+    "en": "I often forget that.",
+    "ru": "Я часто об этом забываю.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12235267",
+    "source_id": 12235267,
+    "translation_id": 8005703,
+    "license": "CC BY 2.0 FR",
+    "author": "Miktsoanit"
+  },
+  "anki.vocab.041": {
+    "en": "You must gather further information.",
+    "ru": "Ты должен продолжать собирать информацию.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/30428",
+    "source_id": 30428,
+    "translation_id": 1450925,
+    "license": "CC BY 2.0 FR",
+    "author": "Alkrasnov"
+  },
+  "anki.vocab.042": {
+    "en": "Guess the missing word.",
+    "ru": "Угадайте пропущенное слово.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12871059",
+    "source_id": 12871059,
+    "translation_id": 13438383,
+    "license": "CC BY 2.0 FR",
+    "author": "sundown"
+  },
+  "anki.vocab.043": {
+    "en": "We can handle that.",
+    "ru": "Мы можем с этим справиться.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/1893929",
+    "source_id": 1893929,
+    "translation_id": 3668426,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.044": {
+    "en": "Tom didn't hesitate to agree.",
+    "ru": "Том согласился без колебаний.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/4529740",
+    "source_id": 4529740,
+    "translation_id": 4678076,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.045": {
+    "en": "Can you imagine working here?",
+    "ru": "Ты можешь себе представить, что ты здесь работаешь?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3329717",
+    "source_id": 3329717,
+    "translation_id": 13388455,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.046": {
+    "en": "Try to improve your French.",
+    "ru": "Постарайтесь улучшить свой французский.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/4665864",
+    "source_id": 4665864,
+    "translation_id": 5066363,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.047": {
+    "en": "Does the price include breakfast?",
+    "ru": "Стоимость включает в себя завтрак?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5270225",
+    "source_id": 5270225,
+    "translation_id": 5271047,
+    "license": "CC BY 2.0 FR",
+    "author": "Jesse"
+  },
+  "anki.vocab.048": {
+    "en": "Gradually increase the duration of your workouts.",
+    "ru": "Постепенно увеличивайте продолжительность ваших тренировок.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/11889878",
+    "source_id": 11889878,
+    "translation_id": 12214361,
+    "license": "CC BY 2.0 FR",
+    "author": "Amastan"
+  },
+  "anki.vocab.049": {
+    "en": "I didn't want to involve her.",
+    "ru": "Я не хотел её вовлекать.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3914359",
+    "source_id": 3914359,
+    "translation_id": 4093970,
+    "license": "CC BY 2.0 FR",
+    "author": "CH"
+  },
+  "anki.vocab.050": {
+    "en": "Keep a copy of this file.",
+    "ru": "Сохраните копию этого файла.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.051": {
+    "en": "Can you lend me your pen?",
+    "ru": "Можешь одолжить мне ручку?",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.052": {
+    "en": "I can manage, thanks.",
+    "ru": "Я сам справлюсь, спасибо.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/2771529",
+    "source_id": 2771529,
+    "translation_id": 2771530,
+    "license": "CC BY 2.0 FR",
+    "author": "sharptoothed"
+  },
+  "anki.vocab.053": {
+    "en": "I forgot to mention that.",
+    "ru": "Я забыл упомянуть об этом.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12568550",
+    "source_id": 12568550,
+    "translation_id": 12568687,
+    "license": "CC BY 2.0 FR",
+    "author": "rul"
+  },
+  "anki.vocab.054": {
+    "en": "You notice that immediately.",
+    "ru": "Это сразу замечаешь.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10187485",
+    "source_id": 10187485,
+    "translation_id": 13431029,
+    "license": "CC BY 2.0 FR",
+    "author": "sundown"
+  },
+  "anki.vocab.055": {
+    "en": "What time did that occur?",
+    "ru": "В котором часу это произошло?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3763414",
+    "source_id": 3763414,
+    "translation_id": 3928706,
+    "license": "CC BY 2.0 FR",
+    "author": "cromwellt"
+  },
+  "anki.vocab.056": {
+    "en": "Do you offer accommodation?",
+    "ru": "Вы предлагаете место для проживания?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/6105414",
+    "source_id": 6105414,
+    "translation_id": 9871907,
+    "license": "CC BY 2.0 FR",
+    "author": "almer"
+  },
+  "anki.vocab.057": {
+    "en": "Nothing can prevent that from happening.",
+    "ru": "Никто не может это предотвратить.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12086909",
+    "source_id": 12086909,
+    "translation_id": 12088076,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.058": {
+    "en": "The API provides a clear error message.",
+    "ru": "API предоставляет понятное сообщение об ошибке.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.059": {
+    "en": "Sometimes, he doesn't realize it.",
+    "ru": "Иногда он этого не осознаёт.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13814099",
+    "source_id": 13814099,
+    "translation_id": 13814110,
+    "license": "CC BY 2.0 FR",
+    "author": "Nuel"
+  },
+  "anki.vocab.060": {
+    "en": "Did you receive my invitation?",
+    "ru": "Вы получили моё приглашение?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/8816014",
+    "source_id": 8816014,
+    "translation_id": 8816034,
+    "license": "CC BY 2.0 FR",
+    "author": "carlosalberto"
+  },
+  "anki.vocab.061": {
+    "en": "Reduce the size of your portions.",
+    "ru": "Уменьшите размер порций.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/7697532",
+    "source_id": 7697532,
+    "translation_id": 7703605,
+    "license": "CC BY 2.0 FR",
+    "author": "Hybrid"
+  },
+  "anki.vocab.062": {
+    "en": "They refuse to negotiate.",
+    "ru": "Они отказываются договариваться.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10767257",
+    "source_id": 10767257,
+    "translation_id": 10643260,
+    "license": "CC BY 2.0 FR",
+    "author": "ddnktr"
+  },
+  "anki.vocab.063": {
+    "en": "Many questions remain unanswered.",
+    "ru": "Многие вопросы остаются без ответа.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/4495621",
+    "source_id": 4495621,
+    "translation_id": 4789028,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.064": {
+    "en": "You remind me of myself.",
+    "ru": "Ты напоминаешь мне меня самого.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3356349",
+    "source_id": 3356349,
+    "translation_id": 3992132,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.065": {
+    "en": "She could replace him.",
+    "ru": "Она могла бы его заменить.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/8520872",
+    "source_id": 8520872,
+    "translation_id": 8739765,
+    "license": "CC BY 2.0 FR",
+    "author": "CH"
+  },
+  "anki.vocab.066": {
+    "en": "Modern problems require modern solutions.",
+    "ru": "Современные проблемы требуют современных решений.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/8357942",
+    "source_id": 8357942,
+    "translation_id": 8171080,
+    "license": "CC BY 2.0 FR",
+    "author": "CM"
+  },
+  "anki.vocab.067": {
+    "en": "Do they respond to you?",
+    "ru": "Они тебе отвечают?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10757160",
+    "source_id": 10757160,
+    "translation_id": 10757137,
+    "license": "CC BY 2.0 FR",
+    "author": "ddnktr"
+  },
+  "anki.vocab.068": {
+    "en": "Save the file before you close it.",
+    "ru": "Сохраните файл, прежде чем закрыть его.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.069": {
+    "en": "It may seem strange.",
+    "ru": "Это может показаться странным.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3820560",
+    "source_id": 3820560,
+    "translation_id": 2078977,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.070": {
+    "en": "We share the housework.",
+    "ru": "Мы делим между собой работу по дому.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3711263",
+    "source_id": 3711263,
+    "translation_id": 4051580,
+    "license": "CC BY 2.0 FR",
+    "author": "patgfisher"
+  },
+  "anki.vocab.071": {
+    "en": "Help us solve this problem.",
+    "ru": "Помогите нам решить эту проблему.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12583129",
+    "source_id": 12583129,
+    "translation_id": 13309355,
+    "license": "CC BY 2.0 FR",
+    "author": "anzart"
+  },
+  "anki.vocab.072": {
+    "en": "I suggest you drive.",
+    "ru": "Я предлагаю тебе сесть за руль.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/8924603",
+    "source_id": 8924603,
+    "translation_id": 8925884,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.073": {
+    "en": "We support this decision.",
+    "ru": "Мы поддерживаем это решение.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.074": {
+    "en": "I suppose this answer is correct.",
+    "ru": "Я предполагаю, что этот ответ верен.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.075": {
+    "en": "Most people would survive.",
+    "ru": "Большинство людей бы выжило.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5740634",
+    "source_id": 5740634,
+    "translation_id": 7274823,
+    "license": "CC BY 2.0 FR",
+    "author": "CM"
+  },
+  "anki.vocab.076": {
+    "en": "Fruits tend to rot quickly.",
+    "ru": "Фрукты склонны портиться быстро.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/23939",
+    "source_id": 23939,
+    "translation_id": 2615200,
+    "license": "CC BY 2.0 FR",
+    "author": "Ivan24"
+  },
+  "anki.vocab.077": {
+    "en": "We cannot trust rumours.",
+    "ru": "Мы не можем доверять слухам.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12511288",
+    "source_id": 12511288,
+    "translation_id": 13012911,
+    "license": "CC BY 2.0 FR",
+    "author": "megamanenm"
+  },
+  "anki.vocab.078": {
+    "en": "Warn Tom about Mary.",
+    "ru": "Предупредите Тома насчёт Мэри.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12108039",
+    "source_id": 12108039,
+    "translation_id": 12109380,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.079": {
+    "en": "I wonder what she meant.",
+    "ru": "Интересно, что она имела в виду.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13140383",
+    "source_id": 13140383,
+    "translation_id": 7877077,
+    "license": "CC BY 2.0 FR",
+    "author": "ddnktr"
+  },
+  "anki.vocab.080": {
+    "en": "Why would I worry?",
+    "ru": "С чего бы я стал беспокоиться?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5505314",
+    "source_id": 5505314,
+    "translation_id": 5505381,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.081": {
+    "en": "What actually is time?",
+    "ru": "Что такое на самом деле время?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13306959",
+    "source_id": 13306959,
+    "translation_id": 13306961,
+    "license": "CC BY 2.0 FR",
+    "author": "Adelpa"
+  },
+  "anki.vocab.082": {
+    "en": "Tom is apparently a plumber.",
+    "ru": "Том, по-видимому, сантехник.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/8017939",
+    "source_id": 8017939,
+    "translation_id": 8017988,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.083": {
+    "en": "Basically, the function returns a list.",
+    "ru": "По сути, функция возвращает список.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.084": {
+    "en": "Times have certainly changed.",
+    "ru": "Времена безусловно изменились.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/4665490",
+    "source_id": 4665490,
+    "translation_id": 4678465,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.085": {
+    "en": "Express your ideas clearly.",
+    "ru": "Выражай свои идеи доступно.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/11973616",
+    "source_id": 11973616,
+    "translation_id": 12043424,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.086": {
+    "en": "That definitely complicated things.",
+    "ru": "Это, определенно, усложнило ситуацию.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12259639",
+    "source_id": 12259639,
+    "translation_id": 13321841,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.087": {
+    "en": "You should be especially careful today.",
+    "ru": "Сегодня тебе надо быть особенно осторожным.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12719265",
+    "source_id": 12719265,
+    "translation_id": 13413622,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.088": {
+    "en": "Eventually, the service recovered.",
+    "ru": "В конечном итоге сервис восстановился.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.089": {
+    "en": "What exactly happened here?",
+    "ru": "Что именно здесь произошло?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3823927",
+    "source_id": 3823927,
+    "translation_id": 4066317,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.090": {
+    "en": "Fortunately, the backup was available.",
+    "ru": "К счастью, резервная копия была доступна.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.091": {
+    "en": "However, today I think differently.",
+    "ru": "Однако сегодня я думаю по-другому.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10987839",
+    "source_id": 10987839,
+    "translation_id": 11565009,
+    "license": "CC BY 2.0 FR",
+    "author": "Danika_Dakika"
+  },
+  "anki.vocab.092": {
+    "en": "Instead of fretting, take action.",
+    "ru": "Вместо того чтобы переживать, действуйте.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5726333",
+    "source_id": 5726333,
+    "translation_id": 10328733,
+    "license": "CC BY 2.0 FR",
+    "author": "CM"
+  },
+  "anki.vocab.093": {
+    "en": "Meanwhile, night had fallen.",
+    "ru": "Тем временем спустилась ночь.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9951595",
+    "source_id": 9951595,
+    "translation_id": 12127263,
+    "license": "CC BY 2.0 FR",
+    "author": "sundown"
+  },
+  "anki.vocab.094": {
+    "en": "Tom mostly painted religious scenes.",
+    "ru": "Том рисовал по большей части религиозные сцены.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/7333147",
+    "source_id": 7333147,
+    "translation_id": 7331799,
+    "license": "CC BY 2.0 FR",
+    "author": "Hybrid"
+  },
+  "anki.vocab.095": {
+    "en": "I heard nearly everything.",
+    "ru": "Я почти всё слышал.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12489456",
+    "source_id": 12489456,
+    "translation_id": 6693608,
+    "license": "CC BY 2.0 FR",
+    "author": "sundown"
+  },
+  "anki.vocab.096": {
+    "en": "Nevertheless, I think we can still fix the situation.",
+    "ru": "Тем не менее я считаю, что мы ещё можем исправить ситуацию.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9580955",
+    "source_id": 9580955,
+    "translation_id": 2346080,
+    "license": "CC BY 2.0 FR",
+    "author": "AlanF_US"
+  },
+  "anki.vocab.097": {
+    "en": "It could not be otherwise.",
+    "ru": "Иначе и быть не могло.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5740778",
+    "source_id": 5740778,
+    "translation_id": 8852942,
+    "license": "CC BY 2.0 FR",
+    "author": "CM"
+  },
+  "anki.vocab.098": {
+    "en": "Perhaps it was coincidence.",
+    "ru": "Возможно, это было совпадение.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/4494121",
+    "source_id": 4494121,
+    "translation_id": 4792812,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.099": {
+    "en": "Tom probably went home.",
+    "ru": "Том, вероятно, пошёл домой.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12517592",
+    "source_id": 12517592,
+    "translation_id": 12541874,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.100": {
+    "en": "This happens quite often.",
+    "ru": "Это довольно часто случается.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9335065",
+    "source_id": 9335065,
+    "translation_id": 9399293,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.101": {
+    "en": "I would rather wait for the result.",
+    "ru": "Я бы скорее подождал результата.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.102": {
+    "en": "We recently moved apartments.",
+    "ru": "Мы недавно переехали в другую квартиру.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13735246",
+    "source_id": 13735246,
+    "translation_id": 13735258,
+    "license": "CC BY 2.0 FR",
+    "author": "araneo"
+  },
+  "anki.vocab.103": {
+    "en": "I'm roughly the same age as you.",
+    "ru": "Мы с тобой приблизительно одного возраста.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3568438",
+    "source_id": 3568438,
+    "translation_id": 5963164,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.104": {
+    "en": "This is simply amazing.",
+    "ru": "Это просто поразительно.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3826757",
+    "source_id": 3826757,
+    "translation_id": 3842820,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.105": {
+    "en": "Tom looks slightly puzzled.",
+    "ru": "Том выглядит слегка озадаченным.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/2643940",
+    "source_id": 2643940,
+    "translation_id": 3670511,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.106": {
+    "en": "The connection suddenly failed.",
+    "ru": "Соединение внезапно оборвалось.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.107": {
+    "en": "Therefore, it is necessary to reduce the cost.",
+    "ru": "Следовательно необходимо сократить себестоимость.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/53475",
+    "source_id": 53475,
+    "translation_id": 2415493,
+    "license": "CC BY 2.0 FR",
+    "author": "CM"
+  },
+  "anki.vocab.108": {
+    "en": "Though it was late, we continued.",
+    "ru": "Хотя было поздно, мы продолжили.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.109": {
+    "en": "We do not use force unless necessary.",
+    "ru": "Мы прибегаем к силе только в случае необходимости.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/6056965",
+    "source_id": 6056965,
+    "translation_id": 11715140,
+    "license": "CC BY 2.0 FR",
+    "author": "mailohilohi"
+  },
+  "anki.vocab.110": {
+    "en": "Thunder usually accompanies lightning.",
+    "ru": "Молния обычно сопровождается громом.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13273366",
+    "source_id": 13273366,
+    "translation_id": 428408,
+    "license": "CC BY 2.0 FR",
+    "author": "AlanF_US"
+  },
+  "anki.vocab.111": {
+    "en": "We could at least apologize.",
+    "ru": "Можно было бы по крайней мере попросить прощения.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/11973967",
+    "source_id": 11973967,
+    "translation_id": 13701493,
+    "license": "CC BY 2.0 FR",
+    "author": "Fenrir"
+  },
+  "anki.vocab.112": {
+    "en": "At first, Tom seemed OK.",
+    "ru": "Сначала казалось, что у Тома всё хорошо.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/7002783",
+    "source_id": 7002783,
+    "translation_id": 7002791,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.113": {
+    "en": "Call as soon as you arrive.",
+    "ru": "Позвоните, как только приедете.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12105806",
+    "source_id": 12105806,
+    "translation_id": 12105809,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.114": {
+    "en": "By the way, I have a girlfriend.",
+    "ru": "Кстати, у меня есть девушка.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/7067598",
+    "source_id": 7067598,
+    "translation_id": 7074208,
+    "license": "CC BY 2.0 FR",
+    "author": "Hybrid"
+  },
+  "anki.vocab.115": {
+    "en": "For example, a model can have a title field.",
+    "ru": "Например, у модели может быть поле названия.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.116": {
+    "en": "Take, for instance, your family problems.",
+    "ru": "Возьмите, например, свои семейные проблемы.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/40773",
+    "source_id": 40773,
+    "translation_id": 12467979,
+    "license": "CC BY 2.0 FR",
+    "author": "AlanF_US"
+  },
+  "anki.vocab.117": {
+    "en": "Please do it in advance.",
+    "ru": "Сделайте это заранее, пожалуйста.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9453269",
+    "source_id": 9453269,
+    "translation_id": 9524405,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.118": {
+    "en": "Keep a backup in case the update fails.",
+    "ru": "Сохраните копию на случай, если обновление завершится с ошибкой.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.119": {
+    "en": "In fact, the result is different.",
+    "ru": "На самом деле результат отличается.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.120": {
+    "en": "I like Chinese food in general.",
+    "ru": "Мне в целом нравится китайская еда.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/21795",
+    "source_id": 21795,
+    "translation_id": 4155320,
+    "license": "CC BY 2.0 FR",
+    "author": "gin"
+  },
+  "anki.vocab.121": {
+    "en": "This rule applies to services, in particular to APIs.",
+    "ru": "Это правило относится к сервисам, в частности к API.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.122": {
+    "en": "In the meantime, he went to sleep.",
+    "ru": "Тем временем он уснул.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/51172",
+    "source_id": 51172,
+    "translation_id": 7857481,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.123": {
+    "en": "She did that on purpose.",
+    "ru": "Она сделала это намеренно.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/6888722",
+    "source_id": 6888722,
+    "translation_id": 8545772,
+    "license": "CC BY 2.0 FR",
+    "author": "Hybrid"
+  },
+  "anki.vocab.124": {
+    "en": "The task finished on time.",
+    "ru": "Задача завершилась вовремя.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.125": {
+    "en": "She agreed right away.",
+    "ru": "Она сразу согласилась.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/6568780",
+    "source_id": 6568780,
+    "translation_id": 6570204,
+    "license": "CC BY 2.0 FR",
+    "author": "Hybrid"
+  },
+  "anki.vocab.126": {
+    "en": "The service has worked so far.",
+    "ru": "До сих пор сервис работал.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.127": {
+    "en": "To be honest, I need more practice.",
+    "ru": "Честно говоря, мне нужно больше практики.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.128": {
+    "en": "As far as I know, that never happened.",
+    "ru": "Насколько мне известно, такого никогда не было.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5645276",
+    "source_id": 5645276,
+    "translation_id": 8174270,
+    "license": "CC BY 2.0 FR",
+    "author": "mailohilohi"
+  },
+  "anki.vocab.129": {
+    "en": "Sometimes it depends on luck.",
+    "ru": "Иногда это зависит от везения.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/4141476",
+    "source_id": 4141476,
+    "translation_id": 4949302,
+    "license": "CC BY 2.0 FR",
+    "author": "Ricardo14"
+  },
+  "anki.vocab.130": {
+    "en": "Does this make sense?",
+    "ru": "Есть в этом какой-нибудь смысл?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/1064954",
+    "source_id": 1064954,
+    "translation_id": 2771532,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.131": {
+    "en": "That's not what I meant but never mind.",
+    "ru": "Я не это хотел сказать, но неважно.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/14010911",
+    "source_id": 14010911,
+    "translation_id": 14010909,
+    "license": "CC BY 2.0 FR",
+    "author": "araneo"
+  },
+  "anki.vocab.132": {
+    "en": "Tom is no longer trustworthy.",
+    "ru": "Мы больше не можем доверять Тому.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13558254",
+    "source_id": 13558254,
+    "translation_id": 2781596,
+    "license": "CC BY 2.0 FR",
+    "author": "menaud"
+  },
+  "anki.vocab.133": {
+    "en": "The update is not ready yet.",
+    "ru": "Обновление ещё не готово.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.134": {
+    "en": "Of course I accepted.",
+    "ru": "Я, конечно, согласился.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/8911630",
+    "source_id": 8911630,
+    "translation_id": 10311564,
+    "license": "CC BY 2.0 FR",
+    "author": "dzouras"
+  },
+  "anki.vocab.135": {
+    "en": "Please enter your password once again.",
+    "ru": "Пожалуйста, введите пароль ещё раз.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/14066979",
+    "source_id": 14066979,
+    "translation_id": 14066981,
+    "license": "CC BY 2.0 FR",
+    "author": "Ioan_Cristian"
+  },
+  "anki.vocab.136": {
+    "en": "Oh, take your time. I'm in no hurry.",
+    "ru": "А! Не спешите, пожалуйста. Я не тороплюсь.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/72130",
+    "source_id": 72130,
+    "translation_id": 1891985,
+    "license": "CC BY 2.0 FR",
+    "author": "CM"
+  },
+  "anki.vocab.137": {
+    "en": "What if something breaks?",
+    "ru": "Что, если что-нибудь разобьётся?",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13587251",
+    "source_id": 13587251,
+    "translation_id": 14089170,
+    "license": "CC BY 2.0 FR",
+    "author": "DeepDarkSea12"
+  },
+  "anki.vocab.138": {
+    "en": "What about visiting Tom?",
+    "ru": "Как насчёт того, чтобы навестить Тома?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10566666",
+    "source_id": 10566666,
+    "translation_id": 10566670,
+    "license": "CC BY 2.0 FR",
+    "author": "Ergulis"
+  },
+  "anki.vocab.139": {
+    "en": "I wonder whether or not Tom likes Australia.",
+    "ru": "Интересно, нравится Тому Австралия или нет.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/7186736",
+    "source_id": 7186736,
+    "translation_id": 11670961,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.140": {
+    "en": "Accurate information is essential.",
+    "ru": "Точная информация крайне важна.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12098449",
+    "source_id": 12098449,
+    "translation_id": 12100472,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.141": {
+    "en": "Handicapped parking is available.",
+    "ru": "Доступна парковка для людей с ограниченными возможностями.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/4501332",
+    "source_id": 4501332,
+    "translation_id": 7286627,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.142": {
+    "en": "I am aware that I exist.",
+    "ru": "Я осознаю, что существую.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10612109",
+    "source_id": 10612109,
+    "translation_id": 10612150,
+    "license": "CC BY 2.0 FR",
+    "author": "carlosalberto"
+  },
+  "anki.vocab.143": {
+    "en": "Some basic foodstuffs must still be imported.",
+    "ru": "Некоторые базовые продукты питания до сих пор приходится импортировать.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/8904514",
+    "source_id": 8904514,
+    "translation_id": 11851180,
+    "license": "CC BY 2.0 FR",
+    "author": "The_World_Factbook"
+  },
+  "anki.vocab.144": {
+    "en": "Here is a brief explanation.",
+    "ru": "Вот краткое пояснение.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/4665807",
+    "source_id": 4665807,
+    "translation_id": 7813853,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.145": {
+    "en": "Tom is capable of anything.",
+    "ru": "Том способен на что угодно.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5622766",
+    "source_id": 5622766,
+    "translation_id": 5622901,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.146": {
+    "en": "Be careful, avoid risks.",
+    "ru": "Будьте осторожны, старайтесь не рисковать.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12935707",
+    "source_id": 12935707,
+    "translation_id": 12935697,
+    "license": "CC BY 2.0 FR",
+    "author": "araneo"
+  },
+  "anki.vocab.147": {
+    "en": "Insomnia is very common.",
+    "ru": "Бессонница очень распространена.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/4494383",
+    "source_id": 4494383,
+    "translation_id": 6777457,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.148": {
+    "en": "Human relationships are complex.",
+    "ru": "Человеческие взаимоотношения сложны.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5288611",
+    "source_id": 5288611,
+    "translation_id": 5902020,
+    "license": "CC BY 2.0 FR",
+    "author": "Hybrid"
+  },
+  "anki.vocab.149": {
+    "en": "She is confident about her answer.",
+    "ru": "Она уверена в своём ответе.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.150": {
+    "en": "Our house is in a convenient location.",
+    "ru": "Наш дом удобно расположен.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9315391",
+    "source_id": 9315391,
+    "translation_id": 9408156,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.151": {
+    "en": "This is a critical step in the process.",
+    "ru": "Это критически важный шаг в процессе.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.152": {
+    "en": "They have accepted the current situation.",
+    "ru": "Они приняли текущую ситуацию.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/11606458",
+    "source_id": 11606458,
+    "translation_id": 11606526,
+    "license": "CC BY 2.0 FR",
+    "author": "carlosalberto"
+  },
+  "anki.vocab.153": {
+    "en": "Find yourself a decent suit.",
+    "ru": "Подыщите себе приличный костюм.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/7828781",
+    "source_id": 7828781,
+    "translation_id": 7828813,
+    "license": "CC BY 2.0 FR",
+    "author": "AlanF_US"
+  },
+  "anki.vocab.154": {
+    "en": "This system is quite a bit less efficient.",
+    "ru": "Эта система гораздо менее эффективна.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13045093",
+    "source_id": 13045093,
+    "translation_id": 13080505,
+    "license": "CC BY 2.0 FR",
+    "author": "araneo"
+  },
+  "anki.vocab.155": {
+    "en": "Tom memorized the entire poem.",
+    "ru": "Том выучил всё стихотворение наизусть.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/6973416",
+    "source_id": 6973416,
+    "translation_id": 14031801,
+    "license": "CC BY 2.0 FR",
+    "author": "Hybrid"
+  },
+  "anki.vocab.156": {
+    "en": "Food is essential for survival.",
+    "ru": "Пища жизненно необходима для выживания.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/4256510",
+    "source_id": 4256510,
+    "translation_id": 4293753,
+    "license": "CC BY 2.0 FR",
+    "author": "JFMorais"
+  },
+  "anki.vocab.157": {
+    "en": "Your name sounds familiar.",
+    "ru": "Ваше имя кажется мне знакомым.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9360134",
+    "source_id": 9360134,
+    "translation_id": 3603268,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.158": {
+    "en": "The system has a flexible configuration.",
+    "ru": "У системы гибкая настройка.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.159": {
+    "en": "Frequent requests can overload the server.",
+    "ru": "Частые запросы могут перегрузить сервер.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.160": {
+    "en": "His proposal met with general approval.",
+    "ru": "Его предложение было встречено всеобщим одобрением.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10605182",
+    "source_id": 10605182,
+    "translation_id": 4528881,
+    "license": "CC BY 2.0 FR",
+    "author": "AlanF_US"
+  },
+  "anki.vocab.161": {
+    "en": "Australia is huge, right?",
+    "ru": "Австралия огромная, правда?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9476760",
+    "source_id": 9476760,
+    "translation_id": 9478487,
+    "license": "CC BY 2.0 FR",
+    "author": "DJ_Saidez"
+  },
+  "anki.vocab.162": {
+    "en": "This module is independent of the database.",
+    "ru": "Этот модуль независим от базы данных.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.163": {
+    "en": "A delay is likely during the update.",
+    "ru": "Во время обновления вероятна задержка.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.164": {
+    "en": "My vocabulary is limited.",
+    "ru": "У меня ограниченный словарный запас.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3542628",
+    "source_id": 3542628,
+    "translation_id": 3542631,
+    "license": "CC BY 2.0 FR",
+    "author": "vvv123"
+  },
+  "anki.vocab.165": {
+    "en": "Tom became a local celebrity.",
+    "ru": "Том стал местной знаменитостью.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10220131",
+    "source_id": 10220131,
+    "translation_id": 5428518,
+    "license": "CC BY 2.0 FR",
+    "author": "ddnktr"
+  },
+  "anki.vocab.166": {
+    "en": "The major reason is a missing value.",
+    "ru": "Основная причина — отсутствующее значение.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.167": {
+    "en": "It's a minor problem.",
+    "ru": "Это незначительная проблема.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/7464479",
+    "source_id": 7464479,
+    "translation_id": 7745398,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.168": {
+    "en": "Was it really necessary?",
+    "ru": "Это действительно было необходимо?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9439943",
+    "source_id": 9439943,
+    "translation_id": 9513825,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.169": {
+    "en": "That was fairly obvious.",
+    "ru": "Это было довольно очевидно.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/8550224",
+    "source_id": 8550224,
+    "translation_id": 3567700,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.170": {
+    "en": "Yesterday was an ordinary day.",
+    "ru": "Вчера был обычный день.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12255862",
+    "source_id": 12255862,
+    "translation_id": 13858274,
+    "license": "CC BY 2.0 FR",
+    "author": "JameezTranslates"
+  },
+  "anki.vocab.171": {
+    "en": "A particular value is required here.",
+    "ru": "Здесь требуется конкретное значение.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.172": {
+    "en": "There is nothing permanent except change.",
+    "ru": "Нет ничего постоянного, кроме перемен.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9106852",
+    "source_id": 9106852,
+    "translation_id": 9106866,
+    "license": "CC BY 2.0 FR",
+    "author": "carlosalberto"
+  },
+  "anki.vocab.173": {
+    "en": "Minutes of the previous meeting were accepted.",
+    "ru": "Протокол предыдущего заседания был утверждён.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/273619",
+    "source_id": 273619,
+    "translation_id": 1626603,
+    "license": "CC BY 2.0 FR",
+    "author": "CM"
+  },
+  "anki.vocab.174": {
+    "en": "Use the proper method for this task.",
+    "ru": "Используйте надлежащий метод для этой задачи.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.175": {
+    "en": "His demands are reasonable.",
+    "ru": "Его требования разумны.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/4558941",
+    "source_id": 4558941,
+    "translation_id": 2357204,
+    "license": "CC BY 2.0 FR",
+    "author": "AlanF_US"
+  },
+  "anki.vocab.176": {
+    "en": "Is Tom a reliable person?",
+    "ru": "Том - надёжный человек?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9359484",
+    "source_id": 9359484,
+    "translation_id": 9359496,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.177": {
+    "en": "Your question is not relevant to the subject.",
+    "ru": "Твой вопрос не имеет отношения к этой теме.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/17091",
+    "source_id": 17091,
+    "translation_id": 2605506,
+    "license": "CC BY 2.0 FR",
+    "author": "Zifre"
+  },
+  "anki.vocab.178": {
+    "en": "The team works from a remote location.",
+    "ru": "Команда работает из удалённого места.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.179": {
+    "en": "I knew Tom was responsible.",
+    "ru": "Я знал, что Том человек ответственный.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12163267",
+    "source_id": 12163267,
+    "translation_id": 12163275,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.180": {
+    "en": "They sleep in separate beds.",
+    "ru": "Они спят на отдельных кроватях.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/2594169",
+    "source_id": 2594169,
+    "translation_id": 5253134,
+    "license": "CC BY 2.0 FR",
+    "author": "WestofEden"
+  },
+  "anki.vocab.181": {
+    "en": "There is one significant difference.",
+    "ru": "Есть одно значительное различие.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/2857318",
+    "source_id": 2857318,
+    "translation_id": 2857397,
+    "license": "CC BY 2.0 FR",
+    "author": "AlanF_US"
+  },
+  "anki.vocab.182": {
+    "en": "Those words are very similar.",
+    "ru": "Эти слова очень похожи.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13047619",
+    "source_id": 13047619,
+    "translation_id": 11053620,
+    "license": "CC BY 2.0 FR",
+    "author": "rul"
+  },
+  "anki.vocab.183": {
+    "en": "That was the only suitable category.",
+    "ru": "Это была единственная подходящая категория.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/6309240",
+    "source_id": 6309240,
+    "translation_id": 13567408,
+    "license": "CC BY 2.0 FR",
+    "author": "sundown"
+  },
+  "anki.vocab.184": {
+    "en": "A temporary government was established.",
+    "ru": "Было сформировано временное правительство.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/807346",
+    "source_id": 807346,
+    "translation_id": 7785724,
+    "license": "CC BY 2.0 FR",
+    "author": "Source_VOA"
+  },
+  "anki.vocab.185": {
+    "en": "Tom is a typical workaholic.",
+    "ru": "Том - типичный трудоголик.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5938497",
+    "source_id": 5938497,
+    "translation_id": 6360562,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.186": {
+    "en": "Each person is unique.",
+    "ru": "Каждый человек уникален.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12467050",
+    "source_id": 12467050,
+    "translation_id": 2498789,
+    "license": "CC BY 2.0 FR",
+    "author": "zogwarg"
+  },
+  "anki.vocab.187": {
+    "en": "Tom needs urgent help.",
+    "ru": "Тому нужна срочная помощь.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3434294",
+    "source_id": 3434294,
+    "translation_id": 4037888,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.188": {
+    "en": "Tom has many valuable stamps.",
+    "ru": "У Тома много ценных почтовых марок.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5640488",
+    "source_id": 5640488,
+    "translation_id": 6600394,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.189": {
+    "en": "This sentence has various meanings.",
+    "ru": "Это предложение имеет различные значения.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/740403",
+    "source_id": 740403,
+    "translation_id": 3673453,
+    "license": "CC BY 2.0 FR",
+    "author": "CM"
+  },
+  "anki.vocab.190": {
+    "en": "Tom was always willing to help.",
+    "ru": "Том всегда был готов помочь.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5115797",
+    "source_id": 5115797,
+    "translation_id": 12409606,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.191": {
+    "en": "Do you offer accommodation?",
+    "ru": "Вы предлагаете жильё?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/6105414",
+    "source_id": 6105414,
+    "translation_id": 9871903,
+    "license": "CC BY 2.0 FR",
+    "author": "almer"
+  },
+  "anki.vocab.192": {
+    "en": "Mary forgot her appointment.",
+    "ru": "Мэри забыла про встречу.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/6428319",
+    "source_id": 6428319,
+    "translation_id": 6707328,
+    "license": "CC BY 2.0 FR",
+    "author": "CF"
+  },
+  "anki.vocab.193": {
+    "en": "It happened prior to my arrival.",
+    "ru": "Это произошло до моего прибытия.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/42403",
+    "source_id": 42403,
+    "translation_id": 7993204,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.194": {
+    "en": "What is the departure time?",
+    "ru": "Когда мы отправляемся?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/266861",
+    "source_id": 266861,
+    "translation_id": 1643960,
+    "license": "CC BY 2.0 FR",
+    "author": "CC"
+  },
+  "anki.vocab.195": {
+    "en": "Life is a journey, not a destination.",
+    "ru": "Жизнь — это путешествие, а не пункт назначения.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5211491",
+    "source_id": 5211491,
+    "translation_id": 6105052,
+    "license": "CC BY 2.0 FR",
+    "author": "Adelpa"
+  },
+  "anki.vocab.196": {
+    "en": "I felt very sorry about the delay.",
+    "ru": "Я сильно сожалел о задержке.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5101567",
+    "source_id": 5101567,
+    "translation_id": 5113247,
+    "license": "CC BY 2.0 FR",
+    "author": "TaTu"
+  },
+  "anki.vocab.197": {
+    "en": "Keep going in that direction.",
+    "ru": "Продолжайте идти в этом направлении.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5575276",
+    "source_id": 5575276,
+    "translation_id": 5575346,
+    "license": "CC BY 2.0 FR",
+    "author": "Hybrid"
+  },
+  "anki.vocab.198": {
+    "en": "He follows at a great distance.",
+    "ru": "Он следует за ним на большом расстоянии.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12352431",
+    "source_id": 12352431,
+    "translation_id": 12352514,
+    "license": "CC BY 2.0 FR",
+    "author": "carlosalberto"
+  },
+  "anki.vocab.199": {
+    "en": "The entrance is on the left.",
+    "ru": "Вход находится слева.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.200": {
+    "en": "Everyone rushed to the exit.",
+    "ru": "Все устремились к выходу.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10670839",
+    "source_id": 10670839,
+    "translation_id": 7854746,
+    "license": "CC BY 2.0 FR",
+    "author": "AlanF_US"
+  },
+  "anki.vocab.201": {
+    "en": "Retired people don't have to pay the fare.",
+    "ru": "Пенсионерам не нужно платить за проезд.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10249941",
+    "source_id": 10249941,
+    "translation_id": 10250552,
+    "license": "CC BY 2.0 FR",
+    "author": "LimeGreenTeknii"
+  },
+  "anki.vocab.202": {
+    "en": "Each member has to pay a membership fee.",
+    "ru": "Каждый участник должен внести членский взнос.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/21758",
+    "source_id": 21758,
+    "translation_id": 2503257,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.203": {
+    "en": "You may have to pay a fine for late payment.",
+    "ru": "За просроченный платёж, возможно, придётся заплатить штраф.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.204": {
+    "en": "When is my flight?",
+    "ru": "Во сколько у меня самолёт?",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5618350",
+    "source_id": 5618350,
+    "translation_id": 5584809,
+    "license": "CC BY 2.0 FR",
+    "author": "Mar1L"
+  },
+  "anki.vocab.205": {
+    "en": "Tom called his insurance company.",
+    "ru": "Том позвонил в свою страховую компанию.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/7543526",
+    "source_id": 7543526,
+    "translation_id": 7570899,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.206": {
+    "en": "The landlord says he wants to raise the rent.",
+    "ru": "Владелец говорит, что он хочет увеличить арендную плату.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/275579",
+    "source_id": 275579,
+    "translation_id": 1570333,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.207": {
+    "en": "Is there a clause in the lease regarding that?",
+    "ru": "А в договоре об аренде есть пункт, предусматривающий это?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/2480021",
+    "source_id": 2480021,
+    "translation_id": 2480022,
+    "license": "CC BY 2.0 FR",
+    "author": "sharptoothed"
+  },
+  "anki.vocab.208": {
+    "en": "Did you find my luggage?",
+    "ru": "Вы нашли мой багаж?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12133518",
+    "source_id": 12133518,
+    "translation_id": 12133914,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.209": {
+    "en": "My neighborhood is wonderful.",
+    "ru": "У меня замечательный район.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5735645",
+    "source_id": 5735645,
+    "translation_id": 13078385,
+    "license": "CC BY 2.0 FR",
+    "author": "CM"
+  },
+  "anki.vocab.210": {
+    "en": "They stole my passport.",
+    "ru": "Они украли у меня паспорт.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10742932",
+    "source_id": 10742932,
+    "translation_id": 11565073,
+    "license": "CC BY 2.0 FR",
+    "author": "Danika_Dakika"
+  },
+  "anki.vocab.211": {
+    "en": "You need written permission.",
+    "ru": "Тебе нужно письменное разрешение.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/2327537",
+    "source_id": 2327537,
+    "translation_id": 3831061,
+    "license": "CC BY 2.0 FR",
+    "author": "Hybrid"
+  },
+  "anki.vocab.212": {
+    "en": "Please sign this receipt.",
+    "ru": "Пожалуйста, распишитесь на этой квитанции.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/2959217",
+    "source_id": 2959217,
+    "translation_id": 2959218,
+    "license": "CC BY 2.0 FR",
+    "author": "sharptoothed"
+  },
+  "anki.vocab.213": {
+    "en": "You should ask for a refund.",
+    "ru": "Вам следует потребовать возврата денег.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5671896",
+    "source_id": 5671896,
+    "translation_id": 8630577,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.214": {
+    "en": "Look again. There should be a reservation.",
+    "ru": "Посмотрите ещё раз. Должна быть бронь.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13366915",
+    "source_id": 13366915,
+    "translation_id": 13323625,
+    "license": "CC BY 2.0 FR",
+    "author": "frpzzd"
+  },
+  "anki.vocab.215": {
+    "en": "I'm a resident of Boston.",
+    "ru": "Я житель Бостона.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/6355124",
+    "source_id": 6355124,
+    "translation_id": 13720225,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.216": {
+    "en": "Is there a bus route here?",
+    "ru": "Здесь проходит автобусный маршрут?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/8533663",
+    "source_id": 8533663,
+    "translation_id": 8551128,
+    "license": "CC BY 2.0 FR",
+    "author": "AlanF_US"
+  },
+  "anki.vocab.217": {
+    "en": "Has our schedule changed?",
+    "ru": "У нас изменилось расписание?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/11505524",
+    "source_id": 11505524,
+    "translation_id": 6032662,
+    "license": "CC BY 2.0 FR",
+    "author": "sundown"
+  },
+  "anki.vocab.218": {
+    "en": "Her signature is very beautiful.",
+    "ru": "У неё очень красивая подпись.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13889464",
+    "source_id": 13889464,
+    "translation_id": 13889470,
+    "license": "CC BY 2.0 FR",
+    "author": "carlosalberto"
+  },
+  "anki.vocab.219": {
+    "en": "How much does a newspaper subscription cost?",
+    "ru": "Сколько стоит подписка на газету?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/7784840",
+    "source_id": 7784840,
+    "translation_id": 8285920,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.220": {
+    "en": "Are you a tenant or homeowner?",
+    "ru": "Вы арендатор или собственник?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/8893073",
+    "source_id": 8893073,
+    "translation_id": 3018161,
+    "license": "CC BY 2.0 FR",
+    "author": "sundown"
+  },
+  "anki.vocab.221": {
+    "en": "Tom lost his ticket.",
+    "ru": "Том потерял свой ​​билет.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3405526",
+    "source_id": 3405526,
+    "translation_id": 4520465,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.222": {
+    "en": "Traffic has increased here.",
+    "ru": "Дорожное движение здесь усилилось.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9642628",
+    "source_id": 9642628,
+    "translation_id": 11661669,
+    "license": "CC BY 2.0 FR",
+    "author": "Nylez"
+  },
+  "anki.vocab.223": {
+    "en": "We will make the payment by bank transfer.",
+    "ru": "Мы осуществим оплату банковским переводом.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/18411",
+    "source_id": 18411,
+    "translation_id": 2040794,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.224": {
+    "en": "The utility bill is due next week.",
+    "ru": "Счёт за коммунальные услуги нужно оплатить на следующей неделе.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.225": {
+    "en": "The ticket is valid for one month.",
+    "ru": "Билет действителен в течение месяца.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12272249",
+    "source_id": 12272249,
+    "translation_id": 12272243,
+    "license": "CC BY 2.0 FR",
+    "author": "Miktsoanit"
+  },
+  "anki.vocab.226": {
+    "en": "She applied for a work visa.",
+    "ru": "Она подала заявление на рабочую визу.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.227": {
+    "en": "I need to withdraw money from the ATM.",
+    "ru": "Мне нужно снять деньги из банкомата.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13910918",
+    "source_id": 13910918,
+    "translation_id": 13920161,
+    "license": "CC BY 2.0 FR",
+    "author": "Nuel"
+  },
+  "anki.vocab.228": {
+    "en": "Do I have to leave a deposit?",
+    "ru": "Я должен оставить залог?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/273624",
+    "source_id": 273624,
+    "translation_id": 8084001,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.229": {
+    "en": "What is the exchange rate today?",
+    "ru": "Какой сегодня обменный курс?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/242502",
+    "source_id": 242502,
+    "translation_id": 388079,
+    "license": "CC BY 2.0 FR",
+    "author": "CC"
+  },
+  "anki.vocab.230": {
+    "en": "The monthly payment is due tomorrow.",
+    "ru": "Ежемесячный платёж нужно внести завтра.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.231": {
+    "en": "A decision on the matter is long overdue.",
+    "ru": "По этому вопросу давно пора принять решение.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10579749",
+    "source_id": 10579749,
+    "translation_id": 10579755,
+    "license": "CC BY 2.0 FR",
+    "author": "sundown"
+  },
+  "anki.vocab.232": {
+    "en": "Please provide proof of address.",
+    "ru": "Пожалуйста, предоставьте подтверждение адреса.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.233": {
+    "en": "The public transport system runs like clockwork.",
+    "ru": "Система общественного транспорта работает как часы.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12075520",
+    "source_id": 12075520,
+    "translation_id": 12092074,
+    "license": "CC BY 2.0 FR",
+    "author": "sundown"
+  },
+  "anki.vocab.234": {
+    "en": "Have you paid your rent?",
+    "ru": "Вы заплатили за квартиру?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12451807",
+    "source_id": 12451807,
+    "translation_id": 12484785,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.235": {
+    "en": "My salary is very low.",
+    "ru": "У меня очень маленькая зарплата.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5515389",
+    "source_id": 5515389,
+    "translation_id": 5530442,
+    "license": "CC BY 2.0 FR",
+    "author": "Mar1L"
+  },
+  "anki.vocab.236": {
+    "en": "Many people have lost their savings.",
+    "ru": "Многие люди потеряли свои сбережения.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/4500813",
+    "source_id": 4500813,
+    "translation_id": 4751671,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.237": {
+    "en": "The tax code is too complex.",
+    "ru": "Налоговый кодекс слишком сложен.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5816120",
+    "source_id": 5816120,
+    "translation_id": 5816252,
+    "license": "CC BY 2.0 FR",
+    "author": "Hybrid"
+  },
+  "anki.vocab.238": {
+    "en": "If you can't afford travel insurance, then you can't afford to travel.",
+    "ru": "Если вам не по карману туристическая страховка, то и туризм вам не по карману.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/2944277",
+    "source_id": 2944277,
+    "translation_id": 2974507,
+    "license": "CC BY 2.0 FR",
+    "author": "Hybrid"
+  },
+  "anki.vocab.239": {
+    "en": "You can't get a job here without a work permit.",
+    "ru": "Без разрешения на работу вы не сможете здесь работать.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5172082",
+    "source_id": 5172082,
+    "translation_id": 6683995,
+    "license": "CC BY 2.0 FR",
+    "author": "AlanF_US"
+  },
+  "anki.vocab.240": {
+    "en": "The applicant has relevant experience.",
+    "ru": "У соискателя есть подходящий опыт.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.241": {
+    "en": "I'm developing an Android application.",
+    "ru": "Я разрабатываю приложение для Android.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/992448",
+    "source_id": 992448,
+    "translation_id": 2767119,
+    "license": "CC BY 2.0 FR",
+    "author": "sysko"
+  },
+  "anki.vocab.242": {
+    "en": "I have another assignment for you.",
+    "ru": "У меня есть еще одно задание для вас.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/2359008",
+    "source_id": 2359008,
+    "translation_id": 4007653,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.243": {
+    "en": "This benefit is available to all employees.",
+    "ru": "Эта льгота доступна всем сотрудникам.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.244": {
+    "en": "I got a bonus.",
+    "ru": "Я получил премию.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/918599",
+    "source_id": 918599,
+    "translation_id": 3551006,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.245": {
+    "en": "The candidate has relevant experience.",
+    "ru": "У кандидата есть подходящий опыт.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.246": {
+    "en": "Tom had a dizzying career.",
+    "ru": "Том сделал головокружительную карьеру.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/8815418",
+    "source_id": 8815418,
+    "translation_id": 8178982,
+    "license": "CC BY 2.0 FR",
+    "author": "carlosalberto"
+  },
+  "anki.vocab.247": {
+    "en": "Tom is our new colleague.",
+    "ru": "Том - наш новый коллега.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3975217",
+    "source_id": 3975217,
+    "translation_id": 9049352,
+    "license": "CC BY 2.0 FR",
+    "author": "felvideki"
+  },
+  "anki.vocab.248": {
+    "en": "The company develops web applications.",
+    "ru": "Компания разрабатывает веб-приложения.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.249": {
+    "en": "Our contract expired today.",
+    "ru": "Наш контракт истёк сегодня.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12062799",
+    "source_id": 12062799,
+    "translation_id": 12064066,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.250": {
+    "en": "The deadline is approaching.",
+    "ru": "Крайний срок приближается.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/1497746",
+    "source_id": 1497746,
+    "translation_id": 3507140,
+    "license": "CC BY 2.0 FR",
+    "author": "weihaiping"
+  },
+  "anki.vocab.251": {
+    "en": "He got transferred to another department.",
+    "ru": "Его перевели в другой отдел.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/7291321",
+    "source_id": 7291321,
+    "translation_id": 7285459,
+    "license": "CC BY 2.0 FR",
+    "author": "Hedede"
+  },
+  "anki.vocab.252": {
+    "en": "I don't have an employment contract.",
+    "ru": "У меня нет трудового договора.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/8393096",
+    "source_id": 8393096,
+    "translation_id": 7587546,
+    "license": "CC BY 2.0 FR",
+    "author": "helloroto"
+  },
+  "anki.vocab.253": {
+    "en": "She has five years of experience.",
+    "ru": "У неё пять лет опыта.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.254": {
+    "en": "This is not my area of expertise.",
+    "ru": "Это не моя область знаний.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/6542654",
+    "source_id": 6542654,
+    "translation_id": 6542659,
+    "license": "CC BY 2.0 FR",
+    "author": "Hybrid"
+  },
+  "anki.vocab.255": {
+    "en": "Feedback is something without which healthy, long-term communication is impossible.",
+    "ru": "Обратная связь — это то, без чего здоровое и долгосрочное общение представляется невозможным.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10544549",
+    "source_id": 10544549,
+    "translation_id": 1951173,
+    "license": "CC BY 2.0 FR",
+    "author": "AlanF_US"
+  },
+  "anki.vocab.256": {
+    "en": "I'm looking for full-time employment.",
+    "ru": "Я ищу работу на полный рабочий день.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/6716144",
+    "source_id": 6716144,
+    "translation_id": 6712704,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.257": {
+    "en": "Nobody will hire you.",
+    "ru": "Никто не возьмёт тебя на работу.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/6523703",
+    "source_id": 6523703,
+    "translation_id": 11883039,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.258": {
+    "en": "The interview went well.",
+    "ru": "Собеседование прошло хорошо.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/6997108",
+    "source_id": 6997108,
+    "translation_id": 13063438,
+    "license": "CC BY 2.0 FR",
+    "author": "Hybrid"
+  },
+  "anki.vocab.259": {
+    "en": "He politely turned down the job offer.",
+    "ru": "Он вежливо отклонил предложение о работе.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/11277649",
+    "source_id": 11277649,
+    "translation_id": 13853093,
+    "license": "CC BY 2.0 FR",
+    "author": "Luornu"
+  },
+  "anki.vocab.260": {
+    "en": "Tom thanked the manager.",
+    "ru": "Том поблагодарил управляющего.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/2545734",
+    "source_id": 2545734,
+    "translation_id": 4443867,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.261": {
+    "en": "Tom attended that meeting.",
+    "ru": "Том присутствовал на том собрании.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5218442",
+    "source_id": 5218442,
+    "translation_id": 5220054,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.262": {
+    "en": "My notice period is two weeks.",
+    "ru": "Мой срок предупреждения об увольнении — две недели.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.263": {
+    "en": "Onboarding starts on your first day.",
+    "ru": "Введение в должность начинается в первый рабочий день.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.264": {
+    "en": "He will take the opportunity.",
+    "ru": "Он воспользуется этой возможностью.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13394487",
+    "source_id": 13394487,
+    "translation_id": 13395258,
+    "license": "CC BY 2.0 FR",
+    "author": "Aghanim"
+  },
+  "anki.vocab.265": {
+    "en": "I only work part-time.",
+    "ru": "Я работаю только часть дня.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/2796926",
+    "source_id": 2796926,
+    "translation_id": 2796927,
+    "license": "CC BY 2.0 FR",
+    "author": "sharptoothed"
+  },
+  "anki.vocab.266": {
+    "en": "The new version improved performance.",
+    "ru": "Новая версия повысила производительность.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.267": {
+    "en": "The position is still open.",
+    "ru": "Эта должность всё ещё вакантна.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.268": {
+    "en": "The probation period lasts three months.",
+    "ru": "Испытательный срок длится три месяца.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.269": {
+    "en": "Tom deserves a promotion.",
+    "ru": "Том заслуживает повышения по службе.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/1026500",
+    "source_id": 1026500,
+    "translation_id": 1199781,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.270": {
+    "en": "This role requires a technical qualification.",
+    "ru": "Для этой должности требуется техническая квалификация.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.271": {
+    "en": "The recruiter will contact you tomorrow.",
+    "ru": "Рекрутер свяжется с вами завтра.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.272": {
+    "en": "The guide includes a reference to this method.",
+    "ru": "Руководство содержит ссылку на этот метод.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.273": {
+    "en": "The company offers help with relocation.",
+    "ru": "Компания помогает с переездом по работе.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.274": {
+    "en": "Experience is a requirement for this role.",
+    "ru": "Опыт — обязательное требование для этой должности.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.275": {
+    "en": "Is that my responsibility?",
+    "ru": "Это моя обязанность?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/8539523",
+    "source_id": 8539523,
+    "translation_id": 13890796,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.276": {
+    "en": "She told him to rewrite his resume.",
+    "ru": "Она сказала ему переписать резюме.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/887458",
+    "source_id": 887458,
+    "translation_id": 5581897,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.277": {
+    "en": "When does your night shift start?",
+    "ru": "Когда у тебя начинается ночная смена?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12058518",
+    "source_id": 12058518,
+    "translation_id": 12168809,
+    "license": "CC BY 2.0 FR",
+    "author": "mindfroggery"
+  },
+  "anki.vocab.278": {
+    "en": "It takes time to master any skill.",
+    "ru": "Развитие любых навыков требует времени.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/4013282",
+    "source_id": 4013282,
+    "translation_id": 4311155,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.279": {
+    "en": "You must act under the leadership of your supervisor.",
+    "ru": "Вы должны работать под руководством своего начальника.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/20999",
+    "source_id": 20999,
+    "translation_id": 4155505,
+    "license": "CC BY 2.0 FR",
+    "author": "shekitten"
+  },
+  "anki.vocab.280": {
+    "en": "This is no simple task.",
+    "ru": "Это непростая задача.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/8550208",
+    "source_id": 8550208,
+    "translation_id": 4984258,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.281": {
+    "en": "Good teamwork helps the project succeed.",
+    "ru": "Хорошая командная работа помогает проекту добиться успеха.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.282": {
+    "en": "The company provides training for new staff.",
+    "ru": "Компания проводит обучение новых сотрудников.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.283": {
+    "en": "Are you interested in the vacancy?",
+    "ru": "Вы заинтересованы в этой вакансии?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13045822",
+    "source_id": 13045822,
+    "translation_id": 13080103,
+    "license": "CC BY 2.0 FR",
+    "author": "araneo"
+  },
+  "anki.vocab.284": {
+    "en": "Tom has a heavy workload.",
+    "ru": "Том сильно загружен на работе.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/681159",
+    "source_id": 681159,
+    "translation_id": 3869422,
+    "license": "CC BY 2.0 FR",
+    "author": "Source_VOA"
+  },
+  "anki.vocab.285": {
+    "en": "From now on, drinking in the workplace is prohibited.",
+    "ru": "Отныне выпивать на рабочем месте будет запрещено.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3525181",
+    "source_id": 3525181,
+    "translation_id": 3524960,
+    "license": "CC BY 2.0 FR",
+    "author": "RU"
+  },
+  "anki.vocab.286": {
+    "en": "You can request annual leave online.",
+    "ru": "Вы можете подать заявку на ежегодный отпуск онлайн.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.287": {
+    "en": "The contract states the gross salary.",
+    "ru": "В контракте указана зарплата до вычета налогов.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.288": {
+    "en": "Your net salary arrives after taxes.",
+    "ru": "Зарплата после вычета налогов поступает на счёт.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.289": {
+    "en": "The salary range is shown in the vacancy.",
+    "ru": "Диапазон зарплаты указан в вакансии.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.290": {
+    "en": "Pupils have access to these computers.",
+    "ru": "У учеников есть доступ к этим компьютерам.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10729297",
+    "source_id": 10729297,
+    "translation_id": 10729856,
+    "license": "CC BY 2.0 FR",
+    "author": "sundown"
+  },
+  "anki.vocab.291": {
+    "en": "Authentication confirms who the user is.",
+    "ru": "Аутентификация подтверждает личность пользователя.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.292": {
+    "en": "Authorization determines what the user can access.",
+    "ru": "Авторизация определяет, к чему у пользователя есть доступ.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.293": {
+    "en": "Make a backup before the update.",
+    "ru": "Создайте резервную копию перед обновлением.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.294": {
+    "en": "The connection has limited bandwidth.",
+    "ru": "У соединения ограниченная пропускная способность.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.295": {
+    "en": "Create a new branch before changing the code.",
+    "ru": "Создайте новую ветку перед изменением кода.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.296": {
+    "en": "The programmer found the bug.",
+    "ru": "Программист обнаружил баг.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/7563151",
+    "source_id": 7563151,
+    "translation_id": 7563203,
+    "license": "CC BY 2.0 FR",
+    "author": "Hybrid"
+  },
+  "anki.vocab.297": {
+    "en": "Have you tried clearing your browser's cache?",
+    "ru": "Вы пытались очистить кэш браузера?",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/7469463",
+    "source_id": 7469463,
+    "translation_id": 13467872,
+    "license": "CC BY 2.0 FR",
+    "author": "megamanenm"
+  },
+  "anki.vocab.298": {
+    "en": "The callback runs when the task finishes.",
+    "ru": "Обратный вызов выполняется после завершения задачи.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.299": {
+    "en": "The configuration file for your database server is located in this directory.",
+    "ru": "Файл конфигурации твоего сервера базы данных находится в этом каталоге.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/1270315",
+    "source_id": 1270315,
+    "translation_id": 4913326,
+    "license": "CC BY 2.0 FR",
+    "author": "sysko"
+  },
+  "anki.vocab.300": {
+    "en": "My internet connection is slow.",
+    "ru": "У меня слабое соединение с Интернетом.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3109846",
+    "source_id": 3109846,
+    "translation_id": 3094056,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.301": {
+    "en": "This constraint prevents duplicate values.",
+    "ru": "Это ограничение не допускает повторяющихся значений.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.302": {
+    "en": "That large container is designated for clothing.",
+    "ru": "Тот большой контейнер предназначен для одежды.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10581175",
+    "source_id": 10581175,
+    "translation_id": 6785972,
+    "license": "CC BY 2.0 FR",
+    "author": "AlanF_US"
+  },
+  "anki.vocab.303": {
+    "en": "Never put credentials in public code.",
+    "ru": "Не размещайте учётные данные в открытом коде.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.304": {
+    "en": "Tom does not have access to the database.",
+    "ru": "У Тома нет доступа к базе данных.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/4675768",
+    "source_id": 4675768,
+    "translation_id": 4675771,
+    "license": "CC BY 2.0 FR",
+    "author": "mrt6"
+  },
+  "anki.vocab.305": {
+    "en": "The deployment finished without errors.",
+    "ru": "Развёртывание завершилось без ошибок.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.306": {
+    "en": "The package has a new dependency.",
+    "ru": "У пакета появилась новая зависимость.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.307": {
+    "en": "The update caused ten minutes of downtime.",
+    "ru": "Обновление вызвало десять минут простоя.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.308": {
+    "en": "This endpoint returns the current status.",
+    "ru": "Эта конечная точка API возвращает текущее состояние.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.309": {
+    "en": "The test environment uses a separate database.",
+    "ru": "В тестовом окружении используется отдельная база данных.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.310": {
+    "en": "The function raises an exception for invalid input.",
+    "ru": "Функция вызывает исключение при неверном вводе.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.311": {
+    "en": "The service recovered after the failure.",
+    "ru": "Сервис восстановился после сбоя.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.312": {
+    "en": "It's not a bug. It's an undocumented feature.",
+    "ru": "Это не ошибка программы, это недокументированная функция.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10077792",
+    "source_id": 10077792,
+    "translation_id": 500438,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.313": {
+    "en": "CakePHP is a PHP framework.",
+    "ru": "CakePHP - это PHP-фреймворк.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/7752545",
+    "source_id": 7752545,
+    "translation_id": 9948541,
+    "license": "CC BY 2.0 FR",
+    "author": "Hybrid"
+  },
+  "anki.vocab.314": {
+    "en": "The gateway forwards requests to the service.",
+    "ru": "Шлюз пересылает запросы сервису.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.315": {
+    "en": "I don't like the interface of that operating system.",
+    "ru": "Мне не нравится интерфейс этой оперативной системы.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/8878831",
+    "source_id": 8878831,
+    "translation_id": 4661648,
+    "license": "CC BY 2.0 FR",
+    "author": "deniko"
+  },
+  "anki.vocab.316": {
+    "en": "High latency makes each request slower.",
+    "ru": "Высокая задержка замедляет каждый запрос.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.317": {
+    "en": "Check the log for the error.",
+    "ru": "Проверьте журнал на наличие ошибки.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.318": {
+    "en": "We are currently offline for maintenance.",
+    "ru": "В настоящее время мы отключены по причине техобслуживания.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/8083564",
+    "source_id": 8083564,
+    "translation_id": 8083930,
+    "license": "CC BY 2.0 FR",
+    "author": "cykel"
+  },
+  "anki.vocab.319": {
+    "en": "The worker reads tasks from a message queue.",
+    "ru": "Рабочий процесс получает задачи из очереди сообщений.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.320": {
+    "en": "Middleware checks the request before the view runs.",
+    "ru": "Промежуточное ПО проверяет запрос до вызова представления.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.321": {
+    "en": "Monitoring detected a slow response.",
+    "ru": "Мониторинг обнаружил медленный ответ.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.322": {
+    "en": "We must not let them infiltrate our network.",
+    "ru": "Мы не должны позволить им проникнуть в нашу сеть.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5637391",
+    "source_id": 5637391,
+    "translation_id": 9491031,
+    "license": "CC BY 2.0 FR",
+    "author": "mailohilohi"
+  },
+  "anki.vocab.323": {
+    "en": "The service outage lasted ten minutes.",
+    "ru": "Сервис был недоступен десять минут.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.324": {
+    "en": "The payload contains the order number.",
+    "ru": "Полезная нагрузка сообщения содержит номер заказа.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.325": {
+    "en": "The pipeline runs tests after each commit.",
+    "ru": "Конвейер обработки запускает тесты после каждого коммита.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.326": {
+    "en": "The query returns matching records.",
+    "ru": "Запрос возвращает подходящие записи.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.327": {
+    "en": "The rate limit protects the API from overload.",
+    "ru": "Ограничение частоты запросов защищает API от перегрузки.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.328": {
+    "en": "The new release fixes the error.",
+    "ru": "Новый выпуск версии исправляет ошибку.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.329": {
+    "en": "The repository stores the project code.",
+    "ru": "Репозиторий хранит код проекта.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.330": {
+    "en": "Is it an official request?",
+    "ru": "Это официальный запрос?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13816572",
+    "source_id": 13816572,
+    "translation_id": 13484841,
+    "license": "CC BY 2.0 FR",
+    "author": "tieguy"
+  },
+  "anki.vocab.331": {
+    "en": "Her response stunned me.",
+    "ru": "Её ответ меня ошеломил.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10187193",
+    "source_id": 10187193,
+    "translation_id": 8635933,
+    "license": "CC BY 2.0 FR",
+    "author": "AlanF_US"
+  },
+  "anki.vocab.332": {
+    "en": "A retry may succeed after a temporary failure.",
+    "ru": "Повторная попытка может пройти после временного сбоя.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.333": {
+    "en": "A rollback restored the previous version.",
+    "ru": "Откат восстановил предыдущую версию.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.334": {
+    "en": "The error occurred at runtime.",
+    "ru": "Ошибка возникла во время выполнения программы.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.335": {
+    "en": "Scalability matters when traffic grows.",
+    "ru": "Масштабируемость важна, когда растёт трафик.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.336": {
+    "en": "The schema defines the data structure.",
+    "ru": "Схема определяет структуру данных.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.337": {
+    "en": "The service handles incoming requests.",
+    "ru": "Сервис обрабатывает входящие запросы.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.338": {
+    "en": "The current session settings will be used.",
+    "ru": "Будут использованы текущие настройки сессии.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13572806",
+    "source_id": 13572806,
+    "translation_id": 13572800,
+    "license": "CC BY 2.0 FR",
+    "author": "EugeneGS"
+  },
+  "anki.vocab.339": {
+    "en": "The socket accepts a new connection.",
+    "ru": "Сокет принимает новое соединение.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.340": {
+    "en": "Show me the source code.",
+    "ru": "Покажи мне исходный код.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5945273",
+    "source_id": 5945273,
+    "translation_id": 5945409,
+    "license": "CC BY 2.0 FR",
+    "author": "mailohilohi"
+  },
+  "anki.vocab.341": {
+    "en": "The application needs more storage.",
+    "ru": "Приложению требуется больше места в хранилище.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.342": {
+    "en": "We measured the throughput of the service.",
+    "ru": "Мы измерили пропускную способность сервиса.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.343": {
+    "en": "The request failed after a timeout.",
+    "ru": "Запрос завершился ошибкой после тайм-аута.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.344": {
+    "en": "The client sends a token with the request.",
+    "ru": "Клиент отправляет токен вместе с запросом.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.345": {
+    "en": "The trace shows where the error started.",
+    "ru": "Трассировка показывает, где началась ошибка.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.346": {
+    "en": "A sensor can act as a trigger for the alarm.",
+    "ru": "Датчик может служить триггером аварийного сигнала.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.347": {
+    "en": "I never update my operating system.",
+    "ru": "Я никогда не обновляю операционную систему.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/6046786",
+    "source_id": 6046786,
+    "translation_id": 7421927,
+    "license": "CC BY 2.0 FR",
+    "author": "mailohilohi"
+  },
+  "anki.vocab.348": {
+    "en": "Validation rejects an invalid value.",
+    "ru": "Проверка корректности отклоняет неверное значение.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.349": {
+    "en": "Version control records every code change.",
+    "ru": "Контроль версий сохраняет каждое изменение кода.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.350": {
+    "en": "The workflow has three review steps.",
+    "ru": "Рабочий процесс включает три этапа проверки.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.351": {
+    "en": "The actuator opens the valve.",
+    "ru": "Исполнительный механизм открывает клапан.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.352": {
+    "en": "The analog input reads the sensor voltage.",
+    "ru": "Аналоговый вход считывает напряжение датчика.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.353": {
+    "en": "The analog output controls motor speed.",
+    "ru": "Аналоговый выход управляет скоростью двигателя.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.354": {
+    "en": "The fire alarm rang.",
+    "ru": "Сработала пожарная сигнализация.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/23849",
+    "source_id": 23849,
+    "translation_id": 2230642,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.355": {
+    "en": "We have received the first trial batch of vaccine.",
+    "ru": "Мы получили первую пробную партию вакцины.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10472249",
+    "source_id": 10472249,
+    "translation_id": 9068519,
+    "license": "CC BY 2.0 FR",
+    "author": "AlanF_US"
+  },
+  "anki.vocab.356": {
+    "en": "The sensor needs calibration before use.",
+    "ru": "Перед использованием датчик нужно откалибровать.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.357": {
+    "en": "Commissioning starts after the equipment is installed.",
+    "ru": "Пусконаладка начинается после установки оборудования.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.358": {
+    "en": "The conveyor moves boxes to the scanner.",
+    "ru": "Конвейер перемещает коробки к сканеру.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.359": {
+    "en": "The counter increases for each request.",
+    "ru": "Счётчик увеличивается после каждого запроса.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.360": {
+    "en": "The cycle time is three seconds.",
+    "ru": "Время цикла составляет три секунды.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.361": {
+    "en": "A digital input detects the switch state.",
+    "ru": "Дискретный вход определяет состояние переключателя.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.362": {
+    "en": "The digital output turns on the lamp.",
+    "ru": "Дискретный выход включает лампу.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.363": {
+    "en": "Press the emergency stop if the line becomes unsafe.",
+    "ru": "Нажмите аварийную остановку, если линия стала небезопасной.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.364": {
+    "en": "The encoder reports the shaft position.",
+    "ru": "Энкодер сообщает положение вала.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.365": {
+    "en": "The fieldbus connects the controller to sensors.",
+    "ru": "Полевая шина соединяет контроллер с датчиками.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.366": {
+    "en": "The flow rate dropped below the limit.",
+    "ru": "Расход потока упал ниже предела.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.367": {
+    "en": "The frequency inverter adjusts motor speed.",
+    "ru": "Частотный преобразователь регулирует скорость двигателя.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.368": {
+    "en": "The operator checks alarms on the human-machine interface.",
+    "ru": "Оператор проверяет аварийные сигналы на человеко-машинном интерфейсе.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.369": {
+    "en": "The interlock prevents the door from opening.",
+    "ru": "Блокировка не даёт открыть дверь.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.370": {
+    "en": "The controller runs a ladder logic program.",
+    "ru": "Контроллер выполняет программу на языке релейно-контактной логики.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.371": {
+    "en": "The limit switch detects the end position.",
+    "ru": "Концевой выключатель определяет крайнее положение.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.372": {
+    "en": "The motor starter turns the motor on safely.",
+    "ru": "Пускатель двигателя безопасно включает двигатель.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.373": {
+    "en": "The normally closed contact opens when pressed.",
+    "ru": "Нормально замкнутый контакт размыкается при нажатии.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.374": {
+    "en": "The normally open contact closes when pressed.",
+    "ru": "Нормально разомкнутый контакт замыкается при нажатии.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.375": {
+    "en": "The output coil controls the relay.",
+    "ru": "Выходная катушка управляет реле.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.376": {
+    "en": "An overload stopped the motor.",
+    "ru": "Перегрузка остановила двигатель.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.377": {
+    "en": "The proximity sensor detects a nearby object.",
+    "ru": "Датчик приближения обнаруживает объект рядом.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.378": {
+    "en": "Push button to open door.",
+    "ru": "Чтобы открыть дверь, нажмите на кнопку.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/8269530",
+    "source_id": 8269530,
+    "translation_id": 8406451,
+    "license": "CC BY 2.0 FR",
+    "author": "Rwmpelstilzchen"
+  },
+  "anki.vocab.379": {
+    "en": "The relay switches the motor on.",
+    "ru": "Реле включает двигатель.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.380": {
+    "en": "Press reset after fixing the fault.",
+    "ru": "Нажмите сброс после устранения неисправности.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.381": {
+    "en": "One scan cycle reads inputs and updates outputs.",
+    "ru": "Один цикл сканирования считывает входы и обновляет выходы.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.382": {
+    "en": "There's a motion sensor in the corner.",
+    "ru": "В углу датчик движения.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/4255973",
+    "source_id": 4255973,
+    "translation_id": 4293823,
+    "license": "CC BY 2.0 FR",
+    "author": "orcrist"
+  },
+  "anki.vocab.383": {
+    "en": "Set the temperature setpoint to 80 degrees.",
+    "ru": "Установите уставку температуры на 80 градусов.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.384": {
+    "en": "Can you give us a signal?",
+    "ru": "Ты можешь подать нам сигнал?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9443652",
+    "source_id": 9443652,
+    "translation_id": 10314225,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.385": {
+    "en": "The solenoid valve controls the air flow.",
+    "ru": "Электромагнитный клапан управляет потоком воздуха.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.386": {
+    "en": "The state machine tracks the current process step.",
+    "ru": "Конечный автомат отслеживает текущий этап процесса.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.387": {
+    "en": "The PLC program uses structured text.",
+    "ru": "Программа ПЛК написана на языке структурированного текста.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.388": {
+    "en": "What does the \"OK\" tag mean?",
+    "ru": "Что означает тег «OK»?",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13558727",
+    "source_id": 13558727,
+    "translation_id": 13877221,
+    "license": "CC BY 2.0 FR",
+    "author": "araneo"
+  },
+  "anki.vocab.389": {
+    "en": "The timer starts when the sensor detects a box.",
+    "ru": "Таймер запускается, когда датчик обнаруживает коробку.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.390": {
+    "en": "The motor produces enough torque to move the load.",
+    "ru": "Двигатель создаёт достаточный крутящий момент для перемещения груза.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.391": {
+    "en": "A variable frequency drive controls the pump motor.",
+    "ru": "Частотно-регулируемый привод управляет двигателем насоса.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.392": {
+    "en": "Check the wiring diagram before connecting the sensor.",
+    "ru": "Проверьте электрическую схему перед подключением датчика.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.393": {
+    "en": "The pressure sensor reports a low value.",
+    "ru": "Датчик давления сообщает о низком значении.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.394": {
+    "en": "The temperature sensor needs calibration.",
+    "ru": "Датчик температуры нуждается в калибровке.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.395": {
+    "en": "The level sensor detects an empty tank.",
+    "ru": "Датчик уровня обнаруживает пустой бак.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.396": {
+    "en": "Fault detection stops the line after an error.",
+    "ru": "Обнаружение неисправностей останавливает линию после ошибки.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.397": {
+    "en": "Use manual mode during maintenance.",
+    "ru": "Во время обслуживания используйте ручной режим.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.398": {
+    "en": "The line runs in automatic mode.",
+    "ru": "Линия работает в автоматическом режиме.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.399": {
+    "en": "The override replaces the default value.",
+    "ru": "Принудительное переопределение заменяет значение по умолчанию.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.400": {
+    "en": "Assembly begins after all parts arrive.",
+    "ru": "Сборка начинается после прибытия всех деталей.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.402": {
+    "en": "The shortage of engineers is the greatest bottleneck to the development of our company.",
+    "ru": "Нехватка инженеров является самым узким местом в развитии нашей компании.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/20052",
+    "source_id": 20052,
+    "translation_id": 4698365,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.403": {
+    "en": "Our factories are working at full capacity.",
+    "ru": "Наши заводы работают на полную мощность.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/23412",
+    "source_id": 23412,
+    "translation_id": 1601984,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.404": {
+    "en": "The report shows material consumption by shift.",
+    "ru": "Отчёт показывает расход материалов по сменам.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.405": {
+    "en": "Quality control found a defect in the part.",
+    "ru": "Контроль качества обнаружил дефект в детали.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.407": {
+    "en": "All equipment must be sanitized.",
+    "ru": "Всё оборудование должно быть продезинфицировано.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5135455",
+    "source_id": 5135455,
+    "translation_id": 13413108,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.409": {
+    "en": "The warehouse updates inventory every hour.",
+    "ru": "Склад обновляет данные о запасах каждый час.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.411": {
+    "en": "They are manufacturing TV sets in this factory.",
+    "ru": "На этом заводе производят телевизоры.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/59312",
+    "source_id": 59312,
+    "translation_id": 808243,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.413": {
+    "en": "The operator lost control over the robot.",
+    "ru": "Оператор потерял контроль над роботом.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5272271",
+    "source_id": 5272271,
+    "translation_id": 13973589,
+    "license": "CC BY 2.0 FR",
+    "author": "Hybrid"
+  },
+  "anki.vocab.420": {
+    "en": "Wood is the raw material for making paper.",
+    "ru": "Древесина является сырьём для изготовления бумаги.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/2590638",
+    "source_id": 2590638,
+    "translation_id": 4512387,
+    "license": "CC BY 2.0 FR",
+    "author": "Dejo"
+  },
+  "anki.vocab.421": {
+    "en": "Monitor the industrial automation system for rework operational events.",
+    "ru": "Отслеживайте события промышленной автоматизации для компонента rework.",
+    "source": "existing English Cards content",
+    "editorial": false
+  },
+  "anki.vocab.422": {
+    "en": "Reject any item with an unreadable code.",
+    "ru": "Бракуйте любое изделие с нечитаемым кодом.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.423": {
+    "en": "The defective parts were sent to scrap.",
+    "ru": "Бракованные детали отправили в отходы.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.424": {
+    "en": "Each device has a unique serial number.",
+    "ru": "У каждого устройства есть уникальный серийный номер.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.427": {
+    "en": "Monitor the industrial automation system for traceability operational events.",
+    "ru": "Отслеживайте события промышленной автоматизации для компонента traceability.",
+    "source": "existing English Cards content",
+    "editorial": false
+  },
+  "anki.vocab.428": {
+    "en": "The warehouse stores finished goods.",
+    "ru": "Склад хранит готовую продукцию.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.431": {
+    "en": "The generator uses yield to return values one at a time.",
+    "ru": "Генератор использует yield, чтобы выдавать значения по одному.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.440": {
+    "en": "The root cause was a missing configuration value.",
+    "ru": "Первопричиной стало отсутствующее значение настройки.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.441": {
+    "en": "Make sure to back up all your files.",
+    "ru": "Убедись, что выполнил резервное копирование всех твоих файлов.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/546777",
+    "source_id": 546777,
+    "translation_id": 2572833,
+    "license": "CC BY 2.0 FR",
+    "author": "darinmex"
+  },
+  "anki.vocab.442": {
+    "en": "Did your car break down?",
+    "ru": "У тебя машина сломалась?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9946660",
+    "source_id": 9946660,
+    "translation_id": 9052145,
+    "license": "CC BY 2.0 FR",
+    "author": "ddnktr"
+  },
+  "anki.vocab.443": {
+    "en": "I want to bring up a problem.",
+    "ru": "Я хочу поднять вопрос о проблеме.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.444": {
+    "en": "Call back in an hour.",
+    "ru": "Перезвоните через час.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12092451",
+    "source_id": 12092451,
+    "translation_id": 12092453,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.445": {
+    "en": "Carry out the safety check before starting.",
+    "ru": "Выполните проверку безопасности перед запуском.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.446": {
+    "en": "What time should I check in?",
+    "ru": "В какой момент мне нужно зарегистрироваться?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/24587",
+    "source_id": 24587,
+    "translation_id": 12080988,
+    "license": "CC BY 2.0 FR",
+    "author": "Eldad"
+  },
+  "anki.vocab.447": {
+    "en": "We will check out of the hotel at eight.",
+    "ru": "Мы выпишемся из отеля в восемь.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.448": {
+    "en": "I've never come across such a strange case.",
+    "ru": "Я ещё никогда не сталкивался с таким странным случаем.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/255634",
+    "source_id": 255634,
+    "translation_id": 1774432,
+    "license": "CC BY 2.0 FR",
+    "author": "CM"
+  },
+  "anki.vocab.449": {
+    "en": "Tom has come up with a plan.",
+    "ru": "Том придумал план.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12108000",
+    "source_id": 12108000,
+    "translation_id": 7623633,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.450": {
+    "en": "The doctor advised him to cut down on drinking.",
+    "ru": "Врач посоветовал ему сократить употребление алкоголя.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/422959",
+    "source_id": 422959,
+    "translation_id": 2103888,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.451": {
+    "en": "Deal with it yourself.",
+    "ru": "Сам с ним разбирайся.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/10726144",
+    "source_id": 10726144,
+    "translation_id": 8547191,
+    "license": "CC BY 2.0 FR",
+    "author": "ddnktr"
+  },
+  "anki.vocab.452": {
+    "en": "Please drop off the package at reception.",
+    "ru": "Пожалуйста, оставьте посылку на стойке регистрации.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.453": {
+    "en": "You will end up alone.",
+    "ru": "Ты закончишь в одиночестве.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/13990613",
+    "source_id": 13990613,
+    "translation_id": 13990686,
+    "license": "CC BY 2.0 FR",
+    "author": "Aghanim"
+  },
+  "anki.vocab.454": {
+    "en": "Do you guys get along?",
+    "ru": "Вы ладите между собой?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3172269",
+    "source_id": 3172269,
+    "translation_id": 13908100,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.455": {
+    "en": "I'll get back to you after the meeting.",
+    "ru": "Я вернусь к вам с ответом после совещания.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.456": {
+    "en": "Get rid of old backup files.",
+    "ru": "Избавьтесь от старых резервных копий.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.457": {
+    "en": "Do not give up.",
+    "ru": "Не сдавайтесь.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/11890212",
+    "source_id": 11890212,
+    "translation_id": 2730457,
+    "license": "CC BY 2.0 FR",
+    "author": "Aghanim"
+  },
+  "anki.vocab.458": {
+    "en": "Please go ahead without me.",
+    "ru": "Продолжайте без меня, пожалуйста.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/4789402",
+    "source_id": 4789402,
+    "translation_id": 5004685,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.459": {
+    "en": "Let's go over the report together.",
+    "ru": "Давайте вместе просмотрим отчёт.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.460": {
+    "en": "Could you hold on a minute?",
+    "ru": "Подождешь немного?",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/4014394",
+    "source_id": 4014394,
+    "translation_id": 4807829,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.461": {
+    "en": "Supply can't keep up with demand.",
+    "ru": "Предложение не успевает за спросом.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9698935",
+    "source_id": 9698935,
+    "translation_id": 11835182,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.462": {
+    "en": "I can look after Tom.",
+    "ru": "Я могу присмотреть за Томом.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/12103898",
+    "source_id": 12103898,
+    "translation_id": 12104037,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.463": {
+    "en": "Look for the error in the log.",
+    "ru": "Поищите ошибку в журнале.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.464": {
+    "en": "We look forward to seeing you.",
+    "ru": "Мы с нетерпением ждём встречи с тобой.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/5776557",
+    "source_id": 5776557,
+    "translation_id": 5776832,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.465": {
+    "en": "We'll look into it.",
+    "ru": "Мы изучим это.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3312178",
+    "source_id": 3312178,
+    "translation_id": 4124013,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.466": {
+    "en": "I will pick up the package tomorrow.",
+    "ru": "Я заберу посылку завтра.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.468": {
+    "en": "Mary put off her trip to Australia.",
+    "ru": "Мэри отложила путешествие в Австралию.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/7377302",
+    "source_id": 7377302,
+    "translation_id": 8012262,
+    "license": "CC BY 2.0 FR",
+    "author": "CF"
+  },
+  "anki.vocab.469": {
+    "en": "We've run into a problem.",
+    "ru": "Мы столкнулись с проблемой.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9830021",
+    "source_id": 9830021,
+    "translation_id": 9830023,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.470": {
+    "en": "Tom had run out of ideas.",
+    "ru": "У Тома закончились идеи.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/14020468",
+    "source_id": 14020468,
+    "translation_id": 14020927,
+    "license": "CC BY 2.0 FR",
+    "author": "zogwarg"
+  },
+  "anki.vocab.471": {
+    "en": "Set up the server before testing.",
+    "ru": "Настройте сервер перед тестированием.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.472": {
+    "en": "We've got a lot to sort out.",
+    "ru": "Нам надо много уладить.",
+    "semantic_match": false,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3310068",
+    "source_id": 3310068,
+    "translation_id": 3953447,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.473": {
+    "en": "Tom moved back to Boston to take over his father's business.",
+    "ru": "Том переехал обратно в Бостон, чтобы принять руководство делом своего отца.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/3148318",
+    "source_id": 3148318,
+    "translation_id": 4233295,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.474": {
+    "en": "They turned down the job offer.",
+    "ru": "Они отклонили предложение о работе.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.475": {
+    "en": "Turn off your phone.",
+    "ru": "Выключите свой телефон.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/8391716",
+    "source_id": 8391716,
+    "translation_id": 8313076,
+    "license": "CC BY 2.0 FR",
+    "author": "Amastan"
+  },
+  "anki.vocab.476": {
+    "en": "Turn on the computer.",
+    "ru": "Включайте компьютер.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/9075110",
+    "source_id": 9075110,
+    "translation_id": 12335615,
+    "license": "CC BY 2.0 FR",
+    "author": "antonb"
+  },
+  "anki.vocab.477": {
+    "en": "We need to work out a solution.",
+    "ru": "Нам нужно найти решение.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.478": {
+    "en": "Please write down my address.",
+    "ru": "Запишите, пожалуйста, мой адрес.",
+    "semantic_match": true,
+    "source": "Tatoeba",
+    "source_url": "https://tatoeba.org/en/sentences/show/251158",
+    "source_id": 251158,
+    "translation_id": 381247,
+    "license": "CC BY 2.0 FR",
+    "author": "CK"
+  },
+  "anki.vocab.479": {
+    "en": "I will follow up with the client tomorrow.",
+    "ru": "Завтра я уточню вопрос у клиента.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.401": {
+    "en": "The bill of materials lists every required component.",
+    "ru": "Спецификация материалов перечисляет все необходимые компоненты.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.406": {
+    "en": "Record the downtime reason in the report.",
+    "ru": "Запишите причину простоя в отчёт.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.408": {
+    "en": "Finished goods are ready for shipment.",
+    "ru": "Готовая продукция готова к отгрузке.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.410": {
+    "en": "The lot number identifies this batch.",
+    "ru": "Номер партии идентифицирует эту партию.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.412": {
+    "en": "Material tracking shows where each component went.",
+    "ru": "Отслеживание материалов показывает, куда попал каждый компонент.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.414": {
+    "en": "Order fulfillment begins after payment.",
+    "ru": "Выполнение заказа начинается после оплаты.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.415": {
+    "en": "Overall equipment effectiveness dropped this month.",
+    "ru": "Общая эффективность оборудования снизилась в этом месяце.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.416": {
+    "en": "The production line stops when an alarm appears.",
+    "ru": "Производственная линия останавливается при появлении аварийного сигнала.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.417": {
+    "en": "The production order specifies the required quantity.",
+    "ru": "Производственный заказ указывает необходимое количество.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.418": {
+    "en": "Quality assurance defines checks for the process.",
+    "ru": "Обеспечение качества определяет проверки для процесса.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.419": {
+    "en": "Quality control found a defective item.",
+    "ru": "Контроль качества обнаружил дефектное изделие.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.425": {
+    "en": "The operator works on the shop floor.",
+    "ru": "Оператор работает в производственном цехе.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.426": {
+    "en": "The stock level fell below the minimum.",
+    "ru": "Уровень запасов упал ниже минимума.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.429": {
+    "en": "The technician received a new work order.",
+    "ru": "Техник получил новое производственное задание.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.430": {
+    "en": "The workstation displays the current task.",
+    "ru": "Рабочая станция показывает текущую задачу.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.432": {
+    "en": "Work in progress is tracked separately from finished goods.",
+    "ru": "Незавершённое производство учитывается отдельно от готовой продукции.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.433": {
+    "en": "The production schedule changed this morning.",
+    "ru": "Производственный график изменился сегодня утром.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.434": {
+    "en": "The shift report lists every alarm.",
+    "ru": "Сменный отчёт перечисляет все аварийные сигналы.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.435": {
+    "en": "The batch passed the quality inspection.",
+    "ru": "Партия прошла проверку качества.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.436": {
+    "en": "The batch record contains the test results.",
+    "ru": "Запись о партии содержит результаты испытаний.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.437": {
+    "en": "Equipment utilization increased after the update.",
+    "ru": "Загрузка оборудования выросла после обновления.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.438": {
+    "en": "A sensor failure caused unplanned downtime.",
+    "ru": "Сбой датчика вызвал незапланированный простой.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.439": {
+    "en": "Preventive maintenance reduces unexpected failures.",
+    "ru": "Профилактическое обслуживание уменьшает число неожиданных сбоев.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.467": {
+    "en": "Please point out the error in this line.",
+    "ru": "Пожалуйста, укажите ошибку в этой строке.",
+    "source": "original editorial example",
+    "editorial": true
+  },
+  "anki.vocab.480": {
+    "en": "We will roll out the update tomorrow.",
+    "ru": "Завтра мы развернём обновление.",
+    "source": "original editorial example",
+    "editorial": true
+  }
+}

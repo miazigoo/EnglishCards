@@ -137,6 +137,7 @@
                         app:strokeColor="@color/btn_dark_stroke"
                         app:strokeWidth="1dp" />
 
+
                 </LinearLayout>
 
             </HorizontalScrollView>
@@ -271,6 +272,49 @@
 
                 </LinearLayout>
 
+            </LinearLayout>
+
+            <!-- Active practice and guided reading are the main English-learning actions. -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMenuDictation"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:text="🎧 Диктант"
+                    android:textColor="@color/text_primary"
+                    android:backgroundTint="@color/btn_dark"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMenuCloze"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:text="✍️ Пропуск"
+                    android:textColor="@color/text_primary"
+                    android:backgroundTint="@color/btn_dark"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMenuReading"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:text="📖 Читать"
+                    android:textColor="@color/text_primary"
+                    android:backgroundTint="@color/btn_dark"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <!-- Featured Card 2: Hard / Needs Review Cards -->
